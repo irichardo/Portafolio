@@ -2,26 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+::-webkit-scrollbar{
+  width:5px;
+}
+::-webkit-scrollbar-track {
+  background: #fe6b6b;
+}
+::-webkit-scrollbar-thumb {
+  background: #5e1717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: #4c0101;
+}
+
+html{
+--scroll-behavior: smooth!important;
+  scroll-behavior: smooth!important;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+ padding: 0;
+ margin: 0;
+}
+
+.animationNavbar{
+  transition: transform 0.3s cubic-bezier(0, 0, 0.27, 1);
+  transform: translateX(0);
+}
+
+.animationNavbar.deactivate{
+  transform: translateX(-102%);
+}
+
+.no-scrollbar{
+  display:none
+}
+
+.no-scrollbar{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
