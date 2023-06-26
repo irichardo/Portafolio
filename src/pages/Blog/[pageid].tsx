@@ -32,8 +32,8 @@ export default function BlogPage({ postData }: any) {
   
   const backToPage = () =>{
     router.push('/Blog',undefined,{shallow:true})
-  }
-
+  };
+  
   return (
     <main className="w-screen h-screen bg-purple-700 overflow-x-hidden relative">
       <div className="w-full h-1/5 flex items-center justify-center bg-red-400">

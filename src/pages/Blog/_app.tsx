@@ -1,8 +1,5 @@
-import type { AppProps } from "next/app";
 import { NextComponentType, NextPageContext } from "next";
 import { QueryClientProvider, QueryClient } from "react-query";
-import {useMemo} from 'react'
-import { useRouter } from "next/router";
 
 interface PropsDashboardApp {
     Component: NextComponentType<NextPageContext, any, any>;
