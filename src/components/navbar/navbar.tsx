@@ -12,7 +12,7 @@ import ChangeButton from "./stateChangeButton/button";
 export default function Navbar() {
   const [listOpen, setListOpen] = useState(true);
   const [actualPath, setActualPath] = useState("");
-  const { Abilities, Home, About, Contact, Projects } = sectionRoutes;
+  const { Abilities, Home, About, Contact, Projects, DevBlog } = sectionRoutes;
   const changeListStatus = () => {
     setListOpen(!listOpen);
   };
@@ -71,6 +71,11 @@ export default function Navbar() {
             automaticClosing={autoClose}
             text={Contact.name}
             route={Contact.route}
+          />
+            <NavButton
+            automaticClosing={autoClose}
+            text={DevBlog}
+            route={DevBlog}
           />
           <li className="w-full h-24 flex items-center justify-around ">
             <Link href={"https://github.com/irichardo"} target="blank">

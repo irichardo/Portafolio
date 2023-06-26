@@ -32,7 +32,7 @@ export default function ChangeButton(){
         }
       </button>
         {copyMessage ? (
-            <div className="absolute bottom-10 h-[10vh] w-full text-sm bg-red-950 flex items-center justify-center text-white border-2 border-red-950">
+            <div className="absolute bottom-10 h-[10vh] w-full text-sm bg-red-950 flex items-center justify-center text-white border-2 border-red-950 transition-all">
               Correo copiado en el portapapeles
             </div>
           ):null}
