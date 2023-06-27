@@ -29,12 +29,21 @@ export async function getStaticPaths(){
 }
 
 export async function getStaticProps({ params }: Params) {
-  const postData = await getPostsData(params.pageid);
-  return {
-    props: {
-      postData,
-    },
-  };
+  try{
+    const postData = await getPostsData(params.pageid);
+    return {
+      props: {
+        postData,
+      },
+    };
+  }
+  catch(error:any){
+    return{
+      props:null,
+      error:error.message
+    }
+  }
+  
 }
 
 export default function BlogPage({ postData }: { postData: blogdata}) {
