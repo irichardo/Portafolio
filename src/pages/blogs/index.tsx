@@ -11,7 +11,6 @@ export async function getServerSideProps() {
     return {
       props: {
         resData: resData as blogdata[],
-        error: null,
       },
     };
   } catch (error: any) {
@@ -19,7 +18,6 @@ export async function getServerSideProps() {
     return {
       props: {
         resData: null,
-        error: errorMessage,
       },
     };
   }
@@ -27,10 +25,8 @@ export async function getServerSideProps() {
 
 export default function Blog({
   resData,
-  error,
 }: {
   resData: blogdata[];
-  error: any;
 }) {
   
   const initData = 1;
@@ -46,12 +42,8 @@ export default function Blog({
           <div className="w-44 h-44 rounded-full bg-black m-4"></div>
         </div>
         <div className="w-full h-auto flex items-center justify-center bg-[#2C2A4A]">
-        <div className="w-[90%] h-auto inline-grid place-items-center grid-cols-1 grid-rows-3">
-          {error ? (
-            <ErrorMessage error={error}/>
-          ):
-          <BlogSection resData={sliceData}/>
-          }
+        <div className="w-[90%] h-auto inline-grid place-items-center grid-cols-1 grid-rows-3">    
+          <BlogSection resData={sliceData}/>       
         </div>
         </div>
       </div>

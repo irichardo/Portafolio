@@ -4,16 +4,8 @@ import type { AppProps } from "next/app";
 import Layout from "./layout";
 import { useRouter } from "next/router";
 import {useMemo} from 'react'
-import Blog from "./blogs/_app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const Router = useRouter();
-  const blogPath = useMemo(()=>{
-    return Router.pathname.startsWith('/blogs')},[Router.pathname])
-  
-  if(blogPath){
-    return <Blog Component={Component} pageProps={...pageProps} />
-  }
 
   return (
     <Layout>
