@@ -15,7 +15,7 @@ export default function ChangeButton(){
       }
 
       const popUp = () =>{
-        navigator.clipboard.writeText('how2richard@gmail.com')
+        navigator.clipboard.writeText('richardhdjob@gmail.com')
         SetCopyMessage(true)
         setTimeout(()=>{
           SetCopyMessage(false)

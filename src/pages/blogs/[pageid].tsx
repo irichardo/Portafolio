@@ -5,17 +5,27 @@ import { useRouter } from "next/router";
 import { blogdata } from "@/libs/types";
 
 export async function getStaticPaths(){
-  const paths = await getPostDetails();
-  const parameter = await paths.map((a: any) => {
+  try{
+    const paths = await getPostDetails();
+    const parameter = await paths.map((a: any) => {
+      return {
+        params: { pageid: a.id },
+      };
+    });
+  
     return {
-      params: { pageid: a.id },
+      paths: parameter,
+      fallback: false,
+      error:null
     };
-  });
+  }
+  catch(error:any){
+    return{
+      paths:null,
+      error:error.message
+    }
+  }
 
-  return {
-    paths: parameter,
-    fallback: false,
-  };
 }
 
 export async function getStaticProps({ params }: Params) {

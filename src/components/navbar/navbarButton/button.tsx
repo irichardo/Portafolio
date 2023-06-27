@@ -1,6 +1,4 @@
 import Link from "next/link"
-import {useState} from 'react';
-import sectionRoutes from ".."
 
 type AutoCloseFunction = (event:any)=>void;
 
