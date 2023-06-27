@@ -11,6 +11,7 @@ export async function getServerSideProps() {
     return {
       props: {
         resData: resData as blogdata[],
+       
         error:null
       },
     };
@@ -19,7 +20,8 @@ export async function getServerSideProps() {
     return {
       props: {
         resData: null,
-        error:errorMessage
+       
+        error: errorMessage,
       },
     };
   }
@@ -27,10 +29,10 @@ export async function getServerSideProps() {
 
 export default function Blog({
   resData,
-  error
+  error,
 }: {
   resData: blogdata[];
-  error:any
+  error: any;
 }) {
   const [page, setPage] = useState(1);
   console.log(page, '💜 Work in');
