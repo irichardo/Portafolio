@@ -1,6 +1,6 @@
 export async function getPostsData(postId:number){
     try{
-        const res = await fetch('https://fakeapi-40dz.onrender.com/posts')
+        const res = await fetch('http://localhost:3001/posts')
         //ESTOY PIDIENDO LOS DATOS
         const data = await res.json();
         return data[postId-1];
@@ -11,7 +11,7 @@ export async function getPostsData(postId:number){
 }
 
 export async function getPostDetails() {
-    const res = await fetch('https://fakeapi-40dz.onrender.com/data')
+    const res = await fetch('http://localhost:3001/data')
     const data = await res.json()
     return data;
 }
