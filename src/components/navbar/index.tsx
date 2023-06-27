@@ -5,7 +5,7 @@ const Abilities = indexObject('Habilidades');
 const Contact = indexObject('Contacto')
 const Projects = indexObject('Proyectos')
 const About = indexObject('About')
-const DevBlog = 'Blog';
+const DevBlog = 'DevBlog';
 
 const sectionRoutes = {
     Home,

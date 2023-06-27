@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={`w-[30vh] h-full bg-red-800 fixed z-10 grid items-center ${
+        className={`w-[30vh] h-full bg-red-800 fixed z-50 grid items-center ${
           listOpen ? "" : "deactivate"
         } animationNavbar`}
       >
@@ -75,7 +75,7 @@ export default function Navbar() {
             <NavButton
             automaticClosing={autoClose}
             text={DevBlog}
-            route={DevBlog}
+            route={'blogs'}
           />
           <li className="w-full h-24 flex items-center justify-around ">
             <Link href={"https://github.com/irichardo"} target="blank">
