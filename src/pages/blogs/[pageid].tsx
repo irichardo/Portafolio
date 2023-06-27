@@ -47,7 +47,7 @@ export default function BlogPage({ postData }: { postData: blogdata}) {
           {postData.content}
         </p>
         <div className="w-[70%] h-[80vh] bg-slate-500 flex flex-col items-center">
-          <p className="w-5/6 h-[15%] flex items-center justify-center bg-red-600 text-center">
+          <p className="w-5/6 h-[15%] flex items-center justify-center text-center">
             {postData.content}
           </p>
           <p className="w-5/6 h-full bg-pink-500"></p>

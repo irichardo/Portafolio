@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { blogdata } from "@/libs/types";
 import BlogSection from "@/components/blogslinks";
 import ErrorMessage from "@/components/error";
@@ -11,6 +11,7 @@ export async function getServerSideProps() {
     return {
       props: {
         resData: resData as blogdata[],
+        error:null
       },
     };
   } catch (error: any) {
@@ -18,6 +19,7 @@ export async function getServerSideProps() {
     return {
       props: {
         resData: null,
+        error:errorMessage
       },
     };
   }
@@ -25,15 +27,27 @@ export async function getServerSideProps() {
 
 export default function Blog({
   resData,
+  error
 }: {
   resData: blogdata[];
+  error:any
 }) {
+  const [page, setPage] = useState(1);
+  console.log(page, '💜 Work in');
   
-  const initData = 1;
+  /*Paginate Logic*/
+  const initData = page;
   const itemsPerPage = 3;
   const initArray = (initData-1) * itemsPerPage
   const endArray = initArray + itemsPerPage;
   const sliceData = resData.slice(initArray,endArray);
+
+  const setPageHandler = (event:number) =>{
+    // const prop = event.target as HTMLButtonElement;
+    // const propValue = prop.value;
+    setPage(event)
+  }
+  /***************************/
 
   return (
     <main className="w-screen h-screen overflow-x-hidden">
@@ -43,7 +57,10 @@ export default function Blog({
         </div>
         <div className="w-full h-auto flex items-center justify-center bg-[#2C2A4A]">
         <div className="w-[90%] h-auto inline-grid place-items-center grid-cols-1 grid-rows-3">    
+          {error?<ErrorMessage error={error} />:
           <BlogSection resData={sliceData}/>       
+          }
+          <Paginate resData={resData} setPaginated={setPageHandler}/>
         </div>
         </div>
       </div>

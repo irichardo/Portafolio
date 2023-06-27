@@ -5,25 +5,26 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 
 export default function BlogSection({resData}:{resData:blogdata[]}){
-    console.log(resData);
     const Router = useRouter();
+    
+    /*   Memorize Image in cache    */
     const MappedData = React.memo(({ src }: { src: string }) => {
         return (
           <Image
             src={src}
             alt="Imagen no encontrada"
-            className="object-cover"
+            className="object-cover transition-all"
             priority
             fill
           />
         );
       });
       MappedData.displayName = "Memorize";
-
+   /**************************************/
     return(
         resData.map((a) => {
             return (
-              <div key={a.id} className="w-4/5 relative m-2 bg-[#4F518C] shadow-inner shadow-white">
+              <div key={a.id} className="w-4/5 relative m-2 bg-[#4F518C] shadow-inner shadow-white transition-all fade-in">
                   <div className='text-sm m-2 w-1/6 text-center bg-[#907AD6] text-white'>{a.fecha}</div>
                 <div className="w-full h-[20%] items-center justify-center flex p-4">
                   <fieldset className="border-t w-1/2 border-white flex">

@@ -8,9 +8,11 @@ import {
 } from "react-icons/md";
 import Link from "next/link";
 import ChangeButton from "./stateChangeButton/button";
+import { useRouter } from "next/router";
 
 export default function Navbar() {
-  const [listOpen, setListOpen] = useState(true);
+  const Router = useRouter()
+  const [listOpen, setListOpen] = useState(Router.asPath !== '/#Home'?false:true);
   const [actualPath, setActualPath] = useState("");
   const { Abilities, Home, About, Contact, Projects, DevBlog } = sectionRoutes;
   const changeListStatus = () => {
