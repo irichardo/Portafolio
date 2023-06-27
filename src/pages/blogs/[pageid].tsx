@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import { blogdata } from "@/libs/types";
 
 export async function getStaticPaths(){
-  try{
     const paths = await getPostDetails();
     const parameter = await paths.map((a: any) => {
       return {
@@ -16,20 +15,10 @@ export async function getStaticPaths(){
     return {
       paths: parameter,
       fallback: false,
-      error:null
     };
-  }
-  catch(error:any){
-    return{
-      paths:null,
-      error:error.message
-    }
-  }
-
 }
 
 export async function getStaticProps({ params }: Params) {
-  try{
     const postData = await getPostsData(params.pageid);
     return {
       props: {
@@ -37,14 +26,7 @@ export async function getStaticProps({ params }: Params) {
       },
     };
   }
-  catch(error:any){
-    return{
-      props:null,
-      error:error.message
-    }
-  }
   
-}
 
 export default function BlogPage({ postData }: { postData: blogdata}) {
   const router = useRouter();
