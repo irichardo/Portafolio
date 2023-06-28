@@ -1,11 +1,13 @@
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import { getPostsData, getPostDetails } from "@/libs/posts";
+import Head from "next/head";
+import { getPostsData, getPostDetails, getContentData } from "@/libs/posts";
 import { MdMenu } from "react-icons/md";
 import { useRouter } from "next/router";
-import { blogdata } from "@/libs/types";
+import { blogdata, contentData } from "@/libs/types";
 
 export async function getStaticPaths(){
     const paths = await getPostDetails();
+    console.log('Solo me ejecuto cuando entro ✔');
     const parameter = await paths.map((a: any) => {
       return {
         params: { pageid: a.id },
@@ -19,38 +21,74 @@ export async function getStaticPaths(){
 }
 
 export async function getStaticProps({ params }: Params) {
-    const postData = await getPostsData(params.pageid);
+    const {data, contentData} = await getPostsData(params.pageid);
+    console.log('Solo me ejecuto cuando entro ✔');
     return {
       props: {
-        postData,
+        postData:data,
+        contentData:contentData
       },
     };
   }
   
 
-export default function BlogPage({ postData }: { postData: blogdata}) {
+export default function BlogPage({ postData, contentData }: { postData: blogdata, contentData:contentData}) {
   const router = useRouter();
-
   const backToPage = () => {
     router.push("/blogs", undefined, { shallow: true });
   };
 
   return (
-    <main className="w-screen h-screen bg-purple-700 overflow-x-hidden relative">
-      <div className="w-full h-1/5 flex items-center justify-center bg-red-400">
-        <div className="w-1/2 h-3/4 bg-white grid place-items-center">
+    <main className="w-screen h-screen overflow-x-hidden relative">
+      <Head>
+         <title>{`${postData.title} NextJs`}</title>
+      </Head>
+      <div className="w-full h-1/6 flex items-center justify-center bg-gradient-to-t from-[#570AA9] to-[#5e275b]">
+        <div className="w-1/2 h-3/4 grid place-items-center text-4xl font-thin text-white">
           {postData.title}
         </div>
       </div>
       <div className="w-full h-auto flex flex-col items-center justify-center">
-        <p className="w-full min-h-[10vw] bg-purple-500 items-center justify-center flex">
-          {postData.content}
-        </p>
-        <div className="w-[70%] h-[80vh] bg-slate-500 flex flex-col items-center">
-          <p className="w-5/6 h-[15%] flex items-center justify-center text-center">
+      <div className="w-[70%] h-[80vh] bg-slate-500 flex flex-col items-center">
+        {
+        contentData.p1 &&
+        // <p className="w-full min-h-[10vh] bg-purple-500 items-center justify-center flex">
+        <div className="w-full min-h-[20vh] max-h-[50vh] bg-purple-200 flex items-center justify-center">
+          <p>
+            {contentData.p1}
+            </p>
+        </div>  
+        // </p>
+        }
+        {
+        contentData.img1&&
+        <div>{contentData.img1}</div>
+        }
+         {
+        contentData.p2 &&
+        // <p className="w-full min-h-[10vh] bg-purple-500 items-center justify-center flex">
+        <div>
+          {contentData.p2}
+        </div>  
+        // </p>
+        }
+        {
+        contentData.img2&&
+        <div>{contentData.img2}</div>
+        }
+        {
+          contentData.p3&&
+          <div>{contentData.p3}</div>
+        }
+            {
+          contentData.img3&&
+          <div>{contentData.img3}</div>
+        }
+          {/* <p className="w-5/6 h-[15%] flex items-center justify-center text-center">
             {postData.content}
-          </p>
-          <p className="w-5/6 h-full bg-pink-500"></p>
+          </p> */}
+          {/* <p className="w-5/6 h-auto">
+          </p> */}
         </div>
       </div>
       <footer className="w-full h-[10%] bg-red-950 flex items-center justify-center">

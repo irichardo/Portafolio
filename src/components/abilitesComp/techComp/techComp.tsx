@@ -37,7 +37,7 @@ const TechComp = () => {
             <div className="w-[16rem] h-[32rem] bg-slate-400 grid grid-cols-2 gap-0">
               {imagenes.map((a) => {
                 return (  
-                    <div className="h-[8rem] w-[8rem] flex justify-center items-center shadow-2xl bg-gray-100 hover:bg-gray-400 text-lg font-extrabold" key={a.name}>
+                    <div className="h-[8rem] w-[8rem] flex justify-center items-center shadow-inner shadow-red-200 bg-gray-100 hover:bg-gray-400 text-lg font-extrabold" key={a.name}>
                       {a.name}
                     </div>
                 );

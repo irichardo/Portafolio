@@ -56,3 +56,17 @@ body {
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
+
+.colorIcons{
+  color: black;
+}
+.colorIcons:hover{
+  color: rgb(189, 52, 93)
+}
+
+a{
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+  -webkit-user-drag: none;
+  user-select: none;
+}

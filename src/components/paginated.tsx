@@ -1,5 +1,6 @@
 import { blogdata } from "@/libs/types";
-import React, { EventHandler, ReactEventHandler, useState } from "react";
+import React, { EventHandler, useState } from "react";
+import { MdHouse } from "react-icons/md";
 
 export default function Paginate ({resData, setPaginated}:{resData:blogdata[], setPaginated:EventHandler< any | number>}){  
     
@@ -7,7 +8,7 @@ export default function Paginate ({resData, setPaginated}:{resData:blogdata[], s
     
     const inded:JSX.Element[] = [];
     const elementsPerPage = 3
-    const data = Math.ceil(resData.length/elementsPerPage);
+    const data = Math.ceil(resData?.length/elementsPerPage);
 
     const handleSetActualPageSetPagination = (event:React.MouseEvent<HTMLButtonElement>) =>{
          const data = event.target as HTMLButtonElement;
@@ -24,7 +25,7 @@ export default function Paginate ({resData, setPaginated}:{resData:blogdata[], s
         </li>)
     }
     return(
-      <ul className="flex m-2">
+      <ul className="flex items-center justify-center w-1/3 m-2 bg-blue-950 rounded-xl">
         {inded}
         </ul>
     )

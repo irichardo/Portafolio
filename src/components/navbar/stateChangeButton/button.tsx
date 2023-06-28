@@ -6,6 +6,7 @@ export default function ChangeButton(){
 
     const [mouseInto,SetMouseInto] = useState(false);
     const [copyMessage, SetCopyMessage] = useState(false);
+    const [focus, setFocus] = useState(false);
 
     const mouseStateHandler = () =>{
         SetMouseInto(true)
@@ -16,10 +17,14 @@ export default function ChangeButton(){
 
       const popUp = () =>{
         navigator.clipboard.writeText('richardhdjob@gmail.com')
+        setFocus(true)
+        setTimeout(()=>{
+          setFocus(false)
+        },1000)
         SetCopyMessage(true)
         setTimeout(()=>{
           SetCopyMessage(false)
-        },2000)
+        },1500)
       }
 
     return(
@@ -27,12 +32,12 @@ export default function ChangeButton(){
         <button onClick={()=>popUp()} onMouseEnter={mouseStateHandler} onMouseLeave={mouseStateLeaveHanlder}>
         {
           mouseInto?
-          <MdFileCopy size = {"2.5em"}/>
-          :<BsMailbox size={"2.5em"}/>
+          <MdFileCopy size = {"2.5em"} color={'#BD345D'} className="colorIcons"/>
+          :<BsMailbox size={"2.5em"} />
         }
       </button>
         {copyMessage ? (
-            <div className="absolute bottom-10 h-[10vh] w-full text-sm bg-red-950 flex items-center justify-center text-white border-2 border-red-950 transition-all">
+            <div className={`absolute bottom-10 h-[10vh] w-full text-sm bg-gray-400 flex items-center justify-center text-white border-2 transition-transform ${focus?'translate-x-0':'translate-y-40 text-transparent opacity-30'} }`}>
               Correo copiado en el portapapeles
             </div>
           ):null}

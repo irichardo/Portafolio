@@ -16,7 +16,7 @@ export default function main() {
                 WEB DEVELOPER
               </div>
               <div className="w-4/5 h-2/5 text-orange-300 ">
-                Make designs, improves designs and create solutions.
+                Crecer, avanzar y solucionar.
               </div>
             </div>
           </div>

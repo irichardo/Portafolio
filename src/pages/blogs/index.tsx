@@ -4,7 +4,7 @@ import BlogSection from "@/components/blogslinks";
 import ErrorMessage from "@/components/error";
 import Paginate from "@/components/paginated";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const res = await fetch("http://localhost:3001/posts");
     const resData: blogdata[] = await res.json();
@@ -40,7 +40,7 @@ export default function Blog({
   const itemsPerPage = 3;
   const initArray = (initData-1) * itemsPerPage
   const endArray = initArray + itemsPerPage;
-  const sliceData = resData.slice(initArray,endArray);
+  const sliceData = resData?.slice(initArray,endArray);
 
   const setPageHandler = (event:number) =>{
     // const prop = event.target as HTMLButtonElement;
