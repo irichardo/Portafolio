@@ -11,13 +11,13 @@ export async function getPostsData(postId:number){
 }
 
 export async function getPostDetails() {
-    const res = await fetch('http://localhost:3001/data')
+    const res = await fetch('https://fakeapi-mbw3.onrender.com/data')
     const data = await res.json()
     return data;
 }
 
 export async function getContentData(props:number) {
-    const res = await fetch(`http://localhost:3001/content/${props}`)
+    const res = await fetch(`https://fakeapi-mbw3.onrender.com/content/${props}`)
     const data = await res.json()
     return data;
 }

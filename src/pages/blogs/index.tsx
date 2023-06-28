@@ -6,7 +6,7 @@ import Paginate from "@/components/paginated";
 
 export async function getStaticProps() {
   try {
-    const res = await fetch("http://localhost:3001/posts");
+    const res = await fetch("https://fakeapi-mbw3.onrender.com/posts");
     const resData: blogdata[] = await res.json();
     return {
       props: {
