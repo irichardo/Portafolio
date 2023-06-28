@@ -1,6 +1,6 @@
 export async function getPostsData(postId:number){
     try{
-        const res = await fetch('http://localhost:3001/posts');
+        const res = await fetch('https://fakeapi-mbw3.onrender.com/posts');
         const data = await res.json();
         const contentData =  await getContentData(postId)
         return{ data:data[postId-1], contentData};
