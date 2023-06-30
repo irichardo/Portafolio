@@ -1,24 +1,24 @@
-"use client";
+'use client'
 import React from 'react'
-import { ParallaxBanner, ParallaxProvider } from "react-scroll-parallax";
+import { ParallaxBanner, ParallaxProvider } from 'react-scroll-parallax'
 
 const ParallaxBackground = () => {
   return (
     <section className='w-[80%] h-full'>
-    <ParallaxProvider>
-      <ParallaxBanner
-        layers={[
-          {
-            image:
-              "parallaxBG.webp",
-            speed: -20,
-          },
-        ]
-    }
-    className={`h-full w-full rounded-sm shadow-lg filter grayscale`}/>
+      <ParallaxProvider>
+        <ParallaxBanner
+          layers={[
+            {
+              image:
+              'parallaxBG.webp',
+              speed: -20
+            }
+          ]}
+          className='h-full w-full rounded-sm shadow-lg filter grayscale'
+        />
       </ParallaxProvider>
-      </section>
-  );
-};
+    </section>
+  )
+}
 
-export default React.memo( ParallaxBackground);
+export default React.memo(ParallaxBackground)

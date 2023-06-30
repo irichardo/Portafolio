@@ -9,11 +9,12 @@ export type blogdata = {
 export type contentData = {
   id:number,
   p1:string | null,
-  img1:string | null ,
+  img1:string | null,
   p2:string | null,
   img2:string | null,
   p3:string | null,
-  img3:string | null
+  img3:string | null,
+  p4:string | null,
 }
 
 export type id = {

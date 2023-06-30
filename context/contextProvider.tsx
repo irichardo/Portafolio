@@ -1,40 +1,44 @@
-"use Client";
-import React, { useState, useEffect } from "react";
-import { GlobalContext } from "./globalContext";
+'use Client'
+import React, { useState, useEffect } from 'react'
+import { GlobalContext } from './globalContext'
 
 export const Provider = ({ children }: { children: React.ReactNode }) => {
-  const [gitData, setGitData] = useState([]);
+  const [gitData, setGitData] = useState([])
+  const [actualPage, setActualPage] = useState(1)
   const getData = async () => {
     try {
-      const url = "https://api.github.com/users/irichardo/repos";
+      const url = 'https://api.github.com/users/irichardo/repos'
       const headers = {
-        Authorization: `token ${process.env.TOKEN_GITHUB}`,
-      };
-      const data = await fetch(url, { headers });
-      const response = await data.json();
+        Authorization: `token ${process.env.TOKEN_GITHUB}`
+      }
+      const data = await fetch(url, { headers })
+      const response = await data.json()
       const resData = response.map((a: any) => {
         return {
           url: a.html_url,
-          description: a.description,
-        };
-      });
-      setGitData(resData);
+          description: a.description
+        }
+      })
+      setGitData(resData)
     } catch {
-      throw new Error();
+      throw new Error()
     }
-  };
+  }
+  console.log(actualPage)
 
   const contextValue = {
     gitData,
-  };
+    actualPage,
+    setActualPage
+  }
 
   useEffect(() => {
-    getData();
-  }, []);
+    getData()
+  }, [])
 
   return (
     <GlobalContext.Provider value={contextValue}>
       {children}
     </GlobalContext.Provider>
-  );
-};
+  )
+}

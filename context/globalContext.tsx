@@ -1,13 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-interface globalContext {
-    gitData : Array<GitData>
-}
 interface GitData{
     url: string,
     description:string
 }
+interface globalContext {
+    gitData : Array<GitData>
+    actualPage: number
+    setActualPage: React.Dispatch<React.SetStateAction<number>>;
+}
 
 export const GlobalContext = React.createContext<globalContext>({
-    gitData:[]
-});
+  gitData: [],
+  actualPage: 0,
+  setActualPage: () => {}
+})
