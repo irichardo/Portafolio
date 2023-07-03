@@ -19,7 +19,7 @@ export default function AboutMe () {
               <button className='w-2/5 h-[5vh] bg-pink-800 text-white text-center justify-center flex items-center m-5 z-20'>
                 <div className='w-2/5 h-[5vh] bg-pink-600 absolute right-1/3 top-2 z-10 flex items-center justify-center '>
                   DESCARGAR CV
-              </div>
+                </div>
               </button>
             </div>
           </div>

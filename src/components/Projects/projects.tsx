@@ -14,7 +14,7 @@ export default function Projects () {
   const screenHandler: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     const target = event.target as HTMLButtonElement
     const [description, url] = target.value.split('|')
-    if (description == 'null') {
+    if (description === 'null') {
       setActualProject({
         ...actualProject,
         url,

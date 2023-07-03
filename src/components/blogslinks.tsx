@@ -21,10 +21,11 @@ export default function BlogSection ({ resData }:{resData:blogdata[]}) {
   })
   MappedData.displayName = 'Memorize'
   /**************************************/
+
   return (
     resData.map((a) => {
       return (
-        <div key={a.id} className='w-4/5 relative m-2 bg-[#4F518C] shadow-inner shadow-white transition-all fade-in'>
+        <div key={a.id} className='w-4/5 relative m-10 bg-[#4F518C] shadow-inner shadow-white transition-all fade-in'>
           <div className='text-sm m-2 w-1/6 text-center bg-[#907AD6] text-white'>{a.fecha}</div>
           <div className='w-full h-[20%] items-center justify-center flex p-4'>
             <fieldset className='border-t w-1/2 border-white flex'>
@@ -49,7 +50,7 @@ export default function BlogSection ({ resData }:{resData:blogdata[]}) {
                 className='w-2/4 h-[40vh] relative'
               >
                 <MappedData src={a.imagen} />
-                <div className='relative h-full text-xl font-light z-10 justify-center items-center flex text-white hover:bg-black hover:text-3xl hover:bg-opacity-80 transition-all bg-black bg-opacity-40'>
+                <div className='relative h-full text-xl font-light justify-center items-center flex text-white hover:bg-black hover:text-3xl hover:bg-opacity-80 transition-all bg-black bg-opacity-40'>
                   Saber más
                 </div>
               </Link>

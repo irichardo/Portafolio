@@ -24,7 +24,6 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
       throw new Error()
     }
   }
-  console.log(actualPage)
 
   const contextValue = {
     gitData,

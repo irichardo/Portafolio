@@ -1,11 +1,10 @@
 import { blogdata } from '@/libs/types'
-import React, { EventHandler, useState } from 'react'
-import { MdHouse } from 'react-icons/md'
+import React, { EventHandler } from 'react'
 
 export default function Paginate ({ resData, setPaginated, actualPage }:{resData:blogdata[], setPaginated:EventHandler< any | number>, actualPage:number}) {
   // const [actualPage,setActualPage] = useState(0);
 
-  const inded:JSX.Element[] = []
+  const inded:React.JSX.Element[] = []
   const elementsPerPage = 3
   const data = Math.ceil(resData?.length / elementsPerPage)
 
@@ -18,13 +17,13 @@ export default function Paginate ({ resData, setPaginated, actualPage }:{resData
 
   for (let i = 1; i < data + 1; i++) {
     inded.push(
-      <li className='w-10 h-10 transition-all m-3 relative z-10' key={i}>
-        <span className='z-20 w-full h-full flex items-center justify-center absolute top-0 pointer-events-none'>{i}</span>
-        <button className={`w-full h-full absolute rounded-lg top-0 ${actualPage == i ? 'rotate-0 bg-purple-900' : 'rotate-45 bg-purple-600'} transition-all z-10 hover:rotate-0 pointer-events-auto`} key={i} value={i} onClick={handleSetActualPageSetPagination} />
+      <li className='w-8 h-8 transition-all m-4 relative z-30' key={i}>
+        <span className={`z-20 w-full h-full flex items-center justify-center absolute top-0 pointer-events-none ${actualPage === i ? 'text-white' : 'text-black'} transition-colors `}>{i}</span>
+        <button className={`w-full h-full absolute  rounded-sm top-0 ${actualPage === i ? 'rotate-0 bg-red-800' : 'rotate-45 bg-white'} transition-all z-10 hover:rotate-0 hover:transition-transform pointer-events-auto`} key={i} value={i} onClick={handleSetActualPageSetPagination} />
       </li>)
   }
   return (
-    <ul className='flex items-center justify-center w-1/3 m-2 bg-blue-950 rounded-xl'>
+    <ul className='flex items-center justify-center w-1/3 m-2 bg-white rounded-xl absolute bottom-0 border-2 border-gray-500 opacity-30 hover:opacity-100 transition-opacity delay-75'>
       {inded}
     </ul>
   )

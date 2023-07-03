@@ -1,6 +1,5 @@
 import React from 'react'
 import TechComp from './techComp/techComp'
-import AnimationCircleComp from './animationComp/animation'
 
 export default function Habilidades () {
   return (
