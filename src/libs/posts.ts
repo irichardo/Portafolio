@@ -35,7 +35,7 @@ export async function getContentData (props:number) {
 }
 
 export async function getPagesByName (filename:string):Promise<any| undefined> {
-  const res = await fetch(`https://raw.githubusercontent.com/irichardo/blogpost/main/${filename}`, {
+  const res = await fetch(`https://raw.githubusercontent.com/irichardo/blogpost/main/${filename}`,{next:{revalidate:60},
     headers: {
       Accept: 'application/vnd.github+json',
       Authorization: `Bearer ${process.env.TOKEN_GITHUB}`,
@@ -53,7 +53,7 @@ export async function getPagesByName (filename:string):Promise<any| undefined> {
 
 export async function getPagesData (filename:string):Promise<any| undefined> {
   try{
-    const res = await fetch(`https://raw.githubusercontent.com/irichardo/blogpost/main/${filename}`, {
+    const res = await fetch(`https://raw.githubusercontent.com/irichardo/blogpost/main/${filename}`, {next:{revalidate:60},
       headers: {
         Accept: 'application/vnd.github+json',
         Authorization: `Bearer ${process.env.TOKEN_GITHUB}`,
