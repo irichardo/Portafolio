@@ -57,7 +57,7 @@ export async function getStaticPaths () {
 }
 
 
-export async function getStaticProps ({ params }:any) {
+export async function getServerSideProps ({ params }:any) {
     const { postId } = params
     const postFile = await getPagesData(`${postId}.mdx`)
     if(!postFile) {return{notFound:true}}
