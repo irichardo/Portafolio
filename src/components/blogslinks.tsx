@@ -47,7 +47,7 @@ export default function BlogSection ({ resData }:{resData:blogdata[]}) {
                 href={`${Router.pathname}/${a.id}`}
                 className='w-2/4 h-[40vh] relative'
               >
-                <MappedData src = {a.cover ? a.cover : undefined} />
+                {a.cover ? <MappedData src={a.cover} /> : null}
                 <div className='relative h-full text-xl font-light justify-center items-center flex text-white hover:bg-black hover:text-3xl hover:bg-opacity-80 transition-all bg-black bg-opacity-40'>
                   Saber más
                 </div>

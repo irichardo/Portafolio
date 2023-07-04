@@ -9,7 +9,6 @@ import { getPosts } from '@/libs/posts'
 export async function getStaticProps () {
   try {
     const res = await getPosts()
-    // const resData: blogdata[] = await res.json()
     return {
       props: {
         resData: res,
@@ -52,25 +51,23 @@ export default function Blog ({
       <div className='w-screen h-full flex flex-col items-center'>
         <div className='w-full h-[30vh] flex items-center justify-center bg-[#4F518C]'>
           <div className='w-44 h-44 rounded-full bg-black m-4' />
-          </div>
-          <div className='w-full h-auto flex items-center justify-center bg-[#2C2A4A]'>
-            <div
-              className={`w-[90%] min-h-[70vh] inline-grid place-items-center grid-cols-1 grid-rows-${sliceData?.length}`}
-            >
-              {error
-                ? (<ErrorMessage error={error} />)
-                : (<BlogSection resData={sliceData} />
-                  )}
-              {resData?.length > itemsPerPage && (
-                <Paginate
-                  resData={resData}
-                  setPaginated={setPageHandler}
-                  actualPage={actualPage}
-                />
-              )}
-            </div>
+        </div>
+        <div className='w-full h-auto flex items-center justify-center bg-[#2C2A4A]'>
+          <div className={`w-[90%] min-h-[70vh] inline-grid place-items-center grid-cols-1 grid-rows-${sliceData?.length}`}>
+            {error
+              ? (<ErrorMessage error={error} />)
+              : (<BlogSection resData={sliceData} />
+                )}
+            {resData?.length > itemsPerPage && (
+              <Paginate
+                resData={resData}
+                setPaginated={setPageHandler}
+                actualPage={actualPage}
+              />
+            )}
           </div>
         </div>
-      </main>
+      </div>
+    </main>
   )
 }

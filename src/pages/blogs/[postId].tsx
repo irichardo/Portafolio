@@ -7,6 +7,7 @@ import rehypeHighLight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import H1 from '@/components/tittle'
 import P from '@/components/parrafo'
+// import A from '@/components/links'
 
 /*  styles MDX  */
 
@@ -32,7 +33,7 @@ export default function PostPage ({ data }: InferGetStaticPropsType<typeof getSt
 
 export async function getStaticPaths () {
   const id = await getPosts()
-  const postId = id?.map(a => {
+  const postId = id?.map((a:any) => {
     return {
       params: { postId: a.id }
     }
@@ -48,7 +49,6 @@ export async function getStaticProps ({ params }:any) {
   return {
     props: {
       data: mdxSource
-    },
-    revalidate: 60
+    }
   }
 }

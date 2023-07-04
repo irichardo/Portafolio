@@ -1,14 +1,14 @@
-import { serialize } from "next-mdx-remote/serialize"
-import rehypeHighlight from "rehype-highlight/lib"
-import rehypeSlug from "rehype-slug"
+import { serialize } from 'next-mdx-remote/serialize'
+import rehypeHighlight from 'rehype-highlight/lib'
+import rehypeSlug from 'rehype-slug'
 
-type Filetree = {
-  "tree": [
-      {
-          "path": string,
-      }
-  ]
-}
+// type Filetree = {
+//   "tree": [
+//       {
+//           "path": string,
+//       }
+//   ]
+// }
 
 export async function getPostsData (postId:number) {
   try {
@@ -77,7 +77,7 @@ export async function getPosts () {
   const { tree } = rawMDX
   const filesArray:any = tree.map((files:any) => files.path)
     .filter((path:any) => path.endsWith('.mdx'))
-  const posts = []
+  const posts:any = []
   for (const file of filesArray) {
     const post = await getPagesByName(file)
     if (posts) {
@@ -85,5 +85,5 @@ export async function getPosts () {
       posts.push(meta)
     }
   }
-  return posts.sort((a, b) => {a.date < b.date ? 1 : -1})
+  return posts?.sort((a:any, b:any) => { return a.date < b.date ? 1 : -1 })
 }
