@@ -50,7 +50,10 @@ export async function getStaticPaths () {
       params: { postId: a.id }
     }
   })
-  return { paths: postId, fallback: 'blocking', revalidate:60 }
+  return { 
+    paths: postId, 
+    fallback: 'blocking',
+  }
 }
 
 
