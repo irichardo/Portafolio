@@ -12,7 +12,7 @@ export default function Home () {
       <section className='w-screen h-screen relative' id='Home'>
         <Main />
       </section>
-      {/* <section className='w-screen h-screen flex items-center justify-center relative bg-gray-900 ' id='About'>
+      <section className='w-screen h-screen flex items-center justify-center relative bg-gray-900 ' id='About'>
         <AboutMe />
       </section>
       <section className='w-screen h-screen relative bg-gray-900' id='Habilidades'>
@@ -23,7 +23,7 @@ export default function Home () {
       </section>
       <section className='w-screen h-screen relative bg-gray-900 ' id='Contacto'>
         <ContactComp />
-      </section> */}
+      </section>
     </div>
     </Layout>
   )
