@@ -23,7 +23,7 @@ export default function Paginate ({ resData, setPaginated, actualPage }:{resData
       </li>)
   }
   return (
-    <ul className='flex items-center justify-center w-1/3 m-2 bg-white rounded-xl absolute bottom-0 border-2 border-gray-500 opacity-30 hover:opacity-100 transition-opacity delay-75'>
+    <ul className='flex items-center absolute bottom-5 justify-center w-1/3 m-2 bg-white rounded-xl border-2 border-gray-500 opacity-30 hover:opacity-100 transition-opacity delay-75'>
       {inded}
     </ul>
   )

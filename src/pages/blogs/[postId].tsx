@@ -1,6 +1,7 @@
 import { getPagesData, getPosts } from '@/libs/posts'
 import Head from 'next/head'
 import { InferGetStaticPropsType } from 'next'
+import Link from 'next/link'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import rehypeHighLight from 'rehype-highlight'
@@ -16,12 +17,15 @@ import 'highlight.js/styles/github-dark.css'
 /*   */
 
 export default function PostPage ({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
+
   return (
-      <section className='w-screen h-screen flex items-center justify-center bg-blue-50'>
+    <>
+      <section className='w-screen min-h-screen flex-col flex justify-center items-center bg-blue-600'>
        <Head>
-        <title>{data?.frontmatter.title as string}</title>
+        <title>{data.frontmatter.title as string}</title>
+        <meta name='description' content={`${data.frontmatter.meta?data.frontmatter.meta:data.frontmatter.title}`}/>
       </Head>
-      <div className='w-[70%] h-full bg-slate-100 inline-grid place-items-center grid-cols-1 overflow-x-hidden'>
+      <div className='w-[70%] min-h-screen bg-slate-100 inline-grid place-items-center grid-cols-1'>
       <MDXRemote
         {...data}
         components={{
@@ -32,6 +36,10 @@ export default function PostPage ({ data }: InferGetStaticPropsType<typeof getSt
         />
       </div>
     </section>
+      <div className='w-full h-full flex items-center justify-center bg-black'>
+      <Link href={'/blogs'} className='w-1/6 bg-red-300 text-center'>Inicio</Link>
+      </div>
+      </>
   )
 }
 
