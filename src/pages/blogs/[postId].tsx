@@ -1,6 +1,6 @@
 import { getPagesData, getPosts } from '@/libs/posts'
 import Head from 'next/head'
-import {InferGetServerSidePropsType } from 'next'
+import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
@@ -16,7 +16,9 @@ import 'highlight.js/styles/github-dark.css'
 
 /*   */
 
-export default function PostPage ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export const revalidate = 10
+
+export default function PostPage ({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   return (
     <>
@@ -57,7 +59,7 @@ export async function getStaticPaths () {
 }
 
 
-export async function getServerSideProps ({ params }:any) {
+export async function getStaticProps ({ params }:any) {
     const { postId } = params
     const postFile = await getPagesData(`${postId}.mdx`)
     if(!postFile) {return{notFound:true}}

@@ -12,6 +12,8 @@ import { FaLinkedin } from 'react-icons/fa'
 
 //Para solicitar datos sin perder las propiedades de staticProps
 
+export const revalidate = 10
+
 export async function getStaticProps () {  
   try {
     const res = await getPosts()
