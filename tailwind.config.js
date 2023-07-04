@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        alegra:['var(--font-alegraya)']
+        alegra:['var(--font-alegraya)'],
+        inconsolata:['var(--font-inconsolata)']
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

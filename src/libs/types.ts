@@ -3,7 +3,8 @@ export type blogdata = {
   title:string,
   content:string,
   imagen:string,
-  fecha:string
+  fecha:string,
+  cover:string
 }
 
 export type contentData = {

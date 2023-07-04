@@ -6,7 +6,6 @@ import Image from 'next/image'
 
 export default function BlogSection ({ resData }:{resData:blogdata[]}) {
   const Router = useRouter()
-
   /*   Memorize Image in cache    */
   const MappedData = React.memo(({ src }: { src: string }) => {
     return (
@@ -21,7 +20,6 @@ export default function BlogSection ({ resData }:{resData:blogdata[]}) {
   })
   MappedData.displayName = 'Memorize'
   /**************************************/
-
   return (
     resData.map((a) => {
       return (
@@ -49,7 +47,7 @@ export default function BlogSection ({ resData }:{resData:blogdata[]}) {
                 href={`${Router.pathname}/${a.id}`}
                 className='w-2/4 h-[40vh] relative'
               >
-                <MappedData src={a.imagen} />
+                <MappedData src = {a.cover ? a.cover : undefined} />
                 <div className='relative h-full text-xl font-light justify-center items-center flex text-white hover:bg-black hover:text-3xl hover:bg-opacity-80 transition-all bg-black bg-opacity-40'>
                   Saber más
                 </div>
