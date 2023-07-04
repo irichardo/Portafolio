@@ -1,6 +1,6 @@
 import { getPagesData, getPosts } from '@/libs/posts'
 import Head from 'next/head'
-import { InferGetStaticPropsType } from 'next'
+import {InferGetServerSidePropsType } from 'next'
 import Link from 'next/link'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
@@ -16,7 +16,7 @@ import 'highlight.js/styles/github-dark.css'
 
 /*   */
 
-export default function PostPage ({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function PostPage ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
   return (
     <>
