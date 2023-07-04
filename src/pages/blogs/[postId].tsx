@@ -50,7 +50,7 @@ export async function getStaticPaths () {
       params: { postId: a.id }
     }
   })
-  return { paths: postId, fallback: 'blocking' }
+  return { paths: postId, fallback: 'blocking', revalidate:60 }
 }
 
 
@@ -63,6 +63,6 @@ export async function getStaticProps ({ params }:any) {
       props: {
         data: mdxSource,
       },
-      revalidate: 9600
+      revalidate: 60
     }
 }

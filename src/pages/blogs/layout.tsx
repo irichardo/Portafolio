@@ -5,6 +5,7 @@ type layoutProps={
     children: ReactNode;
 }
 
+
 export default function RootLayout ({ children }:layoutProps) {
   return (
     <main className=''>

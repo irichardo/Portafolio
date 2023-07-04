@@ -1,7 +1,7 @@
 import { serialize } from 'next-mdx-remote/serialize'
 import rehypeHighlight from 'rehype-highlight/lib'
 import rehypeSlug from 'rehype-slug'
-import { dataFromAPI, filesData } from './types'
+import { dataFromAPI } from './types'
 
 // type Filetree = {
 //   "tree": [

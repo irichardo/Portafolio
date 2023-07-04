@@ -12,8 +12,6 @@ import { FaLinkedin } from 'react-icons/fa'
 
 //Para solicitar datos sin perder las propiedades de staticProps
 
-export const revalidate = 60
-
 export async function getStaticProps () {  
   try {
     const res = await getPosts()
@@ -21,7 +19,8 @@ export async function getStaticProps () {
       props: {
         resData: res,
         error: null
-      }
+      },
+      revalidate:60
     }
   } catch (error: any) {
     const errorMessage = ['Fallo en la solicitud:', error.message]
