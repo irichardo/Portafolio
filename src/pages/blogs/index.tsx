@@ -1,12 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import Link from 'next/link'
 import { blogdata } from '@/libs/types'
 import BlogSection from '@/components/blogslinks'
 import ErrorMessage from '@/components/error'
 import Paginate from '@/components/paginated'
 import { GlobalContext } from 'context/globalContext'
 import { getPosts } from '@/libs/posts'
+import RootLayout from './layout'
+import { FaLinkedin } from 'react-icons/fa'
 
-export async function getStaticProps () {
+export async function getStaticProps () {  
   try {
     const res = await getPosts()
     return {
@@ -33,6 +36,8 @@ export default function Blog ({
   resData: blogdata[];
   error: any;
 }) {
+
+  //context for create a persistance pagination
   const { actualPage, setActualPage } = useContext(GlobalContext)
 
   /* Paginate Logic */
@@ -46,18 +51,20 @@ export default function Blog ({
     setActualPage(event)
   }
   /***************************/
+
   return (
-    <main className='w-screen h-screen overflow-x-hidden'>
-      <div className='w-screen h-full flex flex-col items-center'>
-        <div className='w-full h-[30vh] flex items-center justify-center bg-[#4F518C]'>
+    <RootLayout>
+    <main className='w-screen h-screen '>
+      <div className='w-screen min-h-screen flex flex-col items-center '>
+        <div className='w-full h-[30vh] flex items-center justify-center bg-[#4F518C] '>
           <div className='w-44 h-44 rounded-full bg-black m-4' />
         </div>
-        <div className='w-full h-auto flex items-center justify-center bg-[#2C2A4A]'>
-          <div className={`w-[90%] min-h-[70vh] inline-grid place-items-center grid-cols-1 grid-rows-${sliceData?.length}`}>
+        <div className='w-full min-h-screen flex items-center justify-center bg-[#2C2A4A]'>
+          <div className={`w-[90%] min-h-screen inline-grid place-items-center grid-cols-1 grid-rows-${sliceData?.length}`}>
             {error
               ? (<ErrorMessage error={error} />)
-              : (<BlogSection resData={sliceData} />
-                )}
+              : (<BlogSection resData={sliceData} />)
+              }
             {resData?.length > itemsPerPage && (
               <Paginate
                 resData={resData}
@@ -68,6 +75,10 @@ export default function Blog ({
           </div>
         </div>
       </div>
+    <footer className='overflow-hidden text-center flex items-center justify-center bg-zinc-900 text-white'> 
+    © Desarrollado con amor 💖 por &nbsp;<Link href='https://www.linkedin.com/in/richardhd/' className='flex items-center justify-center'>
+      <span className='hover:text-blue-500'>RichardHD</span><FaLinkedin size={20}/></Link></footer>
     </main>
+    </RootLayout>
   )
 }

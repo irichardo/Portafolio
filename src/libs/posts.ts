@@ -1,6 +1,7 @@
 import { serialize } from 'next-mdx-remote/serialize'
 import rehypeHighlight from 'rehype-highlight/lib'
 import rehypeSlug from 'rehype-slug'
+import { dataFromAPI, filesData } from './types'
 
 // type Filetree = {
 //   "tree": [
@@ -46,21 +47,26 @@ export async function getPagesByName (filename:string):Promise<any| undefined> {
   if (rawData === '404: Not found') return undefined
   const { frontmatter, content } : any = await serialize(rawData, { parseFrontmatter: true, mdxOptions: { rehypePlugins: [rehypeHighlight, rehypeSlug] } })
   const id = filename.replace(/\.mdx$/, '')
-  const blogpost = { meta: { id, title: frontmatter.title, date: frontmatter.date, tags: frontmatter.tags, cover: frontmatter.cover ? frontmatter.cover : null }, content }
+  const blogpost = { meta: { id, title: frontmatter.title, date: frontmatter.date, tags: frontmatter.tags, cover: frontmatter.cover ? frontmatter.cover : null, preview : frontmatter.preview? frontmatter.preview : null }, content }
   return blogpost
 }
 
 export async function getPagesData (filename:string):Promise<any| undefined> {
-  const res = await fetch(`https://raw.githubusercontent.com/irichardo/blogpost/main/${filename}`, {
-    headers: {
-      Accept: 'application/vnd.github+json',
-      Authorization: `Bearer ${process.env.TOKEN_GITHUB}`,
-      'X-GitHub-Api-Version': '2022-11-28'
-    }
-  })
-  if (!res.ok) return undefined
-  const rawData = await res.text()
-  return rawData
+  try{
+    const res = await fetch(`https://raw.githubusercontent.com/irichardo/blogpost/main/${filename}`, {
+      headers: {
+        Accept: 'application/vnd.github+json',
+        Authorization: `Bearer ${process.env.TOKEN_GITHUB}`,
+        'X-GitHub-Api-Version': '2022-11-28'
+      }
+    })
+    if (!res.ok) return undefined
+    const rawData = await res.text()
+    return rawData
+  }
+  catch(error:any){
+    return error.message
+  }
 }
 
 export async function getPosts () {
@@ -75,7 +81,7 @@ export async function getPosts () {
   if (!res.ok) return undefined
   const rawMDX = await res.json()
   const { tree } = rawMDX
-  const filesArray:any = tree.map((files:any) => files.path)
+  const filesArray:string[] = tree.map((files:dataFromAPI) => files.path)
     .filter((path:any) => path.endsWith('.mdx'))
   const posts:any = []
   for (const file of filesArray) {

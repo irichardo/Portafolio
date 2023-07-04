@@ -14,19 +14,23 @@ import P from '@/components/parrafo'
 import 'highlight.js/styles/github-dark.css'
 
 /*   */
+
 export default function PostPage ({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <section className='w-screen h-screen inline-grid place-items-center grid-cols-1 overflow-x-hidden'>
-      <Head>
-        <title>{data.frontmatter.title as string}</title>
+      <section className='w-screen h-screen flex items-center justify-center bg-blue-50'>
+       <Head>
+        <title>{data?.frontmatter.title as string}</title>
       </Head>
+      <div className='w-[70%] h-full bg-slate-100 inline-grid place-items-center grid-cols-1 overflow-x-hidden'>
       <MDXRemote
         {...data}
         components={{
           h1: H1,
-          p: P
+          p: P,
+          // img: 
         }}
-      />
+        />
+      </div>
     </section>
   )
 }
@@ -41,14 +45,16 @@ export async function getStaticPaths () {
   return { paths: postId, fallback: 'blocking' }
 }
 
+
 export async function getStaticProps ({ params }:any) {
-  const { postId } = params
-  const postFile = await getPagesData(`${postId}.mdx`)
-  if (!postFile) return undefined
-  const mdxSource = await serialize(postFile, { parseFrontmatter: true, mdxOptions: { rehypePlugins: [rehypeHighLight, rehypeSlug] } })
-  return {
-    props: {
-      data: mdxSource
+    const { postId } = params
+    const postFile = await getPagesData(`${postId}.mdx`)
+    if(!postFile) {return{notFound:true}}
+    const mdxSource = await serialize(postFile, { parseFrontmatter: true, mdxOptions: { rehypePlugins: [rehypeHighLight, rehypeSlug] } })
+    return {
+      props: {
+        data: mdxSource,
+      },
+      revalidate: 9600
     }
-  }
 }

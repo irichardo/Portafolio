@@ -6,6 +6,7 @@ import Image from 'next/image'
 
 export default function BlogSection ({ resData }:{resData:blogdata[]}) {
   const Router = useRouter()
+
   /*   Memorize Image in cache    */
   const MappedData = React.memo(({ src }: { src: string }) => {
     return (
@@ -20,6 +21,7 @@ export default function BlogSection ({ resData }:{resData:blogdata[]}) {
   })
   MappedData.displayName = 'Memorize'
   /**************************************/
+  
   return (
     resData.map((a) => {
       return (
@@ -36,11 +38,9 @@ export default function BlogSection ({ resData }:{resData:blogdata[]}) {
             <div className='w-5/6 h-2/3 flex'>
               <div className='w-1/2 h-[40vh] flex items-center justify-center'>
                 <div className='w-[80%] h-[80%] text-[#7FDEFF] flex relative items-center text-center'>
-                  <p>
-                    {
-                            a.title
-                          }
-                  </p>
+                   {
+                   a.preview&&a.preview
+                   }
                 </div>
               </div>
               <Link

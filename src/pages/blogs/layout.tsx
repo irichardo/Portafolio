@@ -1,4 +1,6 @@
 import React, { ReactNode } from 'react'
+import { FaLinkedin } from 'react-icons/fa';
+import Link from 'next/link'
 
 type layoutProps={
     children: ReactNode;
@@ -6,6 +8,8 @@ type layoutProps={
 
 export default function RootLayout ({ children }:layoutProps) {
   return (
-    <main className='bg-black'>{children}</main>
+    <main className=''>
+      {children}
+    </main>
   )
 }
