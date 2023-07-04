@@ -9,6 +9,11 @@ import { getPosts } from '@/libs/posts'
 import RootLayout from './layout'
 import { FaLinkedin } from 'react-icons/fa'
 
+
+//Para solicitar datos sin perder las propiedades de staticProps
+
+export const revalidate = 60
+
 export async function getStaticProps () {  
   try {
     const res = await getPosts()
