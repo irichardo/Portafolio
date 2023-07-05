@@ -10,7 +10,9 @@ export default function RootLayout ({ children }:layoutProps) {
   return (
     <main className=''>
       <Head>
+        <title>
         RichardHD | Blog
+        </title>
       </Head>
       {children}
     </main>
