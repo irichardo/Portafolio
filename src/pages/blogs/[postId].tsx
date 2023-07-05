@@ -16,8 +16,6 @@ import 'highlight.js/styles/github-dark.css'
 
 /*   */
 
-export const revalidate = 10
-
 export default function PostPage ({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   return (

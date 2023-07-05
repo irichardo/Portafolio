@@ -5,7 +5,8 @@ const nextConfig = {
     minimumCacheTTL: 60
   },
   env: {
-    TOKEN_GITHUB: process.env.TOKEN_GITHUB
+    TOKEN_GITHUB: process.env.TOKEN_GITHUB,
+    MY_SECRET_TOKEN:process.env.MY_SECRET_TOKEN
   }
 }
 
