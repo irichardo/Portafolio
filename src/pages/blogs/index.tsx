@@ -14,12 +14,12 @@ import { FaLinkedin } from 'react-icons/fa'
 
 export const revalidate = 10
 
-export async function getStaticProps () {  
-  try {
-    const res = await getPosts()
+export async function getStaticProps() {  
+try {
+    const allpages = await getPosts()
     return {
       props: {
-        resData: res,
+        resData: allpages,
         error: null
       },
       revalidate:60
@@ -34,6 +34,9 @@ export async function getStaticProps () {
     }
   }
 }
+
+
+/*BLOG PAGE */
 
 export default function Blog ({
   resData,

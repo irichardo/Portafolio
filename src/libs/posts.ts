@@ -2,6 +2,7 @@ import { serialize } from 'next-mdx-remote/serialize'
 import rehypeHighlight from 'rehype-highlight/lib'
 import rehypeSlug from 'rehype-slug'
 import { dataFromAPI } from './types'
+import xmlbuilder from 'xmlbuilder'
 
 // type Filetree = {
 //   "tree": [
@@ -69,4 +70,21 @@ export async function getPosts () {
     }
   }
   return posts?.sort((a:any, b:any) => { return a.date < b.date ? 1 : -1 })
+}
+
+
+export function generateSitemap(pages:any) {
+  // Generar el contenido XML del sitemap utilizando las páginas del sitio con xmlbuilder
+  console.log(pages)
+  const root = xmlbuilder.create('urlset', { version: '1.0', encoding: 'UTF-8' })
+    .att('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+  pages.forEach((page:any) => {
+    const url = root.ele('url');
+    console.log(url);
+    url.ele('loc', {}, page.url);
+    url.ele('lastmod', {}, page.lastModified);
+    url.ele('changefreq', {}, 'daily');
+    url.ele('priority', {}, '0.7');
+  });
+  return root;
 }
