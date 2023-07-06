@@ -26,7 +26,7 @@ export default function BlogSection ({ resData }:{resData:blogdata[]}) {
     resData.map((a) => {
       return (
         <div key={a.id} className='w-4/5 relative m-10 bg-[#4F518C] shadow-inner shadow-white transition-all fade-in'>
-          <div className='text-sm m-2 w-1/6 text-center bg-[#907AD6] text-white'>{a.fecha}</div>
+          <div className='text-sm m-2 w-1/6 text-center bg-[#907AD6] text-white'>{a.date}</div>
           <div className='w-full h-[20%] items-center justify-center flex p-4'>
             <fieldset className='border-t w-1/2 border-white flex'>
               <legend className='mx-auto px-4 text-2x font-light text-white'>

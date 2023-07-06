@@ -15,9 +15,9 @@ export default function Home () {
       <section className='w-screen h-screen flex items-center justify-center relative bg-gray-900 ' id='About'>
         <AboutMe />
       </section>
-      {/* <section className='w-screen h-screen relative bg-gray-900' id='Habilidades'>
+      <section className='w-screen h-screen relative bg-gray-900' id='Habilidades'>
         <Habilidades />
-      </section> */}
+      </section>
       <section className='w-screen h-screen relative bg-gray-900 ' id='Proyectos'>
         <Projects />
       </section>

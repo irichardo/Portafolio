@@ -3,7 +3,7 @@ export type blogdata = {
   title:string,
   content:string,
   imagen:string,
-  fecha:string,
+  date:string,
   cover:string,
   preview:string
 }

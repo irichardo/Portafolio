@@ -39,12 +39,12 @@ export default function Navbar () {
   return (
     <>
       <div
-        className={`w-[30vh] h-full bg-white fixed z-50 grid items-center ${
+        className={`w-[30vh] h-full bg-white fixed z-50 grid items-center text-lg font-chakra ${
           listOpen ? '' : 'deactivate'
         } animationNavbar`}
       >
         <button
-          className={`w-16 h-16 ${mouseEnter ? 'bg-white' : 'bg-gray-950'} absolute top-[45vh]  rounded-tr-full rounded-r-full flex items-center transition-colors ${
+          className={`w-20 h-20 ${mouseEnter ? 'bg-white' : 'bg-gray-950'} absolute top-[44vh]  rounded-tr-full rounded-r-full flex items-center transition-colors ${
             listOpen ? 'justify-center left-[30vh]' : 'justify-end left-[30vh]'
           } transition-all`}
           onClick={() => changeListStatus()}

@@ -34,13 +34,13 @@ export default function Projects () {
       <div className='w-5/6 h-full flex items-center justify-center'>
         <div className='w-4/5 h-5/6 flex flex-col items-center justify-evenly'>
           <div className='w-5/6 h-3/6 flex items-center justify-center'>
-            <div className='w-full h-full flex justify-center items-center text-white text-2xl '>
+            <div className='w-full h-full flex justify-center items-center text-white text-2xl shadow-lg shadow-gray-950 hover:shadow-none transition-all'>
               {actualProject.url
                 ? actualProject.url
                 : gitData[0]?.url}
             </div>
           </div>
-          <div className='w-5/6 h-1/6 text-white justify-center items-center flex text-base'>
+          <div className='w-5/6 h-1/6 text-white justify-center items-center flex text-base shadow-sm shadow-gray-950 hover:shadow-none transition-all'>
             {actualProject.description == null
               ? (
                 <div>Texto no disponible aun</div>

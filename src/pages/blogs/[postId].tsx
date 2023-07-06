@@ -6,8 +6,9 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import rehypeHighLight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
-import H1 from '@/components/tittle'
-import P from '@/components/parrafo'
+import H1 from '@/components/markdowncustom/tittle'
+import H2 from '@/components/markdowncustom/subtitle'
+import P from '@/components/markdowncustom/parrafo'
 // import A from '@/components/links'
 
 /*  styles MDX  */
@@ -20,16 +21,17 @@ export default function PostPage ({ data }: InferGetStaticPropsType<typeof getSt
 
   return (
     <>
-      <section className='w-screen min-h-screen flex-col flex justify-center items-center bg-blue-600'>
+      <section className='w-screen min-h-screen flex justify-center items-center bg-blue-600'>
        <Head>
         <title>{data.frontmatter.title as string}</title>
         <meta name='description' content={`${data.frontmatter.meta?data.frontmatter.meta:data.frontmatter.title}`}/>
       </Head>
-      <div className='w-[70%] min-h-screen bg-slate-100 inline-grid place-items-center grid-cols-1'>
+      <div className='w-[70%] min-h-screen bg-slate-100 inline-grid place-items-center grid-cols-1 divide-y-[0.5px] divide-gray-200'>
       <MDXRemote
         {...data}
         components={{
           h1: H1,
+          h2:H2,
           p: P,
           // img: 
         }}

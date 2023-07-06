@@ -2,14 +2,16 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Provider } from 'context/contextProvider'
-import { Alegreya, Inconsolata } from 'next/font/google'
+import { Alegreya, Inconsolata, Chakra_Petch, Roboto_Serif} from 'next/font/google'
 import Navbar from '@/components/navbar/navbar'
 const alegraya = Alegreya({ subsets: ['latin'], variable: '--font-alegraya' })
 const inconsolata = Inconsolata({ subsets: ['latin'], variable: '--font-inconsolata' })
+const Chakra = Chakra_Petch({ weight:"400", subsets:['latin'], variable: '--font-chakra'})
+const robot = Roboto_Serif({weight:"100", subsets:['latin']})
 
 export default function App ({ Component, pageProps }: AppProps) {
   return (
-      <main className={`${alegraya.variable} ${inconsolata.variable} font-sans overflow-x-hidden`}>
+      <main className={`${alegraya.variable} ${inconsolata.variable} ${Chakra.variable} ${robot.className} font-sans overflow-x-hidden`}>
         <Provider>
         <Navbar />
         <Component {...pageProps} />

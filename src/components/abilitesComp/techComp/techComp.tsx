@@ -1,27 +1,32 @@
+import {FaReact, FaNodeJs, FaDocker, FaGit, FaPython} from 'react-icons/fa'
+import {SiJavascript} from 'react-icons/si'
+import {GrMysql} from 'react-icons/gr'
+import {SiTailwindcss} from 'react-icons/si'
+
 const imagenes = [
-  {
-    name: 'Java'
+  { id:1,
+    name: <FaGit size={70} color='white'/>
   },
-  {
-    name: 'React'
+  { id:2,
+    name: <FaReact size={70} color='white'/>
   },
-  {
-    name: 'Javasript'
+  { id:3,
+    name: <SiJavascript size={70} color='white'/>
   },
-  {
-    name: 'Node'
+  { id:4,
+    name: <FaNodeJs size={70} color='white'/>
   },
-  {
-    name: 'Docker'
+  { id:5,
+    name: <FaDocker size={70} color='white'/>
   },
-  {
-    name: 'MySQL'
+  { id:6,
+    name: <GrMysql size={70} color='white'/>
   },
-  {
-    name: 'Tailwind'
+  { id:7,
+    name: <SiTailwindcss size={70} color='white'/>
   },
-  {
-    name: '+'
+  { id:8,
+    name: <FaPython size={70} color='white'/>
   }
 ]
 
@@ -33,10 +38,10 @@ const TechComp = () => {
           <span className='text-3xl text-white'>Tecnologias</span>
         </div>
         <div className='w-full h-5/6 flex justify-center items-center'>
-          <div className='w-[16rem] h-[32rem] bg-slate-400 grid grid-cols-2 gap-0'>
+          <div className='w-[16rem] h-[32rem] grid grid-cols-2 gap-0'>
             {imagenes.map((a) => {
               return (
-                <div className='h-[8rem] w-[8rem] flex justify-center items-center shadow-inner shadow-red-200 bg-gray-100 hover:bg-gray-400 text-lg font-extrabold' key={a.name}>
+                <div className='h-[8rem] w-[8rem] flex justify-center items-center hover:bg-gray-950 hover:bg-opacity-40 rounded-md hover:shadow-gray-950 hover:shadow-lg text-lg font-extrabold transition-all' key={a.id}>
                   {a.name}
                 </div>
               )

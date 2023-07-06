@@ -18,7 +18,7 @@ export default function NavButton ({
       className='w-full h-20 duration-500 flex items-center justify-center
      border-r-red-100 hover:border-l-red-400 hover:border-t-[1px] hover:border-t-red-400
       hover:border-b-red-700 hover:border-l-[12px] hover:border-b-8 hover:border-r-[12px]
-     hover:border-r-[#7c3939] box-border cursor-default transition-colors text-black font-light text-lg
+     hover:border-r-[#7c3939] box-border cursor-default transition-colors text-black
      focus:bg-slate-300 active:bg-slate-300'
     >
       <Link

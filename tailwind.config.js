@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       fontFamily:{
         alegra:['var(--font-alegraya)'],
-        inconsolata:['var(--font-inconsolata)']
+        inconsolata:['var(--font-inconsolata)'],
+        chakra:['var(--font-chakra)']
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
