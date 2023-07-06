@@ -14,21 +14,21 @@ export default function Habilidades() {
               Habilidades
             </div>
             <div className="w-auto flex items-center justify-center"></div>
-            <div className="h-5/6 w-fulll bg-slate-950 bg-opacity-50 flex justify-center items-center rounded-3xl">
+            <div className="h-5/6 w-fulll bg-slate-950 bg-opacity-50 flex justify-center items-center rounded-3xl font-chakra">
               <div className="w-5/6 h-full flex flex-col justify-center">
                 <div className="w-full h-1/3 flex items-center justify-around text-xl">
                   <div className="w-[17vh] h-[17vh] bg-gradient-to-r via-purple-500 from-red-400 to-gray-500 background-animate flex justify-center items-center rounded-full ">
-                    <div className="w-[16vh] h-[16vh] bg-black text-white items-center justify-center flex rounded-full font-chakra">
+                    <div className="w-[16vh] h-[16vh] bg-black text-white items-center justify-center flex rounded-full ">
                       Empatia
                     </div>
                   </div>
                   <div className="w-[17vh] h-[17vh] bg-gradient-to-r from-white via-gray-500 to-blue-400 background-animate rounded-full flex justify-center items-center">
-                    <div className="w-[16vh] h-[16vh] bg-black text-white items-center justify-center flex rounded-full">
+                    <div className="w-[16vh] h-[16vh] bg-black text-white items-center justify-center flex rounded-full ">
                       Liderazgo
                     </div>
                   </div>
                   <div className="w-[17vh] h-[17vh] bg-gradient-to-r from-green-400 via-sky-300 to-yellow-500 background-animate rounded-full flex justify-center items-center ">
-                    <div className="w-[16vh] h-[16vh] bg-black text-white items-center justify-center flex rounded-full">
+                    <div className="w-[16vh] h-[16vh] bg-black text-white items-center justify-center flex rounded-full ">
                       comunicativo
                     </div>
                   </div>

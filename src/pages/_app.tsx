@@ -11,7 +11,7 @@ const robot = Roboto_Serif({weight:"100", subsets:['latin']})
 
 export default function App ({ Component, pageProps }: AppProps) {
   return (
-      <main className={`${alegraya.variable} ${inconsolata.variable} ${Chakra.variable} ${robot.className} font-sans overflow-x-hidden`}>
+      <main className={`${alegraya.variable} ${inconsolata.variable} ${Chakra.variable} ${robot.className} overflow-x-hidden`}>
         <Provider>
         <Navbar />
         <Component {...pageProps} />

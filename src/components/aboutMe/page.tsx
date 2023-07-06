@@ -5,15 +5,15 @@ export default function AboutMe() {
 
         <div className='w-4/6 h-full  flex items-center justify-center'>
           <div className='w-5/6 h-2/3'>
-            <div className='w-full h-4/6'>
-              <p className='w-full h-full flex flex-col items-center text-center font-semibold'>
-                Hola!, mi nombre es Ricardo, mis amigos me suelen llamar 'Richard'.<br/>
+            <div className='w-full lg:h-3/6 desktopLarge:h-4/6'>
+              <p className='w-full h-full flex flex-col justify-center items-center text-center font-semibold'>
+                Hola!, mi nombre es Ricardo, mis amigos me suelen llamar Richard.<br/>
                 Desarrollador web en crecimiento.<br/>
                 He trabajado en varios proyectos independientes,
-                me encanta aprender cosas nuevas, equivocarme, recibir feedback y ponerme a prueba con cada conocimiento que obtengo, como este portafolio/devblog!, 
-                he tenido a mi cargo mas de 4 personas en mas de una ocasion
-                y los resultados han sido excelentes. Actulamente mi meta es encontrarme un lugar en una empresa enfocada en el mundo IT que me de la oportunidad de desarrollarme, pero,
-                igualmente estoy disponible para cualquier proyecto freelance.<br/> Mi objetivo principal es poder costearme mis estudios de ciberseguridad 💜. <br/><span className="text-red-500 animate-bounce delay-700 m-4 text-xl">Muchas gracias por tu tiempo.</span> 
+                me encanta aprender cosas nuevas, equivocarme, recibir feedback y ponerme a prueba con cada conocimiento que obtengo, como este portafolio/devblog!. 
+                 He tenido a mi cargo mas de 4 personas en mas de una ocasion
+                y los resultados han sido excelentes. Actualmente mi objectivo es encontrarme un lugar en una empresa enfocada en el mundo IT que me de la oportunidad de desarrollarme, pero,
+                igualmente estoy disponible para cualquier proyecto freelance.<br/> Y no me puedo retirar sin decir que mi meta principal es poder costearme mis estudios de ciberseguridad 💜. <br/><span className="text-red-500 animate-bounce delay-700 m-4 text-xl">Muchas gracias por tu tiempo.</span> 
               </p>
             </div>
             <div className='w-full h-2/6  flex justify-center relative'>

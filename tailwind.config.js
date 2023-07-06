@@ -6,6 +6,9 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
+    screens:{
+      'desktopLarge':"1700px"
+    },
     extend: {
       fontFamily:{
         alegra:['var(--font-alegraya)'],
