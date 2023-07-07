@@ -1,23 +1,45 @@
+import React, { MouseEventHandler, useState } from "react"
+import { AboutMeIndex } from "./aboutParagraphIndex"
+
 export default function AboutMe() {
+  const [actualParagraph, setActualParagraph] = useState(0);
+  const paragraphHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const button = event.target as HTMLButtonElement
+    const value = button.value
+    console.log(value);
+    if (value === 'less') {
+      if (actualParagraph === 0) setActualParagraph(AboutMeIndex.length - 1);
+      else {
+        setActualParagraph(actualParagraph - 1);
+      }
+    }
+    if (value === 'more') {
+      if (actualParagraph === AboutMeIndex.length - 1) setActualParagraph(0);
+      else {
+        setActualParagraph(actualParagraph + 1);
+      }
+    }
+  }
   return (
     <>
       <div className='w-[80%] h-5/6 bg-slate-100 flex  rounded-lg overflow-hidden'>
-
         <div className='w-4/6 h-full  flex items-center justify-center'>
           <div className='w-5/6 h-2/3'>
-            <div className='w-full lg:h-3/6 desktopLarge:h-4/6'>
-              <p className='w-full h-full flex flex-col justify-center items-center text-center font-semibold'>
-                Hola!, mi nombre es Ricardo, mis amigos me suelen llamar Richard.<br/>
-                Desarrollador web en crecimiento.<br/>
-                He trabajado en varios proyectos independientes,
-                me encanta aprender cosas nuevas, equivocarme, recibir feedback y ponerme a prueba con cada conocimiento que obtengo, como este portafolio/devblog!. 
-                 He tenido a mi cargo mas de 4 personas en mas de una ocasion
-                y los resultados han sido excelentes. Actualmente mi objectivo es encontrarme un lugar en una empresa enfocada en el mundo IT que me de la oportunidad de desarrollarme, pero,
-                igualmente estoy disponible para cualquier proyecto freelance.<br/> Y no me puedo retirar sin decir que mi meta principal es poder costearme mis estudios de ciberseguridad 💜. <br/><span className="text-red-500 animate-bounce delay-700 m-4 text-xl">Muchas gracias por tu tiempo.</span> 
-              </p>
+            <div className='w-full h-5/6 lg:h-3/6 desktopLarge:h-4/6 relative flex flex-col overflow-y-scroll custom-scrollbar'>
+              {
+                AboutMeIndex.map(a => {
+                  return <p className={`w-full p-4 mt-5 min-h-[30%] flex text-center justify-center items-center font-semibold shadow-lg rounded-md bg-blue-100`}  key={a.id}>
+                    {a.paragraph}
+                  </p>
+                })
+              }
+                {/* <div className="p-4 animate-bounce">Gracias</div> */}
+              {/* <div className="w-full flex items-center justify-around absolute bottom-0">
+                <button value='less' className="w-1/4 bg-blue-500" onClick={paragraphHandler}>{`<`}</button> <button value='more' className="w-1/4 bg-blue-500" onClick={paragraphHandler}>{`>`}</button>
+              </div> */}
             </div>
             <div className='w-full h-2/6  flex justify-center relative'>
-              <button className='w-2/5 h-[5vh] bg-pink-700 text-white text-center justify-center flex items-center m-5 z-20 shadow-md shadow-slate-600 hover:shadow-none transition-shadow rounded-lg'>
+              <button className='w-2/5 h-[5vh] bg-pink-700 text-white text-center justify-center flex items-center m-5 z-20 shadow-sm shadow-gray-950 hover:shadow-none transition-shadow rounded-lg'>
                 DESCARGAR CV
               </button>
             </div>

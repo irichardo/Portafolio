@@ -9,10 +9,10 @@ export default function Home () {
   return (
     <Layout>
     <div className={`flex flex-col items-center justify-between overflow-hidden`}>
-      <section className='w-screen h-screen relative' id='Home'>
+      <section className='w-screen h-screen relative' id='Inicio'>
         <Main />
       </section>
-      <section className='w-screen h-screen flex items-center justify-center relative bg-gray-900 ' id='About'>
+      <section className='w-screen h-screen flex items-center justify-center relative bg-gray-900 ' id='SobreMi'>
         <AboutMe />
       </section>
       <section className='w-screen h-screen relative bg-gray-900' id='Habilidades'>

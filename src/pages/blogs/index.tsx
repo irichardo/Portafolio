@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import Link from 'next/link'
 import { blogdata } from '@/libs/types'
-import BlogSection from '@/components/blogslinks'
+import BlogCards from '@/components/blogscards'
 import ErrorMessage from '@/components/error'
 import Paginate from '@/components/utils/paginated'
 import { GlobalContext } from 'context/globalContext'
@@ -65,16 +65,16 @@ export default function Blog ({
     <RootLayout>
     <main className='w-screen h-screen font-montserrat'>
       <div className='w-screen min-h-screen flex flex-col items-center'>
-        <div className='w-full h-[30vh] flex items-center justify-center bg-gray-600'>
+        <div className='w-full h-[30%] sm:h-[20%] lg:h-[30vh] flex items-center justify-center bg-gray-600'>
           {/*      LOGO      */}
-          <div className='w-44 h-44 rounded-full bg-black m-4' />
+          <div className='w-24 h-24 md:h-32 md:w-32 rounded-full bg-black m-4' />
         </div>
         <div className='w-full min-h-screen flex items-center justify-center bg-gray-900'>
           {/*     BLOGS      */}
-          <div className={`w-[90%] min-h-screen inline-grid place-items-center grid-cols-1 grid-rows-${sliceData?.length}`}>
+          <div className={`w-full lg:w-[90%] min-h-screen  grid-cols-1 place-items-center grid-rows-${sliceData?.length} ${sliceData.length <= 1?' grid-rows-none grid-cols-none flex items-start justify-center':'inline-grid'}`}>
             {error
               ? (<ErrorMessage error={error} />)
-              : (<BlogSection resData={sliceData} />)
+              : (<BlogCards resData={sliceData} />)
               }
             {resData?.length > itemsPerPage && (
               <Paginate
@@ -87,9 +87,9 @@ export default function Blog ({
         </div>
       </div>
       {/*  Nunca olvidar el amor y cariño que le pongo a esto <3  */}
-    <footer className='overflow-hidden text-center flex items-center justify-center bg-zinc-900 text-white'> 
+    <footer className='overflow-hidden text-center flex items-center justify-center bg-zinc-900 text-white text-xs sm:text-base'> 
     © Desarrollado con amor 💖 por &nbsp;<Link href='https://www.linkedin.com/in/richardhd/' className='flex items-center justify-center'>
-      <span className='hover:text-blue-500'>RichardHD</span><FaLinkedin size={20}/></Link></footer>
+      <span className='hover:text-blue-500 '>RichardHD</span><FaLinkedin size={20}/></Link></footer>
     </main>
     </RootLayout>
   )

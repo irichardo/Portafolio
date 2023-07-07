@@ -29,6 +29,8 @@ export default function Navbar () {
       }, 600)
     }
   }
+
+  /*  handler for animation color  */
   const buttonColor = () => {
     setMouseEnter(true)
   }
@@ -44,7 +46,7 @@ export default function Navbar () {
         } animationNavbar`}
       >
         <button
-          className={`w-20 h-20 ${mouseEnter ? 'bg-white' : 'bg-gray-950'} absolute top-[44vh]  rounded-tr-full rounded-r-full flex items-center transition-colors ${
+          className={`w-12 h-12 sm:h-20 sm:w-20  ${mouseEnter ? 'bg-white' : 'bg-gray-950'} absolute top-[44vh]  rounded-tr-full rounded-r-full flex items-center transition-colors ${
             listOpen ? 'justify-center left-[30vh]' : 'justify-end left-[30vh]'
           } transition-all`}
           onClick={() => changeListStatus()}
@@ -57,7 +59,7 @@ export default function Navbar () {
               <MdKeyboardArrowRight size='4rem' color={mouseEnter ? 'black' : 'white'} onMouseEnter={buttonColor} onMouseLeave={buttonColorRemove} />
               )}
         </button>
-        <ul>
+        <ul className='relative'>
           <NavButton
             automaticClosing={autoClose}
             text={Home.name}
