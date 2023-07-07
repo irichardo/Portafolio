@@ -13,7 +13,8 @@ module.exports = {
       fontFamily:{
         alegra:['var(--font-alegraya)'],
         inconsolata:['var(--font-inconsolata)'],
-        chakra:['var(--font-chakra)']
+        chakra:['var(--font-chakra)'],
+        montserrat:['var(--font-montserrat)']
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

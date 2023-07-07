@@ -63,12 +63,14 @@ export default function Blog ({
 
   return (
     <RootLayout>
-    <main className='w-screen h-screen '>
-      <div className='w-screen min-h-screen flex flex-col items-center '>
-        <div className='w-full h-[30vh] flex items-center justify-center bg-[#4F518C] '>
+    <main className='w-screen h-screen font-montserrat'>
+      <div className='w-screen min-h-screen flex flex-col items-center'>
+        <div className='w-full h-[30vh] flex items-center justify-center bg-gray-600'>
+          {/*      LOGO      */}
           <div className='w-44 h-44 rounded-full bg-black m-4' />
         </div>
-        <div className='w-full min-h-screen flex items-center justify-center bg-[#2C2A4A]'>
+        <div className='w-full min-h-screen flex items-center justify-center bg-gray-900'>
+          {/*     BLOGS      */}
           <div className={`w-[90%] min-h-screen inline-grid place-items-center grid-cols-1 grid-rows-${sliceData?.length}`}>
             {error
               ? (<ErrorMessage error={error} />)
@@ -84,6 +86,7 @@ export default function Blog ({
           </div>
         </div>
       </div>
+      {/*  Nunca olvidar el amor y cariño que le pongo a esto <3  */}
     <footer className='overflow-hidden text-center flex items-center justify-center bg-zinc-900 text-white'> 
     © Desarrollado con amor 💖 por &nbsp;<Link href='https://www.linkedin.com/in/richardhd/' className='flex items-center justify-center'>
       <span className='hover:text-blue-500'>RichardHD</span><FaLinkedin size={20}/></Link></footer>
