@@ -15,7 +15,7 @@ const montserrat = Montserrat({weight:"400", subsets:['latin'],variable:'--font-
 
 export default function App ({ Component, pageProps }: AppProps) {
   return (
-      <main className={`${alegraya.variable} ${inconsolata.variable} ${Chakra.variable} ${montserrat.variable} ${robot.className} overflow-x-hidden`}>
+      <main className={`${alegraya.variable} ${inconsolata.variable} ${Chakra.variable} ${montserrat.variable} ${alegraya.className} overflow-x-hidden`}>
         <Provider>
         <Navbar />
         <Component {...pageProps} />
