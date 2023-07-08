@@ -5,10 +5,10 @@ export default function Habilidades() {
   return (
     <>
       <div className="w-full h-full flex overflow-hidden">
-        <div className="h-full w-1/2">
+        <div className="md:h-full md:w-1/2 h-full w-full">
           <TechComp />
         </div>
-        <div className="h-full w-1/2 flex items-center justify-center">
+        {/* <div className="h-full w-1/2 flex items-center justify-center">
           <div className="h-5/6 w-3/5 rounded-3xl">
             <div className="h-1/6 w-full flex justify-center items-center text-3xl text-white">
               Habilidades
@@ -48,7 +48,7 @@ export default function Habilidades() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

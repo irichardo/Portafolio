@@ -33,7 +33,7 @@ const imagenes = [
 const TechComp = () => {
   return (
     <div className='w-full h-full flex items-center justify-center'>
-      <div className='w-3/5 h-5/6'>
+      <div className='w-full h-5/6 md:w-3/5 md:h-5/6'>
         <div className='w-full h-1/6  flex justify-center items-center shadow-xl'>
           <span className='text-3xl text-white'>Tecnologias</span>
         </div>
