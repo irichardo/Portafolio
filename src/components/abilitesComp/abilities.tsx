@@ -15,7 +15,7 @@ export default function Habilidades() {
            <div className="w-full h-1/6 justify-center items-center text-white text-3xl flex p-10"> Habilidades</div>
            <div className="w-full h-5/6 grid grid-cols-2 grid-rows-2 place-items-center">
                {
-                abilities.map(a=><AbilitiesCircle color={a.color} abilities={a.name} id={a.name}/>)
+                abilities.map(a=><AbilitiesCircle color={a.color} abilities={a.name} id={a.name} key={a.name}/>)
                }
            </div>
           </div>
