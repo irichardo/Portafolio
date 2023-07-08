@@ -4,10 +4,10 @@ import { BsPhone } from 'react-icons/bs'
 import React, { useState } from 'react'
 
 type form = {
-  name?:string | undefined;
-  mail?:string | undefined;
-  message?:string | undefined;
-  data?:string | undefined
+  name?: string | undefined;
+  mail?: string | undefined;
+  message?: string | undefined;
+  data?: string | undefined
 }
 
 export default function ContactComp() {
@@ -15,7 +15,7 @@ export default function ContactComp() {
   /*   color button for Interesting  */
   const [form, setForm] = useState<form>({
   })
-  
+
   const [buttonmail, SetButtonMail] = useState(false)
 
   const valueButton = {
@@ -24,7 +24,7 @@ export default function ContactComp() {
   }
 
   const HandlerForm = (event: any) => {
-    if(event.target.value === valueButton.project || event.target.value === valueButton.jobProp) setForm({...form,data:event.target.value})
+    if (event.target.value === valueButton.project || event.target.value === valueButton.jobProp) setForm({ ...form, data: event.target.value })
     if (event.target.id === 'name') setForm({ ...form, name: event.target.value })
     if (event.target.id === 'mail') setForm({ ...form, mail: event.target.value })
     if (event.target.id === 'message') setForm({ ...form, mail: event.taget.value })
@@ -55,23 +55,23 @@ export default function ContactComp() {
                   id='name'
                   value={form.name || ''}
                   onChange={HandlerForm}
-                  className='bg-transparent placeholder-opacity-50 placeholder:text-xs focus:outline-none border-b focus:border-b-2 border-b-pink-600 w-5/6 m-8 placeholder-purple-900 font-semibold'
+                  className='bg-transparent placeholder-opacity-50 placeholder:text-center md:placeholder:text-start placeholder:text-xs focus:outline-none border-b focus:border-b-2 border-b-pink-600 w-5/6 m-8 placeholder-purple-900 font-semibold'
                 />
                 <input
                   placeholder='Tu correo'
                   id='mail'
                   value={form.mail || ''}
                   onChange={HandlerForm}
-                  className='bg-transparent placeholder-opacity-50 placeholder:text-xs focus:outline-none border-b focus:border-b-2 border-b-pink-600 w-5/6 m-8 placeholder-purple-900 font-semibold'
+                  className='bg-transparent placeholder-opacity-50 placeholder:text-center md:placeholder:text-start placeholder:text-xs focus:outline-none border-b focus:border-b-2 border-b-pink-600 w-5/6 m-8 placeholder-purple-900 font-semibold'
                 />
                 <input
                   placeholder='Tu mensaje'
                   id='message'
                   value={form.message || ''}
                   onChange={HandlerForm}
-                  className='bg-transparent placeholder-opacity-50 placeholder:text-xs focus:outline-none border-b focus:border-b-2 border-b-pink-600 w-5/6 m-8 placeholder-purple-900 font-semibold'
+                  className='bg-transparent placeholder-opacity-50 placeholder:text-center md:placeholder:text-start placeholder:text-xs focus:outline-none border-b focus:border-b-2 border-b-pink-600 w-5/6 m-8 placeholder-purple-900 font-semibold'
                 />
-              
+
                 <div className='w-full h-2/6 flex justify-center items-center relative'>
                   {
                     <button type='submit' className='w-[20vh] rounded-md bg-red-700 shadow-md shadow-slate-800 focus:shadow-none text-white text-sm font-semibold flex items-center justify-center transition-shadow'>
@@ -81,7 +81,7 @@ export default function ContactComp() {
                     </button>
                   }
                 </div>
-                </form>
+              </form>
             </div>
           </div>
         </div>

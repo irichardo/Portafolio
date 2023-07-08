@@ -31,11 +31,11 @@ export default function Projects() {
   }
 
   return (
-    <div className='w-full h-full flex overflow-hidden'>
-      <div className='w-5/6 h-full flex items-center justify-center'>
-        <div className='w-4/5 h-5/6 flex flex-col items-center justify-evenly'>
-          <div className='w-5/6 h-3/6 flex items-center justify-center'>
-            <div className='w-full h-full flex justify-center items-center text-white text-2xl shadow-lg shadow-gray-950 hover:shadow-none transition-all'>
+    <div className='w-full h-full block md:flex'>
+      <div className=' w-full h-5/6 md:w-5/6 md:h-full items-center justify-center flex '>
+        <div className=' w-full h-4/6 md:w-4/5  md:h-5/6 flex flex-col items-center justify-evenly'>
+          <div className=' w-full md:w-5/6 h-3/6 flex items-center justify-center'>
+            <div className='w-full h-full flex justify-center items-center text-white text-xs md:text-2xl shadow-lg shadow-gray-950 hover:shadow-none transition-all'>
               {actualProject.url
                 ? actualProject.url
                 : gitData[0]?.url}
@@ -56,14 +56,14 @@ export default function Projects() {
           </div>
         </div>
       </div>
-      <div className='w-2/6 h-full grid items-center'>
-        <div className='w-3/6 h-[88%] grid justify-center overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-corner-red-700 scrollbar-track-gray-300'>
+      <div className='md:w-2/6 md:h-full items-center w-full'>
+        <div className='w-full h-1/6 md:w-3/6 md:h-[88%] flex md:block justify-center overflow-x-auto md:overflow-x-hidden md:overflow-y-auto custom-scrollbar'>
           {gitData.map((a) => {
             return (
-              <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}
+              <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.4 }}
                 value={`${a.description}|${a.url}`}
                 onClick={screenHandler}
-                className='h-36 w-36 bg-slate-400 text-center overflow-hidden grid items-center m-5 rounded-lg text-white text-xl font-bold'
+                className=' h-16 md:h-36 md:w-36 bg-slate-400 text-center flex justify-center items-center m-5 rounded-lg text-white text-xs md:text-xl font-bold p-4'
                 key={a.url}
               >
                 {a.url.split('/')[4]}
