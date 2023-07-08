@@ -74,7 +74,7 @@ export default function ContactComp() {
 
                 <div className='w-full h-2/6 flex justify-center items-center relative'>
                   {
-                    <button type='submit' className='w-[20vh] rounded-md bg-red-700 shadow-md shadow-slate-800 focus:shadow-none text-white text-sm font-semibold flex items-center justify-center transition-shadow'>
+                    <button type='submit' name='enviar email' className='w-[20vh] rounded-md bg-red-700 shadow-md shadow-slate-800 focus:shadow-none text-white text-sm font-semibold flex items-center justify-center transition-shadow'>
                       <div className='w-2/6 h-full justify-center items-center flex'>
                         <MdSend size='2rem' />
                       </div>

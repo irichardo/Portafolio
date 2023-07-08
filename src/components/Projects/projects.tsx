@@ -61,9 +61,10 @@ export default function Projects() {
           {gitData.map((a) => {
             return (
               <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.4 }}
+                
                 value={`${a.description}|${a.url}`}
                 onClick={screenHandler}
-                className=' h-16 md:h-36 md:w-36 bg-slate-400 text-center flex justify-center items-center m-5 rounded-lg text-white text-xs md:text-xl font-bold p-4'
+                className=' h-16 md:h-36 md:w-36 bg-slate-600 text-center flex justify-center items-center m-5 rounded-lg text-white text-xs md:text-lg font-bold p-4'
                 key={a.url}
               >
                 {a.url.split('/')[4]}
