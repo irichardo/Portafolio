@@ -1,7 +1,7 @@
 export default function main () {
   return (
     <>
-      <div className='w-full h-full bg-gray-900 flex items-center justify-center overflow-hidden'>
+      <div className='w-full h-[80vh] bg-gray-900 flex items-center justify-center overflow-hidden'>
         <div className='w-5/6 h-full flex justify-center items-center'>
           <div className='w-5/6 h-full flex items-center justify-center'>
             <div className='w-4/5 h-4/6 rounded-lg justify-center flex flex-col items-center relative '>

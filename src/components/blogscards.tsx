@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { blogdata } from '@/libs/types'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import {motion} from 'framer-motion'
 
 export default function BlogCards({ resData }: { resData: blogdata[] }) {
   const Router = useRouter()
@@ -10,7 +11,14 @@ export default function BlogCards({ resData }: { resData: blogdata[] }) {
   return (
     resData.map((a) => {
       return (
-        <div key={a.id} className='w-full mt-5 sm:mt-0 md:h-[30vh] md:w-full lg:h-auto lg:w-4/6 desktopLarge:w-3/4 md:m-5 bg-[#5C677D] delay-100 lg:rounded-md shadow-md relative'>
+        <motion.div
+        key={a.id}
+        className='w-full mt-5 sm:mt-0 md:h-[30vh] md:w-full lg:h-auto lg:w-4/6 desktopLarge:w-3/4 md:m-5 bg-[#5C677D] lg:rounded-md shadow-md relative'
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5 }}
+  >
+        {/* <div key={a.id} className='w-full mt-5 sm:mt-0 md:h-[30vh] md:w-full lg:h-auto lg:w-4/6 desktopLarge:w-3/4 md:m-5 bg-[#5C677D] delay-100 lg:rounded-md shadow-md relative'> */}
           {/* <div className='w-full h-[20%] items-center justify-center flex p-4 bg-red-400'>
           </div> */}
           <div className='w-full h-[20vh] md:h-full lg:h-[45vh] flex justify-center'>
@@ -32,7 +40,7 @@ export default function BlogCards({ resData }: { resData: blogdata[] }) {
             </Link>
             <div className='sm:w-1/2 h-full flex flex-col '>
               <div className='w-full flex justify-end'>
-              <div className='md:text-sm text-[10px] m-2 w-2/6 text-center bg-red-500 text-white rounded-md'>{a.date}</div>
+              <div className='md:text-sm text-[10px] m-2 w-2/6 text-center bg-red-800 text-white rounded-md'>{a.date}</div>
               </div>
               <div className='w-full items-center flex flex-col justify-center md::overflow-hidden'>
                 <fieldset className='border-t w-[80%]'>
@@ -50,7 +58,8 @@ export default function BlogCards({ resData }: { resData: blogdata[] }) {
               </div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
+        </motion.div>
       )
     })
   )

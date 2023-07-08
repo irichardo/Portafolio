@@ -14,7 +14,7 @@ export default function Layout ({ children }:layoutProps) {
       <title>RichardHD | WebDeveloper</title>
       </Head>
         <div>{children}</div>
-        <footer className='text-center relative flex items-center justify-center bg-gray-900 text-white'> © Desarrollado con amor 💖 por &nbsp;<Link href='https://www.linkedin.com/in/richardhd/' className='flex items-center justify-center'><span className='hover:text-blue-500'>RichardHD</span><FaLinkedin size={20}/></Link></footer>
+        <footer className='text-center relative flex items-center justify-center bg-gray-900 text-white text-xs sm:text-sm'> © Desarrollado con amor 💖 por &nbsp;<Link href='https://www.linkedin.com/in/richardhd/' className='flex items-center justify-center'><span className='hover:text-blue-500'>RichardHD</span><FaLinkedin size={20}/></Link></footer>
     </div>
   )
 }

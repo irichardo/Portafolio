@@ -1,5 +1,6 @@
 import { blogdata } from '@/libs/types'
 import React, { EventHandler } from 'react'
+import {motion} from 'framer-motion'
 
 export default function Paginate ({ resData, setPaginated, actualPage }:{resData:blogdata[], setPaginated:EventHandler< any | number>, actualPage:number}) {
   // const [actualPage,setActualPage] = useState(0);
@@ -17,13 +18,13 @@ export default function Paginate ({ resData, setPaginated, actualPage }:{resData
 
   for (let i = 1; i < data + 1; i++) {
     inded.push(
-      <li className='w-8 h-8 transition-all m-4 relative z-30' key={i}>
-        <span className={`z-20 w-full h-full flex items-center justify-center absolute top-0 pointer-events-none ${actualPage === i ? 'text-white' : 'text-black'} transition-colors `}>{i}</span>
-        <button className={`w-full h-full absolute  rounded-sm top-0 ${actualPage === i ? 'rotate-0 bg-red-800' : 'rotate-45 bg-white'} transition-all z-10 hover:rotate-0 hover:transition-transform pointer-events-auto`} key={i} value={i} onClick={handleSetActualPageSetPagination} />
+      <li className='w-8 h-8 transition-all m-2 relative z-30' key={i}>
+      <motion.button  whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} className={`w-full h-full font-chakra ${actualPage === i ? 'bg-red-800 shadow-sm shadow-gray-700 text-white' : 'bg-white shadow-inner'}  shadow-slate-950`} key={i} value={i} onClick={handleSetActualPageSetPagination}>{i}
+       </motion.button>
       </li>)
   }
   return (
-    <ul className='flex items-center justify-center absolute bottom-5 w-1/3 m-2 bg-white rounded-xl border-2 border-gray-500 opacity-30 hover:opacity-100 transition-opacity delay-75'>
+    <ul className='fixed items-center justify-center flex bottom-5 w-1/3 m-2 bg-white rounded-xl border-2 opacity-30 hover:opacity-100 transition-opacity delay-75'>
       {inded}
     </ul>
   )

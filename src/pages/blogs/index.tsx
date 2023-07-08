@@ -15,15 +15,15 @@ import ParallaxBackground from '@/components/parallax/parallaxBackground'
 
 export const revalidate = 10
 
-export async function getStaticProps() {  
-try {
+export async function getStaticProps() {
+  try {
     const allpages = await getPosts()
     return {
       props: {
         resData: allpages,
         error: null
       },
-      revalidate:60
+      revalidate: 60
     }
   } catch (error: any) {
     const errorMessage = ['Fallo en la solicitud:', error.message]
@@ -40,14 +40,7 @@ try {
 /*BLOG PAGE */
 
 
-export default function Blog ({
-  resData,
-  error
-}: {
-  resData: blogdata[];
-  error: any;
-}) {
-
+export default function Blog({ resData, error }: { resData: blogdata[]; error: any; }) {
   //context for create a persistance pagination
   const { actualPage, setActualPage } = useContext(GlobalContext)
 
@@ -65,33 +58,33 @@ export default function Blog ({
 
   return (
     <RootLayout>
-    <main className='w-screen min-h-screen font-montserrat'>
-      <div className='w-screen min-h-screen flex-col items-center hidden sm:flex'>
-        <div className='w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-600'>
-          {/*      LOGO      */}
-          <ParallaxBackground/>
-        </div>
-        <div className='w-full min-h-screen flex items-center justify-center bg-gray-900'>
-          {/*     BLOGS      */}
-          <div className={`w-full lg:w-[90%] min-h-screen  grid-cols-1 place-items-center grid-rows-${sliceData?.length} ${sliceData?.length <= 1?' grid-rows-none grid-cols-none flex items-start justify-center':'inline-grid'}`}>
-            {error
-              ? (<ErrorMessage error={error} />)
-              : (<BlogCards resData={sliceData} />)
-              }
-            {resData?.length > itemsPerPage && ( <></>
-              // <Paginate
-              //   resData={resData}
-              //   setPaginated={setPageHandler}
-              //   actualPage={actualPage}
-              // />
-            )}
+      <main className='w-screen min-h-screen font-montserrat'>
+        <div className='w-screen min-h-screen flex-col items-center hidden sm:flex'>
+          <div className='w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-600'>
+            {/*      LOGO      */}
+            <ParallaxBackground />
           </div>
+          <div className='w-full min-h-screen flex items-center justify-center bg-gray-900'>
+            {/*     BLOGS      */}
+            <div className={`w-full lg:w-[90%] min-h-screen  grid-cols-1 place-items-center grid-rows-${sliceData?.length} ${sliceData?.length <= 1 ? ' grid-rows-none grid-cols-none flex items-start justify-center' : 'inline-grid'}`}>
+              {error
+                ? (<ErrorMessage error={error} />)
+                : (<BlogCards resData={sliceData} />)
+              }
+            </div>
+          </div>
+              {resData?.length > itemsPerPage && (
+                <Paginate
+                  resData={resData}
+                  setPaginated={setPageHandler}
+                  actualPage={actualPage}
+                />
+              )}
         </div>
-      </div>
-    </main>
-    <footer className='overflow-hidden text-center flex items-center justify-center bg-zinc-900 text-white text-xs sm:text-sm'> 
-    © Desarrollado con amor 💖 por &nbsp;<Link href='https://www.linkedin.com/in/richardhd/' className='flex items-center justify-center'>
-      <span className='hover:text-blue-500 '>RichardHD</span><FaLinkedin size={20}/></Link></footer>
+      </main>
+      <footer className='overflow-hidden text-center flex items-center justify-center bg-zinc-900 text-white text-xs sm:text-sm'>
+        © Desarrollado con amor 💖 por &nbsp;<Link href='https://www.linkedin.com/in/richardhd/' className='flex items-center justify-center'>
+          <span className='hover:text-blue-500 '>RichardHD</span><FaLinkedin size={20} /></Link></footer>
     </RootLayout>
   )
 }

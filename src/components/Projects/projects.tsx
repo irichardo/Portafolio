@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { GlobalContext } from '../../../context/globalContext'
+import { motion } from 'framer-motion'
 
-export default function Projects () {
+export default function Projects() {
   const [actualProject, setActualProject] = useState<{
     url: String | undefined;
     description: String | null;
@@ -44,14 +45,14 @@ export default function Projects () {
             {actualProject.description == null
               ? (
                 <div>Texto no disponible aun</div>
-                )
+              )
               : actualProject
                 ? (
-                    actualProject.description
-                  )
+                  actualProject.description
+                )
                 : (
-                    gitData[0]?.description
-                  )}
+                  gitData[0]?.description
+                )}
           </div>
         </div>
       </div>
@@ -59,14 +60,14 @@ export default function Projects () {
         <div className='w-3/6 h-[88%] grid justify-center overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-corner-red-700 scrollbar-track-gray-300'>
           {gitData.map((a) => {
             return (
-              <button
+              <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}
                 value={`${a.description}|${a.url}`}
                 onClick={screenHandler}
                 className='h-36 w-36 bg-slate-400 text-center overflow-hidden grid items-center m-5 rounded-lg text-white text-xl font-bold'
                 key={a.url}
               >
                 {a.url.split('/')[4]}
-              </button>
+              </motion.button>
             )
           })}
         </div>

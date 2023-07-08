@@ -4,7 +4,7 @@ const Home = indexObject('Inicio')
 const Abilities = indexObject('Habilidades')
 const Contact = indexObject('Contacto')
 const Projects = indexObject('Proyectos')
-const About = indexObject('Sobre mí')
+const About = indexObject('About-me')
 const DevBlog = 'DevBlog'
 
 const sectionRoutes = {

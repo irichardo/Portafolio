@@ -19,7 +19,8 @@ module.exports = {
         alegra:['var(--font-alegraya)'],
         inconsolata:['var(--font-inconsolata)'],
         chakra:['var(--font-chakra)'],
-        montserrat:['var(--font-montserrat)']
+        montserrat:['var(--font-montserrat)'],
+        roboto:['var(--font-roboto)']
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

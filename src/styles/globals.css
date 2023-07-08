@@ -6,6 +6,7 @@
 
 .custom-scrollbar::-webkit-scrollbar{
   width: 1px;
+  height: 1px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -101,4 +102,15 @@ a{
   50% {
     background-position: 100% 50%;
   }
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  color: blue;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--red);
+  transform-origin: 0%;
 }

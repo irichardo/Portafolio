@@ -6,74 +6,86 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import rehypeHighLight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
+import { useEffect, useState } from 'react'
+import { useScroll } from 'framer-motion'
 
-/*     htmlStyles */
+/*     htmlStylescustom */
 import H1 from '@/components/markdowncustom/tittle'
 import H2 from '@/components/markdowncustom/subtitle'
 import P from '@/components/markdowncustom/parrafo'
 import img from '@/components/imageCompo'
 import Code from '@/components/markdowncustom/code'
 
-/*  styles MDX  */
+/*  styles MDX CODE STYLES */
 
 import 'highlight.js/styles/atom-one-dark.css'
 
 /*   */
 
-export default function PostPage ({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function PostPage({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
+
+  const { scrollYProgress } = useScroll();
+  const [hookedYPostion, setHookedYPosition] = useState(0);
+  useEffect(()=>{
+    // hook into the onChange, store the current value as state.
+    scrollYProgress.onChange(v=> setHookedYPosition(v));
+  },[scrollYProgress]); //make sure to re-subscriobe when scrollYProgress changes
+  
 
   return (
-    <>
-      <section className='w-screen min-h-screen flex justify-center items-center bg-gray-800'>
-       <Head>
-        <title>{data.frontmatter.title as string}</title>
-        <meta name='description' content={`${data.frontmatter.meta?data.frontmatter.meta:data.frontmatter.title}`}/>
-      </Head>
-      <div className='w-[70%] min-h-screen inline-grid place-items-center grid-cols-1 m-10 border-2 border-white relative'>
-      {/* <div className='w-full h-full absolute right-4 bottom-4 border-2 border-blue-600 bg-purple-300 bg-opacity-20'></div> */}
-      <MDXRemote
-        {...data}
-        components={{
-          h1: H1,
-          h2:H2,
-          p: P,
-          img: img,
-          code: Code,
-          // blockquote:Cita
-        }}
-        />
-      </div>
-    </section>
-      <div className='w-full h-full flex items-center justify-center bg-slate-800'>
-      <Link href={'/blogs'} className='w-1/6 h-[5vh] bg-red-300 text-center flex justify-center items-center'>Inicio</Link>
+      <>
+      <span className='w-full h-2 fixed flex items-center justify-center z-50'><div className={`transition-all h-full bg-red-400`} style={{width:`${hookedYPostion*100}%`}}></div></span>
+      <section className='w-screen min-h-screen flex flex-col justify-center items-center bg-gray-800 z-20'>
+        <Head>
+          <title>{data.frontmatter.title as string}</title>
+          <meta name='description' content={`${data.frontmatter.meta ? data.frontmatter.meta : data.frontmatter.title}`} />
+        </Head>
+        <div className=' w-[90%] sm:w-[70%] min-h-screen inline-grid place-items-center grid-cols-1 m-10 border-2 border-white relative'>
+          {/* <div className='w-full h-full absolute right-4 bottom-4 border-2 border-blue-600 bg-purple-300 bg-opacity-20'></div> */}
+          <MDXRemote
+            {...data}
+            components={{
+              h1: H1,
+              h2: H2,
+              p: P,
+              img: img,
+              code: Code,
+              // blockquote:Cita
+            }}
+          />
+        </div>
+        
+      </section>
+      <div className='w-full flex items-center justify-center fixed bottom-0'>
+        <Link href={'/blogs'} className='w-1/6 h-[5vh] bg-red-300 text-center flex justify-center items-center'>Inicio</Link>
       </div>
       </>
   )
 }
 
-export async function getStaticPaths () {
+export async function getStaticPaths() {
   const id = await getPosts()
-  const postId = id?.map((a:any) => {
+  const postId = id?.map((a: any) => {
     return {
       params: { postId: a.id }
     }
   })
-  return { 
-    paths: postId, 
+  return {
+    paths: postId,
     fallback: 'blocking',
   }
 }
 
 
-export async function getStaticProps ({ params }:any) {
-    const { postId } = params
-    const postFile = await getPagesData(`${postId}.mdx`)
-    if(!postFile) {return{notFound:true}}
-    const mdxSource = await serialize(postFile, { parseFrontmatter: true, mdxOptions: { rehypePlugins: [rehypeHighLight, rehypeSlug] } })
-    return {
-      props: {
-        data: mdxSource,
-      },
-      revalidate: 60
-    }
+export async function getStaticProps({ params }: any) {
+  const { postId } = params
+  const postFile = await getPagesData(`${postId}.mdx`)
+  if (!postFile) { return { notFound: true } }
+  const mdxSource = await serialize(postFile, { parseFrontmatter: true, mdxOptions: { rehypePlugins: [rehypeHighLight, rehypeSlug] } })
+  return {
+    props: {
+      data: mdxSource,
+    },
+    revalidate: 60
+  }
 }

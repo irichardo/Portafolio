@@ -37,7 +37,7 @@ export default function ChangeButton () {
       </button>
       {copyMessage
         ? (
-          <div className={`absolute bottom-10 h-[10vh] w-full text-sm bg-gray-400 flex items-center justify-center text-white border-2 transition-transform ${focus ? 'translate-x-0' : 'translate-y-40 text-transparent opacity-30'} }`}>
+          <div className={`absolute bottom-10 h-[10vh] w-full text-sm bg-gray-400 flex items-center justify-center text-center text-white transition-transform ${focus ? 'translate-y-16 sm:translate-y-24 translate-x-0' : 'translate-y-44 sm:translate-y-60 text-transparent opacity-30'} delay-200}`}>
             Correo copiado en el portapapeles
           </div>
           )

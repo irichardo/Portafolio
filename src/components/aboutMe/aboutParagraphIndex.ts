@@ -1,7 +1,7 @@
 export const AboutMeIndex = [
     {
         id:1,
-        paragraph:'Hola!, mi nombre es Richardo, mis amigos me suelen llamar Richard. 🙌'
+        paragraph:'Hola!, mi nombre es Ricardo, mis amigos me suelen llamar Richard. 🙌'
     },
     {
         id:2,
