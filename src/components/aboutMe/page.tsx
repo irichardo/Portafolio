@@ -22,7 +22,7 @@ export default function AboutMe() {
   };
 
   return (
-    <div className='w-[80%] h-full items-center justify-center grid place-content-center md:flex rounded-lg bg-gray-100'>
+    <div className=' w-full md:w-[80%] h-[90%] md:h-full items-center justify-center grid md:flex md:rounded-lg bg-gray-100'>
         {/* PORTRAIT  */}
         <div className="  md:w-1/3 h-full flex justify-center items-center">
           <div className="w-full h-3/5 relative flex items-center justify-center">
@@ -38,8 +38,8 @@ export default function AboutMe() {
         </div>
         {/*            TEXT             */}
         <div className=" w-full md:w-1/2 h-full items-center flex flex-col justify-center ">
-          <div className="w-[80%] h-full items-center justify-end flex flex-col">
-      <ul className='w-full h-[40vh] lg:h-4/6 desktopLarge:h-4/6 relative flex flex-col items-center overflow-y-scroll text-xs font-montserrat  custom-scrollbar shadow-inner shadow-slate-600'>
+          <div className="w-full md:w-[80%] h-full items-center justify-end flex flex-col">
+      <ul className='w-full h-[40vh] lg:h-4/6 desktopLarge:h-4/6 relative flex flex-col items-center overflow-y-scroll text-xs font-montserrat  custom-scrollbar md:shadow-inner shadow-slate-600'>
               {
                 AboutMeIndex.map(a => {
                   return <motion.div
@@ -58,11 +58,11 @@ export default function AboutMe() {
               }
            </ul>
           </div>
-           <div className='w-full md:w-full md:h-2/6  flex items-center justify-center relative'>
-              <button className='w-2/5 h-[5vh] bg-pink-700 text-white text-center justify-center flex items-center m-5 z-20 shadow-sm shadow-gray-950 hover:shadow-none transition-shadow rounded-lg'>
+           <div className='w-full md:w-full md:h-2/6  flex items-center justify-center relative text-xs font-alegra'>
+              <button className=' w-[40%] sm:w-[30%] h-1/2 md:w-[20vh] md:h-[5vh] bg-pink-700 text-white text-center justify-center flex items-center m-5 z-20 shadow-sm shadow-gray-950 hover:shadow-none transition-shadow rounded-lg'>
                 DESCARGAR CV
               </button>
-              <button className='w-2/5 h-[5vh] bg-pink-700 text-white text-center justify-center flex items-center m-5 z-20 shadow-sm shadow-gray-950 hover:shadow-none transition-shadow rounded-lg'>
+              <button className='w-[40%] sm:w-[30%] h-1/2 md:w-2/5 md:h-[5vh] bg-pink-700 text-white text-center justify-center flex items-center m-5 z-20 shadow-sm shadow-gray-950 hover:shadow-none transition-shadow rounded-lg'>
                 VER CV
               </button>
             </div>
