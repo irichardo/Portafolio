@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
-import { GlobalContext } from '../../../context/globalContext'
+import { abilities } from '@/libs'
+import { GlobalContext } from '@context/GlobalContext'
 import { motion } from 'framer-motion'
 
 export default function Projects() {
@@ -60,8 +61,7 @@ export default function Projects() {
         <div className='w-full h-1/6 md:w-3/6 md:h-[88%] flex md:block justify-center overflow-x-auto md:overflow-x-hidden md:overflow-y-auto custom-scrollbar'>
           {gitData.map((a) => {
             return (
-              <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.4 }}
-                
+              <motion.button whileHover={{ scale: 0.9 }} whileTap={{ scale: 1.2 }}
                 value={`${a.description}|${a.url}`}
                 onClick={screenHandler}
                 className=' h-16 md:h-36 md:w-36 bg-slate-600 text-center flex justify-center items-center m-5 rounded-lg text-white text-xs md:text-lg font-bold p-4'

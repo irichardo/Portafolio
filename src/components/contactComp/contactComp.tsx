@@ -31,7 +31,7 @@ export default function ContactComp() {
   }
 
   return (
-    <div className='w-full h-full flex items-center justify-center overflow-hidden relative'>
+    <div className='w-full h-5/6 md:h-full flex items-center justify-center overflow-hidden relative'>
       <div className='w-full sm:w-1/2 h-full justify-center flex items-center'>
         <div className=' w-5/6 h-5/6 bg-white rounded-3xl'>
           <div className='h-2/6 w-full flex flex-col items-center justify-center'>

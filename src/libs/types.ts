@@ -25,6 +25,8 @@ export interface dataFromAPI {
   url: string
 }
 
-export type metadata = {
-  // date 
+export interface circleData{
+   color: string
+   abilities:string,
+   id:string
 }

@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
+const path = require('path')
 const nextConfig = {
+  webpack:(config)=>{
+    config.resolve.alias['@context'] = path.join(__dirname,'./context');
+    return config
+  },
   images: {
     domains: ['images.pexels.com','i.imgur.com', 'imgur.com'],
     minimumCacheTTL: 60

@@ -86,22 +86,43 @@ a{
   user-select: none;
 }
 
-/*  animation background  */
-/* .background-animate {
-  background-size: 400%;
-  -webkit-animation: AnimationName 3s ease infinite;
-  -moz-animation: AnimationName 3s ease infinite;
-  animation: AnimationName 3s ease infinite;
+/*  Abilites Text  */
+
+/* olor:''};
+const empatia = {name:'Empatia', color:''};
+const comunicacion = {name:'Comunicacion', color:''};
+const proactivo = {name:'Proactivo', color:''};
+const Adaptable = {name:'Adaptable', color:''};
+const Responsabilidad = {name:'Responsabilidad', color:''}; */
+/* #Liderazgo{
+  filter: drop-shadow(0 0 5px #3454DF) drop-shadow(0 0 10px #3454DF);
+  transition: .5s;
 }
 
-@keyframes AnimationName {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+#Empatia{
+  filter: drop-shadow(0 0 2px #6FF64E) drop-shadow(0 0 5px #6FF64E);
+  transition: .5s;
+}
+
+#Comunicacion{
+  filter: drop-shadow(0 0 2px #4EF675) drop-shadow(0 0 5px #4EF675);
+  transition: .5s;
+}
+
+#Proactivo{
+  letter-spacing:2px;
+  filter: drop-shadow(0 0 2px #FA6A45) drop-shadow(0 0 5px #FA6A45);
+  transition: .5s;
+}
+
+#Adaptable{
+  filter: drop-shadow(0 0 2px #F0FA45) drop-shadow(0 0 5px #F0FA45);
+  transition: .5s;
+}
+
+#Responsabilidad{
+  filter: drop-shadow(0 0 2px #ff5b5b) drop-shadow(0 0 5px #fc6060);
+  transition: .5s;
 } */
 
 /*                   */
