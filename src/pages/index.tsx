@@ -3,13 +3,12 @@ import AboutMe from '@/components/aboutMe/page'
 import Habilidades from '@/components/abilitesComp/abilities'
 import Projects from '@/components/Projects/projects'
 import ContactComp from '@/components/contactComp/contactComp'
-import {motion} from 'framer-motion'
 import Layout from './layout'
 
 export default function Home () {
   return (
     <Layout>
-    <div className={`flex flex-col items-center justify-between overflow-hidden`}>
+    <main className={`flex flex-col items-center justify-between overflow-hidden`}>
       <section className='w-screen h-screen md:h-[80vh] relative' id='Inicio'>
         <Main />
       </section>
@@ -25,7 +24,7 @@ export default function Home () {
       <section className='w-screen h-screen relative bg-gray-900 items-center justify-center flex ' id='Contacto'>
         <ContactComp />
       </section>
-    </div>
+    </main>
     </Layout>
   )
 }

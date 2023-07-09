@@ -39,6 +39,7 @@ export default function PostPage({ data }: InferGetStaticPropsType<typeof getSta
         <Head>
           <title>{data.frontmatter.title as string}</title>
           <meta name='description' content={`${data.frontmatter.meta ? data.frontmatter.meta : data.frontmatter.title}`} />
+          <meta name='autohr' content='RichardHD' />
         </Head>
         <div className=' w-[90%] sm:w-[70%] min-h-screen inline-grid place-items-center grid-cols-1 m-10 border-2 border-white relative'>
           {/* <div className='w-full h-full absolute right-4 bottom-4 border-2 border-blue-600 bg-purple-300 bg-opacity-20'></div> */}

@@ -6,7 +6,7 @@ import ErrorMessage from '@/components/error'
 import Paginate from '@/components/utils/paginated'
 import { GlobalContext } from '@context/globalContext'
 import { getPosts } from '@/libs/posts'
-import RootLayout from './layout'
+import Layout from './layout'
 import { FaLinkedin } from 'react-icons/fa'
 import ParallaxBackground from '@/components/parallax/parallaxBackground'
 
@@ -57,7 +57,7 @@ export default function Blog({ resData, error }: { resData: blogdata[]; error: a
   /***************************/
 
   return (
-    <RootLayout>
+    <Layout>
       <main className='w-screen min-h-screen font-montserrat'>
         <div className='w-screen min-h-screen flex-col items-center flex'>
           <div className='w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-600'>
@@ -85,6 +85,6 @@ export default function Blog({ resData, error }: { resData: blogdata[]; error: a
       <footer className='overflow-hidden text-center flex items-center justify-center bg-zinc-900 text-white text-xs sm:text-sm'>
         © Desarrollado con amor 💖 por &nbsp;<Link href='https://www.linkedin.com/in/richardhd/' className='flex items-center justify-center'>
           <span className='hover:text-blue-500 '>RichardHD</span><FaLinkedin size={20} /></Link></footer>
-    </RootLayout>
+    </Layout>
   )
 }

@@ -6,15 +6,17 @@ type layoutProps={
     children: ReactNode;
 }
 
-export default function RootLayout ({ children }:layoutProps) {
+export default function Layout ({ children }:layoutProps) {
   return (
-    <main className={`font-montserrat`}>
+    <div className={`font-montserrat`}>
       <Head>
         <title>
-        RichardHD | Blog
+        RichardHD | DevBlog
         </title>
+        <meta name='description' content='DevBlog where I will publish the development of my day to day applications, as well as some reflections.'/>
+        <meta name='auhtor' content='RichardHD'/>
       </Head>
       {children}
-    </main>
+    </div>
   )
 }
