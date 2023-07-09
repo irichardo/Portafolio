@@ -32,8 +32,8 @@ export default function main() {
               </div>
               {/* text  */}
               <div className='w-full h-1/2 flex flex-col items-center justify-center'>
-                <div className='p-2 text-3xl font-montserrat font-bold text-orange-300'>Richard HD</div>
-                <div className='p-2 text-3xl font-montserrat font-bold text-orange-300'>Desarrolador web</div>
+                <h1  className='p-2 text-3xl font-montserrat font-bold text-orange-300'>RichardHD</h1>
+                <h2 className='p-2 text-3xl font-montserrat font-bold text-orange-300'>Desarrolador web</h2>
               </div>
             </div>
             :
@@ -53,7 +53,7 @@ export default function main() {
                   Richard&nbsp;<motion.div className={`${test ? 'neonText' : ''}`} initial={{ color: 'white', scale: 1 }} animate={{ x: 50, scale: 1.3 }} transition={{ duration: 1, delay: 1.5, ease: "easeInOut" }} onAnimationComplete={changeStyleTittle}>HD</motion.div>
                 </motion.h1>
               </div>
-              <motion.h1
+              <motion.h2
                 className="w-4/5 h-2/5 text-orange-300 text-xl"
                 initial={{ x: 0, scale: 1 }}
                 animate={{ x: 500, scale: 1.2 }}
@@ -64,7 +64,7 @@ export default function main() {
                 }}
               >
                 Web developer
-              </motion.h1>
+              </motion.h2>
             </div>
         }
       </div>
