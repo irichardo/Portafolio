@@ -59,7 +59,7 @@ export default function Blog({ resData, error }: { resData: blogdata[]; error: a
   return (
     <RootLayout>
       <main className='w-screen min-h-screen font-montserrat'>
-        <div className='w-screen min-h-screen flex-col items-center hidden sm:flex'>
+        <div className='w-screen min-h-screen flex-col items-center flex'>
           <div className='w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-600'>
             {/*      LOGO      */}
             <ParallaxBackground />

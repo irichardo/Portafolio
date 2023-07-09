@@ -93,47 +93,6 @@ div{
   user-select: none;
 }
 
-/*  Abilites Text  */
-
-/* olor:''};
-const empatia = {name:'Empatia', color:''};
-const comunicacion = {name:'Comunicacion', color:''};
-const proactivo = {name:'Proactivo', color:''};
-const Adaptable = {name:'Adaptable', color:''};
-const Responsabilidad = {name:'Responsabilidad', color:''}; */
-/* #Liderazgo{
-  filter: drop-shadow(0 0 5px #3454DF) drop-shadow(0 0 10px #3454DF);
-  transition: .5s;
-}
-
-#Empatia{
-  filter: drop-shadow(0 0 2px #6FF64E) drop-shadow(0 0 5px #6FF64E);
-  transition: .5s;
-}
-
-#Comunicacion{
-  filter: drop-shadow(0 0 2px #4EF675) drop-shadow(0 0 5px #4EF675);
-  transition: .5s;
-}
-
-#Proactivo{
-  letter-spacing:2px;
-  filter: drop-shadow(0 0 2px #FA6A45) drop-shadow(0 0 5px #FA6A45);
-  transition: .5s;
-}
-
-#Adaptable{
-  filter: drop-shadow(0 0 2px #F0FA45) drop-shadow(0 0 5px #F0FA45);
-  transition: .5s;
-}
-
-#Responsabilidad{
-  filter: drop-shadow(0 0 2px #ff5b5b) drop-shadow(0 0 5px #fc6060);
-  transition: .5s;
-} */
-
-/*                   */
-
 .progress-bar {
   position: fixed;
   top: 0;
@@ -143,4 +102,17 @@ const Responsabilidad = {name:'Responsabilidad', color:''}; */
   height: 10px;
   background: var(--red);
   transform-origin: 0%;
+}
+
+.neonText {
+  color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #BE185D,
+    0 0 82px #BE185D,
+    0 0 92px #BE185D,
+    0 0 102px #BE185D,
+    0 0 151px #BE185D;
 }

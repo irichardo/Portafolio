@@ -3,6 +3,8 @@ import {SiJavascript} from 'react-icons/si'
 import {GrMysql} from 'react-icons/gr'
 import {SiTailwindcss} from 'react-icons/si'
 
+/*     INDEX IMAGES        */
+
 const imagenes = [
   { id:1,
     name: <FaGit size={70} color='white'/>

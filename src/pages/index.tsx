@@ -1,4 +1,4 @@
-import Main from '@/components/mainComp/main'
+import Main from '@/components/landing/landing'
 import AboutMe from '@/components/aboutMe/page'
 import Habilidades from '@/components/abilitesComp/abilities'
 import Projects from '@/components/Projects/projects'
@@ -10,7 +10,7 @@ export default function Home () {
   return (
     <Layout>
     <div className={`flex flex-col items-center justify-between overflow-hidden`}>
-      <section className='w-screen relative' id='Inicio'>
+      <section className='w-screen h-screen md:h-[80vh] relative' id='Inicio'>
         <Main />
       </section>
       <section className='w-screen h-screen flex items-center justify-center relative bg-gray-900 ' id='About-me'>

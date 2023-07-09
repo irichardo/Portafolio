@@ -34,7 +34,7 @@ export default function PostPage({ data }: InferGetStaticPropsType<typeof getSta
 
   return (
       <>
-      <span className='w-full h-2 fixed flex items-center justify-center z-50'><div className={`transition-all h-full bg-red-400`} style={{width:`${hookedYPostion*100}%`}}></div></span>
+      <span className='w-full h-2 fixed flex items-center justify-center z-50'><div className={`transition-all ease-in-out delay-[0.5ms] h-full bg-red-400`} style={{width:`${hookedYPostion*100}%`}}></div></span>
       <section className='w-screen min-h-screen flex flex-col justify-center items-center bg-gray-800 z-20'>
         <Head>
           <title>{data.frontmatter.title as string}</title>

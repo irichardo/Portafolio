@@ -18,8 +18,9 @@ const ParallaxBackground = () => {
             {
               speed: 0,
               children: (
-                <div className='absolute inset-0 flex items-center justify-center'>
-                <motion.div   className="w-44 h-44 md:h-72 md:w-72 bg-gray-950"
+                <div className='absolute inset-0 flex items-center justify-center '>
+                  {/* logo animation */}
+                <motion.div   className="w-44 h-44 sm:h-56 sm:w-56 md:h-64 md:w-64 bg-gray-950 flex items-center justify-center text-3xl text-white"
                 animate={{
                   scale: [1, 1.2, 1.2, 1, 1],
                   rotate: [0, 0, 180, 180, 0],
@@ -30,6 +31,7 @@ const ParallaxBackground = () => {
                   ease: "easeInOut",
                   times: [0, 0.2, 0.5, 0.8, 1]
                 }}>
+                  RHD
                 </motion.div>
                   </div>
               ),
