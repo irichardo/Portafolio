@@ -5,8 +5,8 @@
 /* ::-webkit-scrollbar{} */
 
 .custom-scrollbar::-webkit-scrollbar{
-  width: 1px;
-  height: 1px;
+  width: 2px;
+  height: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -93,26 +93,15 @@ div{
   user-select: none;
 }
 
-.progress-bar {
-  position: fixed;
-  top: 0;
-  color: blue;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background: var(--red);
-  transform-origin: 0%;
-}
-
 .neonText {
   color: #fff;
   text-shadow:
     0 0 7px #fff,
     0 0 10px #fff,
     0 0 21px #fff,
-    0 0 42px #BE185D,
-    0 0 82px #BE185D,
-    0 0 92px #BE185D,
-    0 0 102px #BE185D,
-    0 0 151px #BE185D;
+    0 0 42px #fff,
+    /* 0 0 82px #fff, */
+    /* 0 0 92px #fff, */
+    /* 0 0 102px #fff, */
+    0 0 151px #fff;
 }

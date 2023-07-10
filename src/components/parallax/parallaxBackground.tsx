@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { ParallaxBanner, ParallaxProvider } from 'react-scroll-parallax'
 import {motion} from 'framer-motion'
+import Image from 'next/image'
 
 const ParallaxBackground = () => {
 
@@ -31,7 +32,7 @@ const ParallaxBackground = () => {
                   ease: "easeInOut",
                   times: [0, 0.2, 0.5, 0.8, 1]
                 }}>
-                  RHD
+                   <Image src='/logonobg.svg' width={600} height={600} alt = 'personal brand'/>
                 </motion.div>
                   </div>
               ),
