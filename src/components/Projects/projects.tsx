@@ -1,7 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { getPagesByName, getPagesData, getPosts } from '@/libs/posts'
 import { abilities } from '@/libs'
 import { GlobalContext } from '@context/GlobalContext'
 import { motion } from 'framer-motion'
+import { log } from 'console'
 
 export default function Projects() {
   const [actualProject, setActualProject] = useState<{
@@ -31,6 +33,20 @@ export default function Projects() {
     }
   }
 
+  const [readmeViewer, setReadmeViewer] = useState();
+ 
+  const MDXProjects = async (event:any) =>{
+    let valueName = `${event.target.value}`
+    const x = await getPagesData(valueName,true)
+    // console.log(x.json());
+ }
+
+//  useEffect(()=>{
+
+
+//  },[])
+
+
   return (
     <div className='w-full h-full block md:flex'>
       <div className=' w-full h-5/6 md:w-5/6 md:h-full items-center justify-center flex '>
@@ -43,7 +59,8 @@ export default function Projects() {
             </div>
           </div>
           <div className='w-5/6 h-1/6 text-white justify-center items-center flex text-base shadow-sm shadow-gray-950 hover:shadow-none transition-all'>
-            {actualProject.description == null
+            <button value={actualProject.url?.split('/')[4]} onClick={MDXProjects}>Hola</button>
+            {/* {actualProject.description == null
               ? (
                 <div>Texto no disponible aun</div>
               )
@@ -53,7 +70,7 @@ export default function Projects() {
                 )
                 : (
                   gitData[0]?.description
-                )}
+                )} */}
           </div>
         </div>
       </div>

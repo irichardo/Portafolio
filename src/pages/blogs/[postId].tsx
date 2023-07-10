@@ -51,11 +51,9 @@ export default function PostPage({ data }: InferGetStaticPropsType<typeof getSta
               p: P,
               img: img,
               code: Code,
-              // blockquote:Cita
             }}
           />
         </div>
-        
       </section>
       <div className='w-full flex items-center justify-center fixed bottom-0'>
         <Link href={'/blogs'} className='w-1/6 h-[5vh] bg-red-300 text-center flex justify-center items-center'>Inicio</Link>
@@ -80,7 +78,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: any) {
   const { postId } = params
-  const postFile = await getPagesData(`${postId}.mdx`)
+  const postFile = await getPagesData(`${postId}.mdx`,false)
   if (!postFile) { return { notFound: true } }
   const mdxSource = await serialize(postFile, { parseFrontmatter: true, mdxOptions: { rehypePlugins: [rehypeHighLight, rehypeSlug] } })
   return {

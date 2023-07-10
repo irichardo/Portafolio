@@ -28,7 +28,7 @@ export default function ChangeButton () {
 
   return (
     <>
-      <button type="button" onClick={() => popUp()} onMouseEnter={mouseStateHandler} onMouseLeave={mouseStateLeaveHanlder}>
+      <button type="button" aria-description='Mail' onClick={() => popUp()} onMouseEnter={mouseStateHandler} onMouseLeave={mouseStateLeaveHanlder}>
         {
           mouseInto
             ? <MdFileCopy size='2.5em' color='#BD345D' className='colorIcons' />

@@ -77,7 +77,6 @@ export default function Blog({
   return (
     <Layout>
       <div className="w-screen min-h-screen font-montserrat">
-        {/* <div className="w-screen h-[170vh] bg-purple-500"></div> */}
         <div className="w-screen  flex-col items-center flex">
           <div className="w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-600">
             {/*      LOGO      */}
@@ -101,19 +100,19 @@ export default function Blog({
             </div>
             {/******************************************************************************/}
             {/* search & tags  */}
-            <div className="w-2/12 h-full">
-              <ul className="">
+            <div className="w-2/12 h-full inline-flex flex-wrap">
+              <ul className="flex flex-wrap">
                 {tags.map((tag) => (
                   <li key={tag}>
-                    <button type="button" value={tag} onClick={tagHandler} className="w-full h-1/6 bg-green-300 m-2">
+                    <button type="button" value={tag} onClick={tagHandler} className=" h-auto flex-wrap m-2 bg-gray-900 shadow-inner shadow-gray-700 text-white rounded-md p-3 hover:shadow-none">
                       {tag}
                     </button>
                   </li>
                 ))}
                 <li >
-                  <button type="button" value="clean" className="w-full h-1/6 bg-green-300 m-2" onClick={tagHandler}>
+                  {/* <button type="button" value="clean" className="w-full h-1/6 bg-green-300 m-2" onClick={tagHandler}>
                   todos
-                  </button>
+                  </button> */}
                 </li>
               </ul>
             </div>

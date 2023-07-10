@@ -1,8 +1,9 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { AboutMeIndex } from "./aboutParagraphIndex"
 import { AiFillCloseSquare } from "react-icons/ai"
 import Image from 'next/image'
+import { getPagesByName, getPosts } from "@/libs/posts"
 
 
 export default function AboutMe() {
@@ -24,6 +25,10 @@ export default function AboutMe() {
       }
     }
   };
+
+
+
+  /**         HandlersCV               ***/
 
   const viewerHandler = () => {
     setViewer(!viewerOpen);
@@ -51,20 +56,16 @@ export default function AboutMe() {
       {/* PORTRAIT  */}
       <div className="  md:w-1/3 h-full flex justify-center items-center">
         <div className="w-full h-3/5 relative flex items-center justify-center">
-          {/* <div className="w-full h-full bg-purple-400 relative z-10"> */}
           <div className="">
             <Image src={'https://images.pexels.com/photos/430546/pexels-photo-430546.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'} width={400} height={600} alt="Intento" />
           </div>
           <div className="w-full h-full border-[0.5px] border-white absolute" />
-          <div className="w-full h-full border-[0.5px] border-black absolute right-5 bottom-5 hidden  md:block" />
-          <div className="w-full h-full border-[0.5px] border-black absolute left-5 top-5 hidden md:block" />
         </div>
-
       </div>
       {/*            TEXT             */}
       <div className=" w-full md:w-1/2 h-full items-center flex flex-col justify-center">
-        <div className="w-full md:w-[80%] h-full items-center justify-end flex flex-col">
-          <ul className='w-full h-[40vh] lg:h-4/6 desktopLarge:h-4/6 relative flex flex-col items-center overflow-y-scroll text-xs md:text-sm font-montserrat  custom-scrollbar md:shadow-inner shadow-slate-600'>
+        <div className="w-full md:w-[90%] h-full items-center justify-end flex flex-col">
+          <ul className='w-full h-[40vh] lg:h-5/6 desktopLarge:h-4/6 relative flex flex-col items-center overflow-y-scroll text-xs md:text-sm font-montserrat  custom-scrollbar md:shadow-inner shadow-slate-600'>
             {
               AboutMeIndex.map(a => {
                 return <motion.div

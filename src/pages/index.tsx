@@ -4,6 +4,7 @@ import Habilidades from '@/components/abilitesComp/abilities'
 import Projects from '@/components/Projects/projects'
 import ContactComp from '@/components/contactComp/contactComp'
 import Layout from './layout'
+import { getPosts } from '@/libs/posts'
 
 export default function Home () {
   return (
@@ -27,4 +28,16 @@ export default function Home () {
     </main>
     </Layout>
   )
+}
+
+
+
+export async function getStaticProps(){
+
+  const textDoc = await getPosts()
+  console.log(textDoc,'aaaaaa');
+
+  return{
+    props:{data:textDoc}
+  }
 }
