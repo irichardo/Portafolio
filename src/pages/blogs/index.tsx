@@ -1,90 +1,133 @@
-import React, { useContext } from 'react'
-import Link from 'next/link'
-import { blogdata } from '@/libs/types'
-import BlogCards from '@/components/blogscards'
-import ErrorMessage from '@/components/error'
-import Paginate from '@/components/utils/paginated'
-import { GlobalContext } from '@context/globalContext'
-import { getPosts } from '@/libs/posts'
-import Layout from './layout'
-import { FaLinkedin } from 'react-icons/fa'
-import ParallaxBackground from '@/components/parallax/parallaxBackground'
+import React, { useContext, useState } from "react";
+import { blogdata } from "@/libs/types";
+import BlogCards from "@/components/blogscards";
+import ErrorMessage from "@/components/error";
+import Paginate from "@/components/utils/paginated";
+import { GlobalContext } from "@context/globalContext";
+import { getPosts } from "@/libs/posts";
+import Layout from "./layout";
+import ParallaxBackground from "@/components/parallax/parallaxBackground";
 
+//request static props data
 
-//Para solicitar datos sin perder las propiedades de staticProps
-
-export const revalidate = 10
+export const revalidate = 10;
 
 export async function getStaticProps() {
   try {
-    const allpages = await getPosts()
+    const allpages = await getPosts();
+    /*  transform all elements using set to be used later as an index  */
+    const tags = Array.from(new Set(allpages.map((a: any) => a.tags).flat()));
     return {
       props: {
         resData: allpages,
-        error: null
+        tags,
+        error: null,
       },
-      revalidate: 60
-    }
+      revalidate: 60,
+    };
   } catch (error: any) {
-    const errorMessage = ['Fallo en la solicitud:', error.message]
+    const errorMessage = ["Fallo en la solicitud:", error.message];
     return {
       props: {
         resData: null,
-        error: errorMessage
-      }
-    }
+        error: errorMessage,
+      },
+    };
   }
 }
 
-
 /*BLOG PAGE */
 
-
-export default function Blog({ resData, error }: { resData: blogdata[]; error: any; }) {
+export default function Blog({
+  resData,
+  tags,
+  error,
+}: {
+  resData: blogdata[];
+  tags: string[];
+  error: any;
+}) {
   //context for create a persistance pagination
-  const { actualPage, setActualPage } = useContext(GlobalContext)
+  const { actualPage, setActualPage, introBlogAnimation, setIntroBlogAnimation } = useContext(GlobalContext);
+  const [tag, setTag] = useState<blogdata[]>([]);
 
   /* Paginate Logic */
-  const initData = actualPage
-  const itemsPerPage = 3
-  const initArray = (initData - 1) * itemsPerPage
-  const endArray = initArray + itemsPerPage
-  const sliceData = resData?.slice(initArray, endArray)
+  const initData = actualPage;
+  const itemsPerPage = 3;
+  const initArray = (initData - 1) * itemsPerPage;
+  const endArray = initArray + itemsPerPage;
+  const sliceData = tag.length?tag.slice(initArray, endArray):resData?.slice(initArray, endArray);
 
+  /*      pagination handler         */
   const setPageHandler = (event: number) => {
-    setActualPage(event)
-  }
-  /***************************/
+    setActualPage(event);
+  };
+  /*********  tags hanlder  ********/
+  const tagHandler = (event: any) => {
+    if (event.target.value === "clean") {
+      setTag([]);
+      setActualPage(0);
+    }
+    let filterData = resData.filter((a) => a.tags.includes(event.target.value));
+    setTag(filterData);
+    setActualPage(1);
+  };
+  /*********************************/
 
   return (
     <Layout>
-      <main className='w-screen min-h-screen font-montserrat'>
-        <div className='w-screen min-h-screen flex-col items-center flex'>
-          <div className='w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-600'>
+      <div className="w-screen min-h-screen font-montserrat">
+        {/* <div className="w-screen h-[170vh] bg-purple-500"></div> */}
+        <div className="w-screen  flex-col items-center flex">
+          <div className="w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-600">
             {/*      LOGO      */}
             <ParallaxBackground />
           </div>
-          <div className='w-full min-h-screen flex items-center justify-center bg-gray-900'>
+          <div className="w-full min-h-[50vh] flex justify-center">
             {/*     BLOGS      */}
-            <div className={`w-full lg:w-[90%] min-h-screen  grid-cols-1 place-items-center grid-rows-${sliceData?.length} ${sliceData?.length <= 1 ? ' grid-rows-none grid-cols-none flex items-start justify-center' : 'inline-grid'}`}>
-              {error
-                ? (<ErrorMessage error={error} />)
-                : (<BlogCards resData={sliceData} />)
-              }
+            <div
+              className={`w-full lg:w-[90%] min-h-[50vh] grid-cols-1 place-items-center grid-rows-${
+                // {/* dynamic css  */}
+               sliceData.length
+              } inline-grid
+              `}
+            >
+              {error ? (
+                <ErrorMessage error={error} />
+              ) : (
+                /* verifying the existence of tags for rendering */
+                <BlogCards resData={sliceData} />
+              )}
+            </div>
+            {/******************************************************************************/}
+            {/* search & tags  */}
+            <div className="w-2/12 h-full">
+              <ul className="">
+                {tags.map((tag) => (
+                  <li key={tag}>
+                    <button type="button" value={tag} onClick={tagHandler} className="w-full h-1/6 bg-green-300 m-2">
+                      {tag}
+                    </button>
+                  </li>
+                ))}
+                <li >
+                  <button type="button" value="clean" className="w-full h-1/6 bg-green-300 m-2" onClick={tagHandler}>
+                  todos
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
-              {resData?.length > itemsPerPage && (
-                <Paginate
-                  resData={resData}
-                  setPaginated={setPageHandler}
-                  actualPage={actualPage}
-                />
-              )}
+          {resData?.length > itemsPerPage && (
+            /* verifiying exist of resData & tag.length,  Send data length  */
+            <Paginate
+              resData={tag.length?tag.length:resData.length}
+              setPaginated={setPageHandler}
+              actualPage={actualPage}
+            />
+          )}
         </div>
-      </main>
-      <footer className='overflow-hidden text-center flex items-center justify-center bg-zinc-900 text-white text-xs sm:text-sm'>
-        © Desarrollado con amor 💖 por &nbsp;<Link href='https://www.linkedin.com/in/richardhd/' className='flex items-center justify-center'>
-          <span className='hover:text-blue-500 '>RichardHD</span><FaLinkedin size={20} /></Link></footer>
+      </div>
     </Layout>
-  )
+  );
 }

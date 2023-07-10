@@ -1,4 +1,4 @@
-import { MdMail, MdSend, MdCoffee } from 'react-icons/md'
+import { MdSend } from 'react-icons/md'
 import { BsPhone } from 'react-icons/bs'
 
 import React, { useState } from 'react'

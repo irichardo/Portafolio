@@ -1,7 +1,7 @@
 import { serialize } from 'next-mdx-remote/serialize'
 import rehypeHighlight from 'rehype-highlight/lib'
 import rehypeSlug from 'rehype-slug'
-import { dataFromAPI } from './types'
+import { blogdata, dataFromAPI, paginationData } from './types'
 import xmlbuilder from 'xmlbuilder'
 
 // type Filetree = {
@@ -25,6 +25,7 @@ export async function getPagesByName (filename:string):Promise<any| undefined> {
   if (rawData === '404: Not found') return undefined
   const { frontmatter, content } : any = await serialize(rawData, { parseFrontmatter: true, mdxOptions: { rehypePlugins: [rehypeHighlight, rehypeSlug] } })
   const id = filename.replace(/\.mdx$/, '')
+  // console.log(frontmatter.date)
   const blogpost = { meta: { id, title: frontmatter.title, date: frontmatter.date, tags: frontmatter.tags, cover: frontmatter.cover ? frontmatter.cover : null, preview : frontmatter.preview? frontmatter.preview : null }, content }
   return blogpost
 }
@@ -72,15 +73,18 @@ export async function getPosts () {
   return posts?.sort((a:any, b:any) => { return a.date < b.date ? 1 : -1 })
 }
 
+// export async function generateAlltags(){
+//   const getData = await getPosts()
+//   const _data = new Set(getData.map((a:blogdata)=>a.tags).flat())
+//   return _data
+// }
 
 export function generateSitemap(pages:any) {
   // Generar el contenido XML del sitemap utilizando las páginas del sitio con xmlbuilder
-  console.log(pages)
   const root = xmlbuilder.create('urlset', { version: '1.0', encoding: 'UTF-8' })
     .att('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
   pages.forEach((page:any) => {
     const url = root.ele('url');
-    console.log(url);
     url.ele('loc', {}, page.url);
     url.ele('lastmod', {}, page.lastModified);
     url.ele('changefreq', {}, 'daily');
@@ -88,3 +92,20 @@ export function generateSitemap(pages:any) {
   });
   return root;
 }
+
+// export function paginationData({actualPage, searchData, resData}:paginationData){
+//   if(searchData){
+//     const initData = searchData
+//     const itemsPerPage = 3
+//     const initArray = (initData - 1) * itemsPerPage
+//     const endArray = initArray + itemsPerPage
+//     const sliceData = resData?.slice(initArray, endArray)
+//   }
+//   else{
+//     const initData = actualPage
+//     const itemsPerPage = 3
+//     const initArray = (initData - 1) * itemsPerPage
+//     const endArray = initArray + itemsPerPage
+//     const sliceData = resData?.slice(initArray, endArray)
+//   }
+// }

@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react'
 import { GlobalContext } from './globalContext'
 
 export const Provider = ({ children }: { children: React.ReactNode }) => {
+  /*    Important States       */
   const [gitData, setGitData] = useState([])
   const [actualPage, setActualPage] = useState(1)
+  const [introBlogAnimation, setIntroBlogAnimation] = useState(false)
   const getData = async () => {
     try {
       const url = 'https://api.github.com/users/irichardo/repos'
@@ -28,7 +30,9 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
   const contextValue = {
     gitData,
     actualPage,
-    setActualPage
+    setActualPage,
+    introBlogAnimation,
+    setIntroBlogAnimation
   }
 
   useEffect(() => {

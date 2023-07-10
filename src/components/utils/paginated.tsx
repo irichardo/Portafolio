@@ -2,12 +2,12 @@ import { blogdata } from '@/libs/types'
 import React, { EventHandler } from 'react'
 import {motion} from 'framer-motion'
 
-export default function Paginate ({ resData, setPaginated, actualPage }:{resData:blogdata[], setPaginated:EventHandler< any | number>, actualPage:number}) {
+export default function Paginate ({ resData, setPaginated, actualPage }:{resData:number, setPaginated:EventHandler< any | number>, actualPage:number}) {
   // const [actualPage,setActualPage] = useState(0);
 
   const inded:React.JSX.Element[] = []
   const elementsPerPage = 3
-  const data = Math.ceil(resData?.length / elementsPerPage)
+  const data = Math.ceil(resData / elementsPerPage)
 
   const handleSetActualPageSetPagination = (event:React.MouseEvent<HTMLButtonElement>) => {
     const data = event.target as HTMLButtonElement

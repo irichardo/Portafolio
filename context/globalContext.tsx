@@ -7,11 +7,16 @@ interface GitData{
 interface globalContext {
     gitData : Array<GitData>
     actualPage: number
-    setActualPage: React.Dispatch<React.SetStateAction<number>>;
+    introBlogAnimation:boolean
+    setActualPage: React.Dispatch<React.SetStateAction<number>>
+    setIntroBlogAnimation:React.Dispatch<React.SetStateAction<boolean>>
 }
+// introBlogAnimation, setIntroBlogAnimation
 
 export const GlobalContext = React.createContext<globalContext>({
   gitData: [],
   actualPage: 0,
-  setActualPage: () => {}
+  setActualPage: () => {},
+  introBlogAnimation:false,
+  setIntroBlogAnimation:()=>{}
 })

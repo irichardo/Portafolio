@@ -7,7 +7,6 @@ import {motion} from 'framer-motion'
 
 export default function BlogCards({ resData }: { resData: blogdata[] }) {
   const Router = useRouter()
-
   return (
     resData.map((a) => {
       return (
@@ -18,13 +17,11 @@ export default function BlogCards({ resData }: { resData: blogdata[] }) {
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.5 }}
   >
-        {/* <div key={a.id} className='w-full mt-5 sm:mt-0 md:h-[30vh] md:w-full lg:h-auto lg:w-4/6 desktopLarge:w-3/4 md:m-5 bg-[#5C677D] delay-100 lg:rounded-md shadow-md relative'> */}
-          {/* <div className='w-full h-[20%] items-center justify-center flex p-4 bg-red-400'>
-          </div> */}
           <div className='w-full h-[20vh] md:h-full lg:h-[45vh] flex justify-center'>
           <Link
               href={`${Router.pathname}/${a.id}`}
               className='w-1/2 min-h-full relative hidden sm:block'
+              
             >
               {a.cover && <Image
                 src={a.cover}

@@ -1,6 +1,7 @@
 export type blogdata = {
   id:number,
   title:string,
+  tags :string,
   content:string,
   imagen:string,
   date:string,
@@ -29,4 +30,10 @@ export interface circleData{
    color: string
    abilities:string,
    id:string
+}
+
+export interface paginationData{
+  actualPage?:number,
+  searchData?: blogdata[],
+  resData?:blogdata[]
 }

@@ -4,14 +4,9 @@ import  Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 
 
-
 export default function main() {
 
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-  const [test, setTest] = useState(false)
-  const changeStyleTittle = () => {
-      setTest(true)
-  }
 
   const [hideOnMobile, setHideOnMobile] = useState(false);
   useEffect(() => {
@@ -29,13 +24,13 @@ export default function main() {
             <div className='w-full h-full flex flex-col items-center justify-center' >
               <div className='w-full h-1/2 items-center justify-center flex'>
                 <motion.div key={'LogoMobile'} initial={{opacity:0}} animate={{opacity: 1, borderRadius:["0%", "0%", "5%", "5%"]}} transition={{ duration: 2, delay: 0.5, ease: 'easeInOut' }} className='w-[90%] h-[90%] items-center justify-center flex bg-rose-600  text-white text-3xl'>
-                <Image src='/logonobg.svg' width={600} height={600} alt = 'RicharHD personal branding'/>
+                <Image src='/logonobg.svg' width={600} height={600} alt = 'RicharHD personal branding' loading='lazy'/>
                 </motion.div>
               </div>
               {/* text  */}
               <div className='w-full h-1/2 flex flex-col items-center justify-center'>
-                <motion.h1 onAnimationComplete={changeStyleTittle} key={'titleMobile'} initial={{x:-200,opacity:0}} animate={{x:0, opacity:1}} transition={{duration:2,delay:0.5, ease:'easeInOut'}}  className='p-2 text-3xl font-montserrat font-bold text-orange-300'>RichardHD</motion.h1>
-                <h2 className={`p-2 transition-all text-3xl font-montserrat font-bold text-orange-300 ${test?'neonText':''}`}>Desarrolador web</h2>
+                <motion.h1 key={'titleMobile'} initial={{x:-200,opacity:0}} animate={{x:0, opacity:1}} transition={{duration:2,delay:0.5, ease:'easeInOut'}}  className='p-2 text-3xl font-montserrat font-bold text-orange-300'>RichardHD</motion.h1>
+                <h2 className={`p-2 transition-all text-3xl font-montserrat font-bold text-orange-300 `}>Desarrolador web</h2>
               </div>
             </div>
             :
@@ -59,7 +54,7 @@ export default function main() {
                 times: [0, 1, 0.5, 0.4, 1]
               }} 
               className={`w-[50vh] h-[50vh]  bg-rose-600 items-center flex justify-start`}>
-              <Image src='/logonobg.svg' width={600} height={600} alt = 'RicharHD personal branding'/>
+              <Image src='/logonobg.svg' width={600} height={600} alt = 'RicharHD personal branding' loading='lazy'/>
               </motion.div>
                 <motion.h1
                 key={'tittle'}
