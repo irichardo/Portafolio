@@ -51,6 +51,7 @@ export default function ContactComp() {
             <div className='h-5/6 w-5/7'>
               <form className='w-full h-full flex flex-col items-center'>
                 <input
+                  aria-label='Agregar tu nombre'
                   placeholder='Tu nombre'
                   id='name'
                   value={form.name || ''}
@@ -58,6 +59,7 @@ export default function ContactComp() {
                   className='bg-transparent placeholder-opacity-50 placeholder:text-center md:placeholder:text-start placeholder:text-xs focus:outline-none border-b focus:border-b-2 border-b-pink-600 w-5/6 m-8 placeholder-purple-900 font-semibold'
                 />
                 <input
+                  aria-label='Escribir correo'
                   placeholder='Tu correo'
                   id='mail'
                   value={form.mail || ''}
@@ -65,6 +67,7 @@ export default function ContactComp() {
                   className='bg-transparent placeholder-opacity-50 placeholder:text-center md:placeholder:text-start placeholder:text-xs focus:outline-none border-b focus:border-b-2 border-b-pink-600 w-5/6 m-8 placeholder-purple-900 font-semibold'
                 />
                 <input
+                  aria-label='Agregar mensaje'
                   placeholder='Tu mensaje'
                   id='message'
                   value={form.message || ''}
@@ -74,7 +77,7 @@ export default function ContactComp() {
 
                 <div className='w-full h-2/6 flex justify-center items-center relative'>
                   {
-                    <button type='submit' name='enviar email' className='w-[20vh] rounded-md bg-red-700 shadow-md shadow-slate-800 focus:shadow-none text-white text-sm font-semibold flex items-center justify-center transition-shadow'>
+                    <button type='submit' aria-label='enviar email' className='w-[20vh] rounded-md bg-red-700 shadow-md shadow-slate-800 focus:shadow-none text-white text-sm font-semibold flex items-center justify-center transition-shadow'>
                       <div className='w-2/6 h-full justify-center items-center flex'>
                         <MdSend size='2rem' />
                       </div>
