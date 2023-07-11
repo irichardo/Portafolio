@@ -23,13 +23,13 @@ export default function Projects({ data }: { data: blogdata[] }) {
   const getText = async (event: any | null) => {
     if (!event) {
       let noEventData = await fetch(
-        `https://www.richardhd.com/githubdata?data=learnify`
+        `https://www.richardhd.com/api/githubdata?data=Learnify`
       );
       let changeToText = await noEventData.text();
       setRenderData(changeToText);
     } else {
       let dynamicData = await fetch(
-        `https://www.richardhd.com/githubdata?data=${event.target.value}`
+        `https://www.richardhd.com/api/githubdata?data=${event.target.value}`
       );
       let changeToText = await dynamicData.text();
       setRenderData(changeToText);
