@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import Image from 'next/image'
+import Image from "next/image";
 import { blogdata } from "@/libs/types";
 import { GlobalContext } from "@context/GlobalContext";
 import { motion } from "framer-motion";
@@ -15,28 +15,31 @@ export default function Projects({ data }: { data: blogdata[] }) {
   const [Logic, setRenderData] = useState<any>();
 
   const { gitData } = useContext(GlobalContext);
-  
-  const viewerData = (event:any) =>{
-    setSelectedProject(event.target.value)
-  }
-  
-  const getText = async (event:any|null) => {
-    if(!event){
-      let noEventData = await fetch(`http://localhost:3000/api/githubdata?data=learnify`)
+
+  const viewerData = (event: any) => {
+    setSelectedProject(event.target.value);
+  };
+
+  const getText = async (event: any | null) => {
+    if (!event) {
+      let noEventData = await fetch(
+        `https://www.richardhd.com/githubdata?data=learnify`
+      );
       let changeToText = await noEventData.text();
-      setRenderData(changeToText)
-    }
-    else{
-      let dynamicData = await fetch(`http://localhost:3000/api/githubdata?data=${event.target.value}`);
+      setRenderData(changeToText);
+    } else {
+      let dynamicData = await fetch(
+        `https://www.richardhd.com/githubdata?data=${event.target.value}`
+      );
       let changeToText = await dynamicData.text();
       setRenderData(changeToText);
       readmeActiveHandler();
     }
   };
 
-  const readmeActiveHandler = () =>{
-     setIsActive(!isActive)
-  }
+  const readmeActiveHandler = () => {
+    setIsActive(!isActive);
+  };
 
   useEffect(() => {
     getText(null);
@@ -46,9 +49,19 @@ export default function Projects({ data }: { data: blogdata[] }) {
     <div className="w-full h-full block md:flex relative">
       {Logic && isActive && (
         <div className="w-screen h-screen items-center justify-center flex top-0 z-50 relative">
-          <button className="w-16 h-16  bg-red-500 absolute top-0 right-16" onClick={readmeActiveHandler}></button>
+          <button
+            className="w-16 h-16  bg-red-500 absolute top-0 right-16"
+            onClick={readmeActiveHandler}
+          ></button>
           <article className="w-4/5 h-full overflow-y-auto overflow-x-hidden flex items-center justify-center bg-white text-lg font-chakra">
-            {<ReactMarkdown className="w-5/6 flex flex-col justify-center" components={{code:Code, h1:H1, h2:H2,li:LI}}>{Logic}</ReactMarkdown>}
+            {
+              <ReactMarkdown
+                className="w-5/6 flex flex-col justify-center"
+                components={{ code: Code, h1: H1, h2: H2, li: LI }}
+              >
+                {Logic}
+              </ReactMarkdown>
+            }
           </article>
         </div>
       )}
@@ -66,7 +79,9 @@ export default function Projects({ data }: { data: blogdata[] }) {
             </div>
           </div>
           <div className="w-5/6 h-1/6 text-white justify-center items-center flex text-base shadow-sm shadow-gray-950 hover:shadow-none transition-all">
-            <button value={selectedProject} onClick={getText}>Leer descripcion tecnica</button>
+            <button value={selectedProject} onClick={getText}>
+              Leer descripcion tecnica
+            </button>
           </div>
         </div>
         ad
