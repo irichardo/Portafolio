@@ -15,7 +15,7 @@ export async function getPagesByName(
       headers: {
         Accept: "application/vnd.github+json",
         Authorization: `Bearer ${process.env.TOKEN_GITHUB}`,
-        "X-GitHub-Api-Version": "2022-11-28",
+        "X-GitHub-Api-Version": "2022-11-28"
       },
     }
   );
@@ -33,7 +33,7 @@ export async function getPagesByName(
       id,
       title: frontmatter.title,
       date: frontmatter.date,
-      tags: frontmatter.tags,
+      tags: frontmatter.tags? frontmatter.tags:null,
       cover: frontmatter.cover ? frontmatter.cover : null,
       preview: frontmatter.preview ? frontmatter.preview : null,
     },
@@ -42,34 +42,30 @@ export async function getPagesByName(
   return blogpost;
 }
 
-export async function getPagesData(
-  filename: string,
-  readme: boolean | undefined
-): Promise<any | undefined> {
+export async function getPagesData(filename: string): Promise<any | undefined> {
   try {
-  
-      const res = await fetch(
-        `https://raw.githubusercontent.com/irichardo/blogpost/main/${filename}`,
-        {
-          next: {},
-          headers: {
-            Accept: "application/vnd.github+json",
-            Authorization: `Bearer ${process.env.TOKEN_GITHUB}`,
-            "X-GitHub-Api-Version": "2022-11-28",
-          },
-        }
-      );
-      if (!res.ok) return undefined;
-      const rawData = await res.text();
-      console.log(rawData, "✔💖👌");
-      return rawData;
+    const res = await fetch(
+      `https://raw.githubusercontent.com/irichardo/blogpost/main/${filename}`,
+      {
+        next: {},
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: `Bearer ${process.env.TOKEN_GITHUB}`,
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
+    );
+    if (!res.ok) return undefined;
+    const rawData = await res.text();
+    return rawData;
   } catch (error: any) {
     return error.message;
   }
 }
 
+/*  if readme is true so search MD files    */
 export async function getPosts() {
-  //  solicitud a github para mapear todos los datos.
+  //  Map Data from git hub
   const res = await fetch(
     "https://api.github.com/repos/irichardo/blogpost/git/trees/main?recursive=1",
     {
@@ -85,6 +81,7 @@ export async function getPosts() {
   if (!res.ok) return undefined;
   const rawMDX = await res.json();
   const { tree } = rawMDX;
+  /*        */
   const filesArray: string[] = tree
     .map((files: dataFromAPI) => files.path)
     .filter((path: any) => path.endsWith(".mdx"));

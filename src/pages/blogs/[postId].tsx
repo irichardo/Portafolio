@@ -78,7 +78,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: any) {
   const { postId } = params
-  const postFile = await getPagesData(`${postId}.mdx`,false)
+  const postFile = await getPagesData(`${postId}.mdx`)
   if (!postFile) { return { notFound: true } }
   const mdxSource = await serialize(postFile, { parseFrontmatter: true, mdxOptions: { rehypePlugins: [rehypeHighLight, rehypeSlug] } })
   return {

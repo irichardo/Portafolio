@@ -101,7 +101,7 @@ export default function Navbar() {
           />
           <li className="w-full h-24 flex items-center justify-around ">
             <Link href="https://github.com/irichardo" target="blank">
-              <FaGithub size="2.5em" className="colorIcons transition-colors" />
+              <FaGithub size="2.5em" className="colorIcons transition-colors"   />
             </Link>
             <Link href="https://www.linkedin.com/in/richardhd/" target="blank">
               <FaLinkedin

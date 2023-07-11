@@ -102,17 +102,17 @@ export default function Blog({
             {/* search & tags  */}
             <div className="w-2/12 h-full inline-flex flex-wrap">
               <ul className="flex flex-wrap">
+                  <button type="button" value="clean" className="h-auto flex-wrap m-2 bg-red-800 shadow-md  text-white rounded-md p-3 hover:shadow-none" onClick={tagHandler}>
+                  Limpiar filtros
+                  </button>
                 {tags.map((tag) => (
                   <li key={tag}>
-                    <button type="button" value={tag} onClick={tagHandler} className=" h-auto flex-wrap m-2 bg-gray-900 shadow-inner shadow-gray-700 text-white rounded-md p-3 hover:shadow-none">
+                    <button type="button" value={tag} onClick={tagHandler} className=" h-auto flex-wrap m-2 bg-gray-900   text-white rounded-md p-3 hover:shadow-none">
                       {tag}
                     </button>
                   </li>
                 ))}
                 <li >
-                  {/* <button type="button" value="clean" className="w-full h-1/6 bg-green-300 m-2" onClick={tagHandler}>
-                  todos
-                  </button> */}
                 </li>
               </ul>
             </div>
