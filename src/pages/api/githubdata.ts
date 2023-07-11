@@ -1,7 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { getPagesByName } from "@/libs/posts";
-import { serialize } from "next-mdx-remote/serialize";
-
 
 export default async function handler(req:NextApiRequest, res:NextApiResponse) {
   try{
