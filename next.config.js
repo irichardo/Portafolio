@@ -11,7 +11,8 @@ const nextConfig = {
   },
   env: {
     TOKEN_GITHUB: process.env.TOKEN_GITHUB,
-    MY_SECRET_TOKEN:process.env.MY_SECRET_TOKEN
+    MY_SECRET_TOKEN:process.env.MY_SECRET_TOKEN,
+    SITE_URL : process.env.SITE_URL
   }
 }
 
