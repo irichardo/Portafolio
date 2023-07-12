@@ -13,7 +13,7 @@ import { useScroll } from 'framer-motion'
 import H1 from '@/components/markdowncustom/tittle'
 import H2 from '@/components/markdowncustom/subtitle'
 import P from '@/components/markdowncustom/parrafo'
-import img from '@/components/imageCompo'
+import Img from '@/components/imageCompo'
 import Code from '@/components/markdowncustom/code'
 
 /*  styles MDX CODE STYLES */
@@ -49,7 +49,7 @@ export default function PostPage({ data }: InferGetStaticPropsType<typeof getSta
               h1: H1,
               h2: H2,
               p: P,
-              img: img,
+              img: Img,
               code: Code,
             }}
           />

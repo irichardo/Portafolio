@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import sectionRoutes from "./index";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import NavButton from "./navbarButton/button";
@@ -36,7 +37,6 @@ export default function Navbar() {
   };
 
   return (
-    <>
       <div
         className={`w-[30vh] h-full bg-white fixed z-50 grid items-center text-lg font-chakra ${
           listOpen ? "" : "deactivate"
@@ -46,7 +46,7 @@ export default function Navbar() {
           type="button"
           aria-label="close div"
           className={`w-12 h-12 md:h-20 md:w-20  ${
-            mouseEnter ? "bg-white" : "bg-gray-950"
+            mouseEnter ? "bg-gray-950" : "bg-white"
           } absolute top-[44vh]  rounded-tr-full rounded-r-full flex items-center transition-colors ${
             listOpen ? "justify-center left-[30vh]" : "justify-end left-[30vh]"
           } transition-all`}
@@ -55,14 +55,14 @@ export default function Navbar() {
           {listOpen ? (
             <MdKeyboardArrowLeft
               size="4rem"
-              color={mouseEnter ? "black" : "white"}
+              color={mouseEnter ? "white" : "black"}
               onMouseEnter={buttonColor}
               onMouseLeave={buttonColorRemove}
             />
           ) : (
             <MdKeyboardArrowRight
               size="4rem"
-              color={mouseEnter ? "black" : "white"}
+              color={mouseEnter ? "white" : "black"}
               onMouseEnter={buttonColor}
               onMouseLeave={buttonColorRemove}
             />
@@ -113,6 +113,5 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-    </>
   );
 }

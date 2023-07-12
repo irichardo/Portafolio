@@ -3,5 +3,5 @@ import React from "react";
 export default function LI({ children }:{children:React.ReactNode}){
 
 
-    return<li className="font-roboto text-red-500">✅{children}</li>
+    return<li className="font-roboto text-white flex flex-wrap">✅{children}</li>
 }
