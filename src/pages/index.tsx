@@ -6,7 +6,7 @@ import ContactComp from "@/components/contactComp/contactComp";
 import Layout from "./layout";
 import { getPosts } from "@/libs/posts";
 
-export default function Home({ data }: any) {
+export default function Home() {
   return (
     <Layout>
       <main
@@ -31,7 +31,7 @@ export default function Home({ data }: any) {
           className="w-screen h-screen relative bg-gray-900 "
           id="Proyectos"
         >
-          <Projects data={data}/>
+          <Projects/>
         </section>
         <section
           className="w-screen h-screen relative bg-gray-900 items-center justify-center flex "
@@ -42,12 +42,4 @@ export default function Home({ data }: any) {
       </main>
     </Layout>
   );
-}
-
-export async function getStaticProps() {
-  const textDoc = await getPosts();
-
-  return {
-    props: { data: textDoc },
-  };
 }
