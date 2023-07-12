@@ -4,6 +4,7 @@ import Link from "next/link";
 
 /*------------------------Styles---------------*/
 import { motion } from "framer-motion";
+import { BsGithub } from "react-icons/bs";
 
 /* ---------CUSTOM MARKDOWN // COMPONENTS---------*/
 import ReactMarkdown from "react-markdown";
@@ -18,8 +19,8 @@ import Img from "../imageCompo";
 
 import { url } from "@/libs";
 import { gitHubLink } from "@/libs";
+import LinkCustom from "../markdowncustom/link";
 
-console.log(url);
 
 /*---------------------------------------------- */
 
@@ -60,7 +61,7 @@ export default function Projects() {
         </div>
         <div className=" w-full h-4/6 md:w-4/5  md:h-5/6 flex flex-col items-center justify-evenly">
           <div className=" w-full md:w-5/6 h-5/6 flex items-center justify-center">
-            <div className="w-full h-full flex justify-center items-center text-white text-xs md:text-2xl shadow-lg shadow-gray-950 hover:shadow-none transition-all relative custom-scrollbar overflow-y-scroll overflow-x-hidden">
+            <div className="w-full h-full flex justify-center items-center text-white text-xs md:text-2xl shadow-lg relative custom-scrollbar overflow-y-scroll overflow-x-hidden">
               <article className="w-full min-h-full flex items-center justify-center bg-slate-950 text-lg rounded-lg absolute top-0">
                 {
                   <ReactMarkdown
@@ -72,6 +73,7 @@ export default function Projects() {
                       li: LI,
                       article: Article,
                       img: Img,
+                      a:LinkCustom
                     }}
                   >
                     {rendermd}
@@ -81,9 +83,12 @@ export default function Projects() {
             </div>
           </div>
           <div className="w-5/6 h-1/6 text-white justify-center items-center flex text-base">
-            <Link href={`${gitHub}`} target="_blank">
+            <div className=" h-[70%] md:h-[50%] flex items-center justify-center rounded-xl bg-gray-700 shadow-md hover:shadow-none w-2/3 hover:w-4/5 md:w-2/4 md:hover:w-2/3 lg:w-1/4 lg:hover:w-3/6 shadow-gray-950 transition-all">
+              <BsGithub size={30} className="m-2"/> 
+            <Link href={`${gitHub}`} target="_blank" className="">
               Ver Repositorio
             </Link>
+            </div>
           </div>
         </div>
       </div>
