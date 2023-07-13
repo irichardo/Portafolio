@@ -17,8 +17,7 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
       const response = await data.json()
       const resData = response.map((a: any) => {
         return {
-          url: a.html_url,
-          description: a.description
+          url: a.html_url
         }
       })
       setGitData(resData)

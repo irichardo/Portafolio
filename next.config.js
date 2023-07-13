@@ -6,7 +6,7 @@ const nextConfig = {
     return config
   },
   images: {
-    domains: ['images.pexels.com','i.imgur.com', 'imgur.com','photos.google.com'],
+    domains: ['images.pexels.com','i.imgur.com', 'imgur.com','github.com'],
     minimumCacheTTL: 60
   },
   env: {

@@ -65,7 +65,7 @@ export default function AboutMe() {
       {/*            TEXT             */}
       <div className=" w-full md:w-1/2 h-full items-center flex flex-col justify-center">
         <div className="w-full md:w-[90%] h-5/6 items-center justify-end flex flex-col">
-          <ul className='w-full h-[40vh] lg:h-5/6 desktopLarge:h-4/6 relative flex flex-col items-center overflow-y-scroll text-xs md:text-sm font-montserrat  custom-scrollbar md:shadow-inner shadow-slate-600'>
+          <ul className='w-full h-[40vh] lg:h-5/6 desktopLarge:h-4/6 relative flex flex-col items-center overflow-y-scroll text-xs md:text-sm font-chakra  custom-scrollbar md:shadow-inner shadow-slate-600'>
             {
               AboutMeIndex.map(a => {
                 return <motion.div

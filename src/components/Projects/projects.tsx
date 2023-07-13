@@ -25,20 +25,21 @@ import LinkCustom from "../markdowncustom/link";
 /*---------------------------------------------- */
 
 export default function Projects() {
+  
   const [gitHub, setGitHubLink] = useState<string>();
   const [rendermd, setMD] = useState<any>();
   const { gitData } = useContext(GlobalContext);
-
-
+  
+  
   /*      get md from api       */
   const getText = async (event: any | null) => {
     if (!event) {
       let noEventData = await fetch(
-        `${url}api/githubdata?data=Portfolio`
+        `${url}api/githubdata?data=Portafolio`
       );
       let changeToText = await noEventData.text();
       setMD(changeToText);
-      setGitHubLink(`${gitHubLink}Portfolio`);
+      setGitHubLink(`${gitHubLink}Portafolio`);
     } else {
       let dynamicData = await fetch(
         `${url}api/githubdata?data=${event.target.value}`
@@ -84,8 +85,8 @@ export default function Projects() {
           </div>
           <div className="w-5/6 h-1/6 text-white justify-center items-center flex text-base">
             <div className=" h-[70%] md:h-[50%] flex items-center justify-center rounded-xl bg-gray-700 shadow-md hover:shadow-none w-2/3 hover:w-4/5 md:w-2/4 md:hover:w-2/3 lg:w-1/4 lg:hover:w-3/6 shadow-gray-950 transition-all">
+            <Link className="w-full h-full flex items-center justify-center"  href={`${gitHub}`} target="_blank">
               <BsGithub size={30} className="m-2"/> 
-            <Link href={`${gitHub}`} target="_blank" className="">
               Ver Repositorio
             </Link>
             </div>
@@ -93,8 +94,10 @@ export default function Projects() {
         </div>
       </div>
       <div className="md:w-2/6 md:h-full items-center w-full">
-        <div className="w-full h-1/6 md:w-2/3 lg:w-1/2 md:h-full flex md:block justify-center overflow-x-auto md:overflow-x-hidden md:overflow-y-auto custom-scrollbar">
+        <div className="w-full h-1/6 md:w-2/3 lg:w-1/2 md:h-full flex md:block justify-center overflow-x-scroll md:overflow-x-hidden md:overflow-y-auto custom-scrollbar">
           {gitData.map((a) => {
+            /* github problemas , no let me delete that's repo */
+            if(a.url.endsWith('blogpost') || a.url.endsWith('Prep-Course'))return
             return (
               <motion.button
                 onClick={getText}

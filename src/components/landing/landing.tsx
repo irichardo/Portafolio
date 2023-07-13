@@ -24,7 +24,7 @@ export default function main() {
             <div className='w-full h-full flex flex-col items-center justify-center' >
               <div className='w-full h-1/2 items-center justify-center flex'>
                 <motion.div key={'LogoMobile'} initial={{opacity:0}} animate={{opacity: 1, borderRadius:["0%", "0%", "5%", "5%"]}} transition={{ duration: 2, delay: 0.5, ease: 'easeInOut' }} className='w-[90%] h-[90%] items-center justify-center flex bg-rose-600  text-white text-3xl'>
-                <Image src='/logonobg.svg' width={600} height={600} alt = 'RicharHD personal branding' loading='lazy'/>
+                <Image src='/logonobg.svg' width={600} height={600} alt = 'RicharHD personal branding' priority/>
                 </motion.div>
               </div>
               {/* text  */}

@@ -5,8 +5,8 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
     const {data} = req.query   
       const resData = await fetch(`https://raw.githubusercontent.com/irichardo/blogpost/main/ReadmeProjects/${data}.md`)
       if(!resData) return undefined
-      const paleerse = await resData.text();
-      res.status(200).send(paleerse);
+      const rawToText = await resData.text();
+      res.status(200).send(rawToText);
     }
     catch{
         res.status(404)
