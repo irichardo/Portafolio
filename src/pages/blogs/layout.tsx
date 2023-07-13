@@ -20,7 +20,7 @@ export default function Layout({ children }: layoutProps) {
         />
         <meta name="auhtor" content="RichardHD" />
       </Head>
-      <main className="w-screen bg-gray-700">
+      <main className="w-screen bg-gray-900">
         {children}
         </main>
       <footer className="overflow-hidden text-center flex items-center justify-center bg-zinc-900 text-white text-xs sm:text-sm">

@@ -78,7 +78,7 @@ export default function Blog({
     <Layout>
       <div className="w-screen min-h-screen font-montserrat">
         <div className="w-screen  flex-col items-center flex">
-          <div className="w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-600">
+          <div className="w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-950">
             {/*      LOGO      */}
             <ParallaxBackground />
           </div>
@@ -100,14 +100,14 @@ export default function Blog({
             </div>
             {/******************************************************************************/}
             {/* search & tags  */}
-            <div className="w-2/12 h-full inline-flex flex-wrap">
+            <div className="w-2/12 h-full inline-flex flex-wrap font-chakra">
               <ul className="flex flex-wrap">
                   <button type="button" value="clean" className="h-auto flex-wrap m-2 bg-red-800 shadow-md  text-white rounded-md p-3 hover:shadow-none" onClick={tagHandler}>
                   Limpiar filtros
                   </button>
                 {tags.map((tag) => (
                   <li key={tag}>
-                    <button type="button" value={tag} onClick={tagHandler} className=" h-auto flex-wrap m-2 bg-gray-900   text-white rounded-md p-3 hover:shadow-none">
+                    <button type="button" value={tag} onClick={tagHandler} className=" h-auto flex-wrap m-2 bg-gray-300 text-black rounded-md p-3 hover:shadow-none">
                       {tag}
                     </button>
                   </li>

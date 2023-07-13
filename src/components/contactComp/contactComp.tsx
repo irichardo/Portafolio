@@ -40,7 +40,7 @@ export default function ContactComp() {
       <div className="w-full sm:w-1/2 h-full justify-center flex items-center">
         <div className=" w-5/6 h-5/6 bg-white rounded-3xl">
           <div className="h-2/6 w-full flex flex-col items-center justify-center">
-            <div className="w-5/6 h-[20vh] flex items-center justify-center md:justify-start sm:items-end font-semibold text-lg font-roboto">
+            <div className="w-5/6 h-[20vh] flex items-center justify-center md:justify-start sm:items-end font-semibold text-lg font-montserrat">
               Estoy interesado en . . .
             </div>
             <div className="w-5/6 h-full flex">
@@ -50,7 +50,7 @@ export default function ContactComp() {
                 className={`w-40 h-10 ${
                   form.data === valueButton.jobProp
                     ? "bg-red-700 text-white shadow-md shadow-slate-700"
-                    : "bg-white text-gray-400 border-gray-600"
+                    : "bg-white text-gray-950 border-gray-600"
                 } rounded-md border text-xs sm:text-sm m-2 cursor-default transition-shadow`}
                 value={valueButton.jobProp}
                 onClick={HandlerForm}
@@ -63,7 +63,7 @@ export default function ContactComp() {
                 className={`w-40 h-10 ${
                   form.data === valueButton.project
                     ? "bg-red-700 text-white shadow-md shadow-slate-700"
-                    : "bg-white text-gray-400 border-gray-600"
+                    : "bg-white text-gray-950 border-gray-600"
                 } rounded-md border text-xs sm:text-sm m-2 cursor-default transition-shadow`}
                 value={valueButton.project}
                 onClick={HandlerForm}

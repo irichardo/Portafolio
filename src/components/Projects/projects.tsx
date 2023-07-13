@@ -104,7 +104,7 @@ export default function Projects() {
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 1.2 }}
                 value={a.url.split("/")[4]}
-                className=" h-16 md:h-24 md:w-24 lg:min-h-20 lg:min-w-20 lg:h-36 lg:w-36 bg-slate-600 text-center flex justify-center items-center m-5 rounded-lg text-white text-xs md:text-lg font-bold p-4"
+                className={` h-16 md:h-24 md:w-24 lg:min-h-20 lg:min-w-20 lg:h-36 lg:w-36 ${gitHub?.split('/')[4] === a.url.split("/")[4]?'bg-pink-700':'bg-slate-600'} shadow-white text-center flex justify-center items-center m-5 rounded-lg text-white text-xs md:text-lg font-bold p-4`}
                 key={a.url}
               >
                 {a.url.split("/")[4]}

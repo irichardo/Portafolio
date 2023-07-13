@@ -27,26 +27,34 @@ const ParallaxBackground = () => {
             {
               speed: 0,
               children: (
-                <div className="absolute inset-0 flex items-center justify-center ">
+                <div className="absolute inset-0 flex items-center justify-around bg-black bg-opacity-60">
+                  <div className=" text-9xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-white  bg-opacity-50 font-bold hidden md:block border-b-2 border-white">
+                    DEV
+                  </div>
                   {introBlogAnimation ? (
-                    <div className="w-44 h-44 sm:h-56 sm:w-56 md:h-64 md:w-64 bg-gray-950 flex items-center justify-center text-3xl text-white -rotate-90 scale-y-[-1] rounded-2xl">
-                      <Image
-                        src="/logonobg.svg"
-                        width={600}
-                        height={600}
-                        alt="personal brand"
-                      />
+                    <div className="flex flex-col">
+                      <div className="w-44 h-44 sm:h-56 sm:w-56 md:h-64 md:w-64 bg-gray-950 flex items-center justify-center text-3xl text-white -rotate-90 scale-y-[-1] rounded-2xl">
+                        <Image
+                          src="/logonobg.svg"
+                          width={600}
+                          height={600}
+                          alt="personal brand"
+                        />
+                      </div>
+                      <div className=" md:hidden text-lg text-white items-center justify-center flex font-chakra border-b-2 border-white">
+                        DevBlog
+                      </div>
                     </div>
                   ) : (
                     <motion.div
                       onAnimationComplete={hanlderStopAnimation}
-                      className="w-44 h-44 sm:h-56 sm:w-56 md:h-64 md:w-64 bg-gray-950 flex items-center justify-center  text-3xl text-white"
-                      style={{ scaleY: -1, rotateZ: 90}}
-                      initial={{ x: -300, opacity:0.4}}
+                      className="w-44 h-44 sm:h-56 sm:w-56 md:h-64 md:w-64 bg-gray-950 flex items-center justify-center  text-3xl text-white relative"
+                      style={{ scaleY: -1, rotateZ: 90 }}
+                      initial={{ x: -300, opacity: 0.4 }}
                       animate={{
                         x: 0,
-                        opacity:1,
-                        borderRadius:['0%','0%','5%','5%']
+                        opacity: 1,
+                        borderRadius: ["0%", "0%", "5%", "5%"],
                       }}
                       transition={{
                         duration: 3,
@@ -62,6 +70,9 @@ const ParallaxBackground = () => {
                       />
                     </motion.div>
                   )}
+                  <div className=" text-9xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] font-bold text-white hidden md:block border-b-2 border-white">
+                    BLOG
+                  </div>
                 </div>
               ),
             },

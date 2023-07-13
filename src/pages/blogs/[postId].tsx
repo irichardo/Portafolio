@@ -19,6 +19,8 @@ import Code from '@/components/markdowncustom/code'
 /*  styles MDX CODE STYLES */
 
 import 'highlight.js/styles/atom-one-dark.css'
+import LI from '@/components/markdowncustom/list'
+import H3 from '@/components/markdowncustom/subtitle3'
 
 /*   */
 
@@ -48,9 +50,11 @@ export default function PostPage({ data }: InferGetStaticPropsType<typeof getSta
             components={{
               h1: H1,
               h2: H2,
+              h3: H3,
               p: P,
               img: Img,
               code: Code,
+              li:LI
             }}
           />
         </div>
