@@ -1,7 +1,7 @@
-import React from "react";
+import React, { LiHTMLAttributes } from "react";
 
-export default function LI({ children }:{children:React.ReactNode}){
+export default function LI(props:LiHTMLAttributes<ChildNode>){
+const {children} = props
 
-
-    return<li className="font-roboto text-white flex flex-wrap">✅{children}</li>
+    return<li className="font-roboto text-white">✅{children}</li>
 }
