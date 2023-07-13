@@ -71,7 +71,7 @@ export default function Projects() {
                       code: Code,
                       h1: H1,
                       h2: H2,
-                      li: LI,
+                      // li: LI,
                       article: Article,
                       img: Img,
                       a:LinkCustom
