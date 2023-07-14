@@ -48,7 +48,12 @@ export default function Blog({
   error: any;
 }) {
   //context for create a persistance pagination
-  const { actualPage, setActualPage, introBlogAnimation, setIntroBlogAnimation } = useContext(GlobalContext);
+  const {
+    actualPage,
+    setActualPage,
+    introBlogAnimation,
+    setIntroBlogAnimation,
+  } = useContext(GlobalContext);
   const [tag, setTag] = useState<blogdata[]>([]);
 
   /* Paginate Logic */
@@ -56,7 +61,9 @@ export default function Blog({
   const itemsPerPage = 3;
   const initArray = (initData - 1) * itemsPerPage;
   const endArray = initArray + itemsPerPage;
-  const sliceData = tag.length?tag.slice(initArray, endArray):resData?.slice(initArray, endArray);
+  const sliceData = tag.length
+    ? tag.slice(initArray, endArray)
+    : resData?.slice(initArray, endArray);
 
   /*      pagination handler         */
   const setPageHandler = (event: number) => {
@@ -87,7 +94,7 @@ export default function Blog({
             <div
               className={`w-full lg:w-[90%] min-h-[50vh] grid-cols-1 place-items-center grid-rows-${
                 // {/* dynamic css  */}
-               sliceData.length
+                sliceData.length
               } inline-grid
               `}
             >
@@ -102,25 +109,34 @@ export default function Blog({
             {/* search & tags  */}
             <div className="w-2/12 h-full inline-flex flex-wrap font-chakra">
               <ul className="flex flex-wrap">
-                  <button type="button" value="clean" className="h-auto flex-wrap m-2 bg-purple-400 shadow-md  text-white rounded-md p-3 hover:shadow-none" onClick={tagHandler}>
+                <button
+                  type="button"
+                  value="clean"
+                  className="h-auto flex-wrap m-2 bg-purple-400 shadow-md  text-white rounded-md p-3 hover:shadow-none"
+                  onClick={tagHandler}
+                >
                   Limpiar filtros
-                  </button>
+                </button>
                 {tags.map((tag) => (
                   <li key={tag}>
-                    <button type="button" value={tag} onClick={tagHandler} className=" h-auto flex-wrap m-2 bg-white text-black rounded-md p-3 hover:shadow-none">
+                    <button
+                      type="button"
+                      value={tag}
+                      onClick={tagHandler}
+                      className=" h-auto flex-wrap m-2 bg-white text-black rounded-md p-3 hover:shadow-none"
+                    >
                       {tag}
                     </button>
                   </li>
                 ))}
-                <li >
-                </li>
+                <li></li>
               </ul>
             </div>
           </div>
           {resData?.length > itemsPerPage && (
             /* verifiying exist of resData & tag.length,  Send data length  */
             <Paginate
-              resData={tag.length?tag.length:resData.length}
+              resData={tag.length ? tag.length : resData.length}
               setPaginated={setPageHandler}
               actualPage={actualPage}
             />
