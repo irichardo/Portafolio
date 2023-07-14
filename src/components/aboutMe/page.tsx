@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { AboutMeIndex } from "./aboutParagraphIndex";
 import { AiFillCloseSquare } from "react-icons/ai";
 import Image from "next/image";
-import { getPagesByName, getPosts } from "@/libs/posts";
+import Link from "next/link";
 
 export default function AboutMe() {
   const [viewerOpen, setViewer] = useState(false);
@@ -33,7 +33,7 @@ export default function AboutMe() {
   const dowloadHandlerPdf = () => {
     const Link = document.createElement("a");
     Link.href = "./";
-    Link.download = "cv.pdf";
+    Link.download = "cvform.pdf";
     Link.click();
   };
 
@@ -54,9 +54,9 @@ export default function AboutMe() {
             {/* <button className="w-[5vh] h-[5vh] absolute right-0 top-5 bg-red-500 rounded-md" onClick={viewerHandler}>X</button> */}
             {
               <Image
-                src={"/cv.jpg"}
-                width={500}
-                height={400}
+                src={"/cv.png"}
+                width={700}
+                height={600}
                 alt="portafolio"
               ></Image>
             }
@@ -109,12 +109,15 @@ export default function AboutMe() {
           </ul>
         </div>
         <div className="w-full md:w-full md:h-2/6  flex items-center justify-center relative text-xs md:text-base font-chakra">
-          <button
+          <Link
             className=" w-[40%] sm:w-[30%] h-1/2 md:w-[20vh] md:h-[5vh] bg-pink-700 text-white text-center justify-center flex items-center m-5 z-20 shadow-sm shadow-gray-950 hover:shadow-none transition-shadow rounded-lg"
-            onClick={dowloadHandlerPdf}
+            // onClick={dowloadHandlerPdf}
+            href={'/pdf/cvform.pdf'}
+            target="_blank"
+            download
           >
             DESCARGAR CV
-          </button>
+          </Link>
           <button
             onClick={viewerHandler}
             className="w-[40%] sm:w-[30%] h-1/2 md:w-2/5 md:h-[5vh] bg-pink-700 text-white text-center justify-center flex items-center m-5 z-20 shadow-sm shadow-gray-950 hover:shadow-none transition-shadow rounded-lg"

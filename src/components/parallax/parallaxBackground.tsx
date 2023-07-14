@@ -41,7 +41,7 @@ const ParallaxBackground = () => {
                           alt="personal brand"
                         />
                       </div>
-                      <div className=" md:hidden text-lg text-white items-center justify-center flex font-chakra border-b-2 border-white">
+                      <div className=" md:hidden text-lg text-white items-center justify-center flex font-chakra border-b-4 border-white">
                         DevBlog
                       </div>
                     </div>
