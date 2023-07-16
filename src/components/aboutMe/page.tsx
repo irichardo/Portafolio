@@ -8,33 +8,26 @@ import Link from "next/link";
 export default function AboutMe() {
   const [viewerOpen, setViewer] = useState(false);
 
-  const cardVariants = {
-    offscreen: {
-      y: 100,
-      rotate: 0,
-    },
-    onscreen: {
-      y: 50,
-      rotate: 0,
-      transition: {
-        type: "spring",
-        bounce: 0.4,
-        duration: 0.8,
-      },
-    },
-  };
+  // const cardVariants = {
+  //   offscreen: {
+  //     y: 100,
+  //     rotate: 0,
+  //   },
+  //   onscreen: {
+  //     y: 50,
+  //     rotate: 0,
+  //     transition: {
+  //       type: "spring",
+  //       bounce: 0.4,
+  //       duration: 0.8,
+  //     },
+  //   },
+  // };
 
   /**         HandlersCV               ***/
 
   const viewerHandler = () => {
     setViewer(!viewerOpen);
-  };
-
-  const dowloadHandlerPdf = () => {
-    const Link = document.createElement("a");
-    Link.href = "./";
-    Link.download = "cvform.pdf";
-    Link.click();
   };
 
   return (
@@ -70,48 +63,33 @@ export default function AboutMe() {
             <Image
               src={
                 "https://images.pexels.com/photos/430546/pexels-photo-430546.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              }
+              } 
               width={400}
-              height={600}
+              height={400}
               alt="Intento"
             />
           </div>
-          <div className="w-full h-full border-[0.5px] border-white absolute" />
         </div>
       </div>
       {/*            TEXT             */}
       <div className=" w-full md:w-1/2 h-full items-center flex flex-col justify-center">
-        <div className="w-full md:w-[90%] h-5/6 items-center justify-end flex flex-col">
-          <ul className="w-full h-[40vh] lg:h-5/6 desktopLarge:h-4/6 relative flex flex-col items-center overflow-y-scroll text-xs md:text-sm font-chakra  custom-scrollbar md:shadow-inner shadow-slate-600">
-            {AboutMeIndex.map((a) => {
-              return (
-                <motion.div
-                  className="w-full h-full"
-                  initial="offscreen"
-                  whileInView="onscreen"
-                  viewport={{ once: true, amount: 0.8 }}
-                  key={a.id}
-                >
-                  {" "}
-                  <motion.div
-                    className="card w-full h-full items-center flex justify-center"
-                    variants={cardVariants}
-                  >
+          <ul className="w-full h-[40vh] lg:h-5/6 desktopLarge:h-5/6 relative flex flex-col items-center justify-end text-xs md:text-sm font-chakra md:shadow-inner shadow-slate-600">
                     <li
-                      className={`w-[90%] p-4 mb-5 min-h-[30%] flex text-center justify-center items-center font-semibold shadow-md shadow-gray-500 rounded-md bg-blue-100`}
+                      className={`w-[90%] h-2/3 p-4 mb-5 flex justify-center items-center font-semibold shadow-md shadow-gray-500 rounded-md bg-blue-100 flex-col`}
                     >
-                      {a.paragraph}
+                      Hola soy Ricardo, mis amigos me dicen Richard! 💜 <br/>
+                      Autodidacta empedernido. <br/>
+                      Me gusta hacer cosas diferentes, entre el arte, la tecnologia y tambien la escritura!<br/>
+                      Actualmente me busco un espacio en el mundo IT para poder continuar con mi crecimiento profesional. <br/>
+                      Me encanta los espacios donde pueda comunicarme y entender al resto, asi como tambien aprender de todos y de
+                      ellos.<br/>
+                      Mi meta principal costear mis estudios de ciberseguridad. 🎓<br/>
+                      Mi filosifia de vida es: <span className="w-full ">Cuando todos remamos el barco hacia la misma direccion, es menos tiempo el que nos tomara culminar el camino.</span>
                     </li>
-                  </motion.div>
-                </motion.div>
-              );
-            })}
           </ul>
-        </div>
         <div className="w-full md:w-full md:h-2/6  flex items-center justify-center relative text-xs md:text-base font-chakra">
           <Link
             className=" w-[40%] sm:w-[30%] h-1/2 md:w-[20vh] md:h-[5vh] bg-pink-700 text-white text-center justify-center flex items-center m-5 z-20 shadow-sm shadow-gray-950 hover:shadow-none transition-shadow rounded-lg"
-            // onClick={dowloadHandlerPdf}
             href={'/pdf/cvform.pdf'}
             target="_blank"
             download

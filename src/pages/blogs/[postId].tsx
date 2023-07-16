@@ -21,27 +21,16 @@ import Code from "@/components/markdowncustom/code";
 import "highlight.js/styles/atom-one-dark.css";
 import LI from "@/components/markdowncustom/list";
 import H3 from "@/components/markdowncustom/subtitle3";
+import Layout from "./DynamicLayout";
 
 /*   */
 
 export default function PostPage({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { scrollYProgress } = useScroll();
-  const [hookedYPostion, setHookedYPosition] = useState(0);
-  useEffect(() => {
-    // hook into the onChange, store the current value as state.
-    scrollYProgress.onChange((v) => setHookedYPosition(v));
-  }, [scrollYProgress]); //make sure to re-subscriobe when scrollYProgress changes
-
   return (
     <>
-      <span className="w-full h-2 fixed flex items-center justify-center z-50">
-        <div
-          className={`transition-all ease-in-out delay-[0.5ms] h-full bg-red-400`}
-          style={{ width: `${hookedYPostion * 100}%` }}
-        ></div>
-      </span>
+    <Layout>
       <section className="w-screen min-h-screen flex flex-col justify-center items-center bg-gray-800 z-20">
         <Head>
           <title>{data.frontmatter.title as string}</title>
@@ -78,15 +67,16 @@ export default function PostPage({
             }}
           />
         </div>
-      </section>
-      <div className="w-full flex items-center justify-center fixed bottom-0">
+      <div className="w-full flex items-center justify-center  bottom-0">
         <Link
           href={"/blogs"}
-          className="w-1/6 h-[5vh] bg-red-300 text-center flex justify-center items-center"
+          className=" w-1/2 m-4 md:m-0 md:w-2/6 h-[5vh] bg-pink-600 text-white font-chakra text-lg text-center flex justify-center items-center rounded-md"
         >
-          Inicio
+          Regresar al inicio
         </Link>
       </div>
+      </section>
+      </Layout>
     </>
   );
 }

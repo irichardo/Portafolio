@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
+import Image from "next/image";
+
+/******* LIBS ****** */
 import { ParallaxBanner, ParallaxProvider } from "react-scroll-parallax";
 import { motion } from "framer-motion";
-import Image from "next/image";
+
+/*------ CONTEXT ------ */
 import { GlobalContext } from "@context/*";
 
 const ParallaxBackground = () => {

@@ -51,8 +51,6 @@ export default function Blog({
   const {
     actualPage,
     setActualPage,
-    introBlogAnimation,
-    setIntroBlogAnimation,
   } = useContext(GlobalContext);
   const [tag, setTag] = useState<blogdata[]>([]);
 
@@ -83,7 +81,7 @@ export default function Blog({
 
   return (
     <Layout>
-      <div className="w-screen min-h-screen font-montserrat">
+      <div className="w-screen min-h-screen font-chakra">
         <div className="w-screen  flex-col items-center flex">
           <div className="w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-950">
             {/*      LOGO      */}
@@ -92,9 +90,10 @@ export default function Blog({
           <div className="w-full min-h-[50vh] flex justify-center">
             {/*     BLOGS      */}
             <div
-              className={`w-full lg:w-[90%] min-h-[50vh] grid-cols-1 place-items-center grid-rows-${
+              className={`w-full lg:w-[90%] grid-cols-1 place-items-center grid-rows-1
                 // {/* dynamic css  */}
-                sliceData.length
+                // sliceData.length
+                
               } inline-grid
               `}
             >
@@ -102,12 +101,12 @@ export default function Blog({
                 <ErrorMessage error={error} />
               ) : (
                 /* verifying the existence of tags for rendering */
-                <BlogCards resData={sliceData} />
+                <BlogCards resData={sliceData}/>
               )}
             </div>
             {/******************************************************************************/}
             {/* search & tags  */}
-            <div className="w-2/12 h-full inline-flex flex-wrap font-chakra">
+            {/* <div className="w-2/12 h-full inline-flex flex-wrap font-chakra">
               <ul className="flex flex-wrap">
                 <button
                   type="button"
@@ -129,9 +128,8 @@ export default function Blog({
                     </button>
                   </li>
                 ))}
-                <li></li>
               </ul>
-            </div>
+            </div> */}
           </div>
           {resData?.length > itemsPerPage && (
             /* verifiying exist of resData & tag.length,  Send data length  */

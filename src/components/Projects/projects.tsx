@@ -11,8 +11,8 @@ import ReactMarkdown from "react-markdown";
 import Code from "../markdowncustom/code";
 import H1 from "../markdowncustom/tittle";
 import H2 from "../markdowncustom/subtitle";
-import LI from "../markdowncustom/list";
 import Article from "../markdowncustom/article";
+import Li from "../markdowncustom/list";
 import Img from "../imageCompo";
 
 /*------------------LIBS---------------------*/
@@ -20,6 +20,8 @@ import Img from "../imageCompo";
 import { url } from "@/libs";
 import { gitHubLink } from "@/libs";
 import LinkCustom from "../markdowncustom/link";
+import P from "../markdowncustom/parrafo";
+
 
 
 /*---------------------------------------------- */
@@ -71,7 +73,7 @@ export default function Projects() {
                       code: Code,
                       h1: H1,
                       h2: H2,
-                      // li: LI,
+                      li: Li,
                       article: Article,
                       img: Img,
                       a:LinkCustom

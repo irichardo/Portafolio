@@ -1,16 +1,16 @@
 export type blogdata = {
-  id:number,
-  title:string,
-  tags :string,
-  content:string,
-  imagen:string,
-  date:string,
-  cover:string,
+  id:number;
+  title:string;
+  tags :string;
+  content:string;
+  imagen:string;
+  date:string;
+  cover:string;
   preview:string
 }
 
 export type id = {
-    id:number
+    id:number;
 }
 
 export type filesData = {
@@ -26,14 +26,15 @@ export interface dataFromAPI {
   url: string
 }
 
-export interface circleData{
-   color: string
-   abilities:string,
-   id:string
+export interface abilitiesData{
+   color: string;
+   abilities:string;
+   id:string;
+   description:string;
 }
 
 export interface paginationData{
-  actualPage?:number,
-  searchData?: blogdata[],
+  actualPage?:number;
+  searchData?: blogdata[];
   resData?:blogdata[]
 }

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import React,{ useState } from "react";
 import sectionRoutes from "./index";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import NavButton from "./navbarButton/button";
@@ -7,7 +6,8 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import Link from "next/link";
 import ChangeButton from "./stateChangeButton/button";
 
-export default function Navbar() {
+const Navbar = () => {
+
   const [listOpen, setListOpen] = useState(false);
   const [actualPath, setActualPath] = useState("");
   const [mouseEnter, setMouseEnter] = useState(true);
@@ -35,7 +35,7 @@ export default function Navbar() {
   const buttonColorRemove = () => {
     setMouseEnter(false);
   };
-
+  
   return (
       <div
         className={`w-[30vh] h-full bg-white fixed z-50 grid items-center text-lg font-chakra ${
@@ -115,3 +115,5 @@ export default function Navbar() {
       </div>
   );
 }
+
+export default React.memo(Navbar);

@@ -22,7 +22,7 @@ export default function Home() {
           <AboutMe />
         </section>
         <section
-          className="w-screen min-h-screen md:h-screen relative bg-gray-900"
+          className="w-screen min-h-screen relative bg-gray-900"
           id="Habilidades"
         >
           <Habilidades />
