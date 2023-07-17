@@ -25,19 +25,20 @@ import LinkCustom from "../markdowncustom/link";
 /*---------------------------------------------- */
 
 export default function Projects() {
-  const [gitHub, setGitHubLink] = useState<string>();
+  const [gitHub, setGitHubLink] = useState({value:'', url:''});
   const [loading, setLoading] = useState<boolean>(false);
   const [rendermd, setMD] = useState<any>();
   const { gitData } = useContext(GlobalContext);
 
   /*      get md from api       */
   const getText = async (event: any | null) => {
+    if(event && event.target.value === gitHub.value) return
     setLoading(true)
     if (!event) {
       const noEventData = await fetch(`${url}api/githubdata?data=Portafolio`);
       const changeToText = await noEventData.text();
       setMD(changeToText);
-      setGitHubLink(`${gitHubLink}Portafolio`);
+      setGitHubLink({url:`${gitHubLink}Portafolio`,value:'Portafolio'});
       setLoading(false)
     } else {
       const dynamicData = await fetch(
@@ -45,7 +46,7 @@ export default function Projects() {
       );
       const changeToText = await dynamicData.text();
       setMD(changeToText);
-      setGitHubLink(`${gitHubLink}${event.target.value}`);
+      setGitHubLink({url:`${gitHubLink}${event.target.value}`,value:event.target.value});
       setLoading(false)
     }
   };
@@ -112,7 +113,7 @@ export default function Projects() {
                 value={a.url.split("/")[4]}
                 className={`h-20 w-32
                 md:h-28 md:w-28 lg:min-h-20 lg:min-w-20 lg:h-32 lg:w-32 ${
-                  gitHub?.split("/")[4] === a.url.split("/")[4]
+                  gitHub.value === a.url.split("/")[4]
                     ? "bg-pink-700"
                     : "bg-slate-600"
                 } shadow-white text-center flex justify-center items-center rounded-lg text-white text-xs md:text-lg font-bold p-10 m-2`}
