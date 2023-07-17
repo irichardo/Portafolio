@@ -89,7 +89,7 @@ export default function Projects() {
             <div className=" h-[70%] md:h-[50%] flex items-center justify-center rounded-xl bg-gray-700 shadow-md hover:shadow-none w-2/3 hover:w-4/5 md:w-2/4 md:hover:w-2/3 lg:w-1/4 lg:hover:w-3/6 shadow-gray-950 transition-all">
               <Link
                 className="w-full h-full flex items-center justify-center"
-                href={`${gitHub}`}
+                href={`${gitHub.url}`}
                 target="_blank"
               >
                 <BsGithub size={30} className="m-2" />
