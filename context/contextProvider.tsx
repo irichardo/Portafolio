@@ -7,6 +7,7 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
   const [gitData, setGitData] = useState([])
   const [actualPage, setActualPage] = useState(1)
   const [introBlogAnimation, setIntroBlogAnimation] = useState(false)
+
   const getData = async () => {
     try {
       const url = 'https://api.github.com/users/irichardo/repos'
@@ -25,6 +26,7 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
       throw new Error()
     }
   }
+
 
   const contextValue = {
     gitData,

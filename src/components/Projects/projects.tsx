@@ -92,7 +92,7 @@ export default function Projects() {
           </div>
         </div>
       </div>
-      <div className="w-full md:w-2/6 md:h-full flex md:block overflow-x-auto custom-scrollbar items-center justify-start sm:justify-center">
+      <div className="w-full md:w-2/6 md:h-full flex md:flex-col overflow-x-auto custom-scrollbar items-center md:items-start sm:justify-center">
         {/* <div className=" h-1/6 md:w-2/3 lg:w-1/2 md:h-full inline-flex md:block justify-around  md:overflow-x-hidden md:overflow-y-auto overflow-x-scroll"> */}
           {gitData.map((a) => {
             /* github problemas , no let me delete that's repo */
