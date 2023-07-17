@@ -5,6 +5,7 @@ import Link from "next/link";
 /*------------------------Styles---------------*/
 import { motion } from "framer-motion";
 import { BsGithub } from "react-icons/bs";
+import {Grid} from 'react-loader-spinner'
 
 /* ---------CUSTOM MARKDOWN // COMPONENTS---------*/
 import ReactMarkdown from "react-markdown";
@@ -25,16 +26,19 @@ import LinkCustom from "../markdowncustom/link";
 
 export default function Projects() {
   const [gitHub, setGitHubLink] = useState<string>();
+  const [loading, setLoading] = useState<boolean>(false);
   const [rendermd, setMD] = useState<any>();
   const { gitData } = useContext(GlobalContext);
 
   /*      get md from api       */
   const getText = async (event: any | null) => {
+    setLoading(true)
     if (!event) {
       const noEventData = await fetch(`${url}api/githubdata?data=Portafolio`);
       const changeToText = await noEventData.text();
       setMD(changeToText);
       setGitHubLink(`${gitHubLink}Portafolio`);
+      setLoading(false)
     } else {
       const dynamicData = await fetch(
         `${url}api/githubdata?data=${event.target.value}`
@@ -42,6 +46,7 @@ export default function Projects() {
       const changeToText = await dynamicData.text();
       setMD(changeToText);
       setGitHubLink(`${gitHubLink}${event.target.value}`);
+      setLoading(false)
     }
   };
 
@@ -57,9 +62,10 @@ export default function Projects() {
         </div>
         <div className=" w-full h-4/6 md:w-4/5  md:h-5/6 flex flex-col items-center justify-evenly">
           <div className=" w-full md:w-5/6 h-5/6 flex items-center justify-center">
-            <div className="w-full h-full flex justify-center items-center text-white text-xs md:text-2xl shadow-lg relative custom-scrollbar overflow-y-scroll overflow-x-hidden">
+            <div className="w-full h-full flex justify-center items-center text-white text-xs md:text-2xl shadow-lg relative custom-scrollbar overflow-y-auto overflow-x-hidden">
               <article className="w-full min-h-full flex items-center justify-center bg-slate-950 text-lg rounded-lg absolute top-0">
                 {
+                loading?<Grid color="#E11D48"/>:  
                   <ReactMarkdown
                     className="w-5/6 flex flex-col justify-center text-white"
                     components={{
