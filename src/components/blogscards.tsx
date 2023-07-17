@@ -36,13 +36,13 @@ const BlogCards = ({ resData }: { resData: blogdata[] }) => {
               {a.cover && (
                 <Image src={a.cover} alt="Imagen no encontrada" fill/>
               )}
-              <div className="w-full h-full bg-black hover:bg-opacity-80 bg-opacity-50 hover:text-2xl absolute top-0 flex justify-center items-center text-white transition-all ease-in-out">
+              <div className="w-full h-full bg-gray-950 hover:bg-opacity-80 bg-opacity-50 hover:text-2xl absolute top-0 flex justify-center items-center text-white transition-all ease-in-out">
                 Learn more..
               </div>
             </Link>
           </div>
           {/*  1  */}
-          <div className="w-full min-h-[10vh] flex items-center justify-center order-1 bg-black overflow-hidden">
+          <div className="w-full min-h-[10vh] flex items-center justify-center order-1 bg-gray-950 overflow-hidden">
             <div className="w-full md:w-[90%] h-full text-sm md:text-base flex relative justify-center items-center text-center text-white ">
               {a.preview && a.preview}
             </div>

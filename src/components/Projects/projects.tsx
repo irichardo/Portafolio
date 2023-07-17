@@ -20,25 +20,18 @@ import Img from "../imageCompo";
 import { url } from "@/libs";
 import { gitHubLink } from "@/libs";
 import LinkCustom from "../markdowncustom/link";
-import P from "../markdowncustom/parrafo";
-
-
 
 /*---------------------------------------------- */
 
 export default function Projects() {
-  
   const [gitHub, setGitHubLink] = useState<string>();
   const [rendermd, setMD] = useState<any>();
   const { gitData } = useContext(GlobalContext);
-  
-  
+
   /*      get md from api       */
   const getText = async (event: any | null) => {
     if (!event) {
-      let noEventData = await fetch(
-        `${url}api/githubdata?data=Portafolio`
-      );
+      let noEventData = await fetch(`${url}api/githubdata?data=Portafolio`);
       let changeToText = await noEventData.text();
       setMD(changeToText);
       setGitHubLink(`${gitHubLink}Portafolio`);
@@ -76,7 +69,7 @@ export default function Projects() {
                       li: Li,
                       article: Article,
                       img: Img,
-                      a:LinkCustom
+                      a: LinkCustom,
                     }}
                   >
                     {rendermd}
@@ -87,33 +80,43 @@ export default function Projects() {
           </div>
           <div className="w-5/6 h-1/6 text-white justify-center items-center flex text-base">
             <div className=" h-[70%] md:h-[50%] flex items-center justify-center rounded-xl bg-gray-700 shadow-md hover:shadow-none w-2/3 hover:w-4/5 md:w-2/4 md:hover:w-2/3 lg:w-1/4 lg:hover:w-3/6 shadow-gray-950 transition-all">
-            <Link className="w-full h-full flex items-center justify-center"  href={`${gitHub}`} target="_blank">
-              <BsGithub size={30} className="m-2"/> 
-              Ver Repositorio
-            </Link>
+              <Link
+                className="w-full h-full flex items-center justify-center"
+                href={`${gitHub}`}
+                target="_blank"
+              >
+                <BsGithub size={30} className="m-2" />
+                Ver Repositorio
+              </Link>
             </div>
           </div>
         </div>
       </div>
-      <div className="md:w-2/6 md:h-full items-center w-full">
-        <div className="w-full h-1/6 md:w-2/3 lg:w-1/2 md:h-full flex md:block justify-center overflow-x-scroll md:overflow-x-hidden md:overflow-y-auto custom-scrollbar">
+      <div className="w-full md:w-2/6 md:h-full flex md:block overflow-x-auto custom-scrollbar items-center justify-start sm:justify-center">
+        {/* <div className=" h-1/6 md:w-2/3 lg:w-1/2 md:h-full inline-flex md:block justify-around  md:overflow-x-hidden md:overflow-y-auto overflow-x-scroll"> */}
           {gitData.map((a) => {
             /* github problemas , no let me delete that's repo */
-            if(a.url.endsWith('blogpost') || a.url.endsWith('Prep-Course'))return
+            if (a.url.endsWith("blogpost") || a.url.endsWith("Prep-Course"))
+              return;
             return (
               <motion.button
                 onClick={getText}
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 1.2 }}
                 value={a.url.split("/")[4]}
-                className={` h-16 md:h-24 md:w-24 lg:min-h-20 lg:min-w-20 lg:h-36 lg:w-36 ${gitHub?.split('/')[4] === a.url.split("/")[4]?'bg-pink-700':'bg-slate-600'} shadow-white text-center flex justify-center items-center m-5 rounded-lg text-white text-xs md:text-lg font-bold p-4`}
+                className={`h-20 w-32
+                md:h-28 md:w-28 lg:min-h-20 lg:min-w-20 lg:h-32 lg:w-32 ${
+                  gitHub?.split("/")[4] === a.url.split("/")[4]
+                    ? "bg-pink-700"
+                    : "bg-slate-600"
+                } shadow-white text-center flex justify-center items-center rounded-lg text-white text-xs md:text-lg font-bold p-10 m-2`}
                 key={a.url}
               >
                 {a.url.split("/")[4]}
               </motion.button>
             );
           })}
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );

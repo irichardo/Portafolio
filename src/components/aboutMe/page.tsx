@@ -73,10 +73,11 @@ export default function AboutMe() {
       </div>
       {/*            TEXT             */}
       <div className=" w-full md:w-1/2 h-full items-center flex flex-col justify-center">
-          <ul className="w-full h-[40vh] lg:h-5/6 desktopLarge:h-5/6 relative flex flex-col items-center justify-end text-xs md:text-sm font-chakra md:shadow-inner shadow-slate-600">
+          <ul className="w-full h-[40vh] lg:h-5/6 desktopLarge:h-5/6 relative flex flex-col items-center justify-end text-xs md:text-base font-chakra md:shadow-inner shadow-slate-600">
                     <li
                       className={`w-[90%] h-2/3 p-4 mb-5 flex justify-center items-center font-semibold shadow-md shadow-gray-500 rounded-md bg-blue-100 flex-col`}
                     >
+                      <p className="overflow-y-auto h-full">
                       Hola soy Ricardo, mis amigos me dicen Richard! 💜 <br/>
                       Autodidacta empedernido. <br/>
                       Me gusta hacer cosas diferentes, entre el arte, la tecnologia y tambien la escritura!<br/>
@@ -85,6 +86,7 @@ export default function AboutMe() {
                       ellos.<br/>
                       Mi meta principal costear mis estudios de ciberseguridad. 🎓<br/>
                       Mi filosifia de vida es: <span className="w-full ">Cuando todos remamos el barco hacia la misma direccion, es menos tiempo el que nos tomara culminar el camino.</span>
+                      </p>
                     </li>
           </ul>
         <div className="w-full md:w-full md:h-2/6  flex items-center justify-center relative text-xs md:text-base font-chakra">
