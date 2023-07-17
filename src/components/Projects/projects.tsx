@@ -31,15 +31,15 @@ export default function Projects() {
   /*      get md from api       */
   const getText = async (event: any | null) => {
     if (!event) {
-      let noEventData = await fetch(`${url}api/githubdata?data=Portafolio`);
-      let changeToText = await noEventData.text();
+      const noEventData = await fetch(`${url}api/githubdata?data=Portafolio`);
+      const changeToText = await noEventData.text();
       setMD(changeToText);
       setGitHubLink(`${gitHubLink}Portafolio`);
     } else {
-      let dynamicData = await fetch(
+      const dynamicData = await fetch(
         `${url}api/githubdata?data=${event.target.value}`
       );
-      let changeToText = await dynamicData.text();
+      const changeToText = await dynamicData.text();
       setMD(changeToText);
       setGitHubLink(`${gitHubLink}${event.target.value}`);
     }
