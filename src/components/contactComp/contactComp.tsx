@@ -38,7 +38,7 @@ export default function ContactComp() {
 
   const sendMessage = async(e:any) =>{
     e.preventDefault();
-    const resMail = await fetch(`${url}api/mailer`,{method:'POST', headers:{'Content-Type':'application/json'},body:JSON.stringify(form)})
+  const resMail = await fetch(`${url}api/mailer`,{method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json, text/play, */*'},body:JSON.stringify(form)})
     const renderRes = await resMail.text();
     setForm({})
     setResEmail(renderRes)
