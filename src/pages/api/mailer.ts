@@ -16,8 +16,7 @@ export default async function mailer(req:NextApiRequest,res:NextApiResponse){
   const { from , message, reason, email} = req.body
 
   try{
-    // if(from && message && reason && email){
-    // await 
+    if(from && message && reason && email){
     transporter.sendMail({
       from: ` "${from}" <richardhdpersonalmail@gmail.com>`, // sender address
       to: "<richardhdjob@gmail.com>", // list of receivers
@@ -28,13 +27,10 @@ export default async function mailer(req:NextApiRequest,res:NextApiResponse){
         if(err){ console.log(err);
         res.send("error" + JSON.stringify(err))}
         else{
-            console.log("Enviado");
-            res.send("Enviado")
+            console.log("Mail Enviado!, Muchas gracias!");
         }
     });
-    // res.send('Mail Enviado!, Muchas gracias!')
-//    }
-//    else throw new Error;
+   }
   }
   catch(error){
     res.send('Faltan Datos')
