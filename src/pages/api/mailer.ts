@@ -27,7 +27,7 @@ export default async function mailer(req:NextApiRequest,res:NextApiResponse){
         if(err){ console.log(err);
         res.send("error" + JSON.stringify(err))}
         else{
-            console.log("Mail Enviado!, Muchas gracias!");
+        res.send("Mail Enviado!, Muchas gracias!")
         }
     });
    }
