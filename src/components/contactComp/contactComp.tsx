@@ -13,7 +13,7 @@ type form = {
 export default function ContactComp() {
   /*   color button for Interesting  */
   const [form, setForm] = useState<form>({});
-  const [resEmail, setResEmail] = useState<string>();
+  const [resEmail, setResEmail] = useState<string | null>();
 
   // const formRef = useRef<any|null>()
 
@@ -42,6 +42,9 @@ export default function ContactComp() {
     const renderRes = await resMail.text();
     setForm({})
     setResEmail(renderRes)
+    setTimeout(()=>{
+      setResEmail(null)
+    },3000)
   }
 
   return (

@@ -17,7 +17,7 @@ export default async function mailer(req:NextApiRequest,res:NextApiResponse){
 
   try{
     if(from && message && reason && email){
-    transporter.sendMail({
+    await transporter.sendMail({
       from: ` "${from}" <richardhdpersonalmail@gmail.com>`, // sender address
       to: "<richardhdjob@gmail.com>", // list of receivers
       subject: `${reason}`, // Subject line
