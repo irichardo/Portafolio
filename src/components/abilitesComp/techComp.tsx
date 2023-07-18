@@ -10,10 +10,10 @@ const imagenes = [
     name: <FaGit size={70} color='white'/>
   },
   { id:2,
-    name: <div className='text-white hover:text-blue-500 hover:animate-spin w-full h-full items-center flex justify-center ease-in-out transition-all delay-100' ><FaReact size={80} /></div>
+    name: <div className='text-white hover:text-blue-500 hover:animate-spin w-full h-full items-center flex justify-center ease-in-out transition-all delay-100' ><FaReact size={70} /></div>
   },
   { id:3,
-    name: <div className='text-white hover:text-yellow-400 w-full h-full items-center flex justify-center ease-in-out transition-all delay-100' ><SiJavascript size={80}/></div>
+    name: <div className='text-white hover:text-yellow-400 w-full h-full items-center flex justify-center ease-in-out transition-all delay-100' ><SiJavascript size={70}/></div>
   },
   { id:4,
     name: <div className='text-white hover:text-green-400 w-full h-full items-center flex justify-center ease-in-out transition-all delay-100' ><FaNodeJs size={70} /></div>
@@ -35,20 +35,20 @@ const imagenes = [
 const TechComp = () => {
   return (
     <div className='w-full h-full flex items-center justify-center'>
-      <div className='w-full h-5/6'>
-        <div className='w-full h-1/6  flex justify-center items-center shadow-xl'>
+      {/* <div className='w-full h-full'> */}
+        <div className='w-full h-full flex items-center flex-col  justify-center md:p-4'>
+        <div className='w-full h-1/6 flex justify-center items-center shadow-xl'>
           <span className='text-3xl text-white'>Tecnologias</span>
         </div>
-        <div className='w-full h-full flex items-center justify-center md:p-4'>
-          <div className='w-full sm:w-1/2 h-full grid grid-cols-2 grid-rows-4 place-items-center'>
+          <div className='w-full h-full grid grid-cols-2 md:grid-cols-4 grid-rows-2 place-items-center'>
             {imagenes.map((a) => {
               return (
-                <div className='h-[10rem] w-[10rem]  md:h-[14rem] md:w-[14rem] m-10 flex justify-center items-center hover:bg-gray-950 hover:bg-opacity-40 rounded-md hover:shadow-gray-950 hover:shadow-lg text-lg font-extrabold transition-all pointer-events-auto relative' key={a.id}>
+                <div className='h-[10rem] w-[10rem]  md:h-[14rem] md:w-[14rem] flex justify-center items-center hover:bg-gray-950 hover:bg-opacity-40 rounded-md hover:shadow-gray-950 hover:shadow-lg text-lg font-extrabold transition-all pointer-events-auto relative' key={a.id}>
                   {a.name}
                 </div>
               )
             })}
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </div>

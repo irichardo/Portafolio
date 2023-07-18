@@ -6,7 +6,7 @@ import { abilities } from "@/libs";
 export default function Habilidades() {
   return (
     <>
-      <div className="w-full min-h-screen grid grid-cols-1 overflow-hidden">
+      <div className="w-full min-h-screen grid grid-cols-1 grid-rows-2 overflow-hidden">
         <div className="h-full w-full">
           <TechComp />
         </div>

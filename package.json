@@ -28,6 +28,7 @@
     "next": "13.4.4",
     "next-mdx-remote": "^4.2.0",
     "next-sitemap": "^4.1.8",
+    "nodemailer": "^6.9.3",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
