@@ -49,7 +49,7 @@ export default function ContactComp() {
 
   return (
     <div className="w-full h-5/6 md:h-full flex items-center justify-center overflow-hidden relative">
-      <div className="w-2/6 h-1/2 text-white font-chakra md:text-lg lg:text-2xl  grid-cols-1 grid-rows-3 hidden md:grid bg-blue-600 text-center">
+      <div className="w-2/6 h-1/2 text-white font-chakra md:text-lg lg:text-2xl  grid-cols-1 grid-rows-3 hidden md:grid text-center">
         <span className="text-red-600">¿Te gusto algo de lo que viste?</span>
         <span className="text-green-400">¿Solo quieres que
         compartamos experiencia mientras tomamos un café?☕</span>

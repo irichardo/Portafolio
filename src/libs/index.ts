@@ -1,6 +1,6 @@
 /*---------abilities index----------*/
 
-const liderazgo = {name:'Liderazgo', color:'#3454DF', description:'si'};
+const liderazgo = {name:'Liderazgo', color:'#3454DF', description:'Desde mis 14 a 20 años he sido lider de un equipo de videojuegos. He podido ayudar a mi equipo a la victoria en mas de una ocasion. Es una habilidad que he desarrollado con el paso del tiempo, inspirar y motivar a la gente es algo que me apasiona.'};
 const empatia = {name:'Empatia', color:'#6FF64E', description:'Me preocupo tanto por la integridad fisica asi como tambien emocional de mis compañeros, y mayormente soy un conciliador en cada incidente, asi como tambien practico muy bien la escucha activa 💜'};
 const comunicacion = {name:'Comunicacion', color:'#4EF675',description:'Soy una persona muy comunicativa, puedo hablar de lo bueno y lo malo e intento ser lo más transparente posible 🤝'};
 const proactivo = {name:'Proactivo', color:'#FA6A45',description:'Siempre busco algo nuevo que aprender y proponer, me encanta participar e intercambiar ideas.'};
