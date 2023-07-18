@@ -24,11 +24,15 @@ export default async function mailer(req:NextApiRequest,res:NextApiResponse){
       subject: `${reason}`, // Subject line
       text: `${message}`, // plain text body
       html: `<b>${message}</b> <br/><br/> email: ${email}`, // html body
-    },function(err:any,info:any){
-        if(err) console.log(err)
-        else console.log(info)
+    },(err:any,info:any)=>{
+        if(err){ console.log(err);
+        res.send("error" + JSON.stringify(err))}
+        else{
+            console.log("Enviado");
+            res.send("Enviado")
+        }
     });
-    res.send('Mail Enviado!, Muchas gracias!')
+    // res.send('Mail Enviado!, Muchas gracias!')
 //    }
 //    else throw new Error;
   }
