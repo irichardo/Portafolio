@@ -1,38 +1,47 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { Verification } from "@/components/utils/regex";
 // import { transporter } from "./utils/utils";
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
- const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: 'richardhdpersonalmail@gmail.com',
-      pass: process.env.MAIL_TOKEN
-    }
-  });
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: "richardhdpersonalmail@gmail.com",
+    pass: process.env.MAIL_TOKEN,
+  },
+});
 
-export default async function mailer(req:NextApiRequest,res:NextApiResponse){
-  const { from , message, reason, email} = req.body
+export default async function mailer(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const { from, message, reason, email } = req.body;
+  console.log(email, message, from);
 
-  try{
-    if(from && message && reason && email){
-    await transporter.sendMail({
-      from: ` "${from}" <richardhdpersonalmail@gmail.com>`, // sender address
-      to: "<richardhdjob@gmail.com>", // list of receivers
-      subject: `${reason}`, // Subject line
-      text: `${message}`, // plain text body
-      html: `<b>${message}</b> <br/><br/> email: ${email}`, // html body
-    },(err:any,info:any)=>{
-        if(err){ console.log(err);
-        res.send("error" + JSON.stringify(err))}
-        else{
-        res.send("Mail Enviado!, Muchas gracias!")
-        }
-    });
-   }
-  }
-  catch(error){
-    res.send('Faltan Datos')
+  try {
+    const verificationForm = Verification(email, message, from);
+    if (typeof verificationForm !== "string" && reason) {
+        await transporter.sendMail(
+          {
+            from: ` "${from}" <richardhdpersonalmail@gmail.com>`, // sender address
+            to: "<richardhdjob@gmail.com>", // list of receivers
+            subject: `${reason}`, // Subject line
+            text: `${message}`, // plain text body
+            html: `<b>${message}</b> <br/><br/> email: ${email}`, // html body
+          },
+          (err: any, info: any) => {
+            if (err) {
+              console.log(err);
+              res.send("error" + JSON.stringify(err));
+            } else {
+              res.status(200).send("Mail Enviado!, Muchas gracias!");
+            }
+          }
+        );
+    } else res.status(400).json({error:verificationForm, message:''});
+  } catch (error) {
+    console.log(error);
   }
 }
