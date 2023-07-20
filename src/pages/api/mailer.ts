@@ -18,7 +18,6 @@ export default async function mailer(
   res: NextApiResponse
 ) {
   const { from, message, reason, email } = req.body;
-  console.log(email, message, from);
 
   try {
     const verificationForm = Verification(email, message, from);
@@ -36,7 +35,7 @@ export default async function mailer(
               console.log(err);
               res.send("error" + JSON.stringify(err));
             } else {
-              res.status(200).send("Mail Enviado!, Muchas gracias!");
+              res.status(200).json({error:'', message:"Mail Enviado!, Muchas gracias!"});
             }
           }
         );
