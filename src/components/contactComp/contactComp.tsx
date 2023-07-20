@@ -23,7 +23,6 @@ export default function ContactComp() {
     error: true,
     message: "",
   });
-  console.log(resEmail, "❤");
 
   const valueButton = {
     project: "Project",
@@ -61,7 +60,7 @@ export default function ContactComp() {
           setForm({});
           setResEmail({ error: false, message });
           setTimeout(() => {
-            setResEmail({ error: true, message: error });
+            setResEmail({ error: false, message: "" });
           }, 3000);
         } else {
           throw new Error(error);
@@ -69,6 +68,9 @@ export default function ContactComp() {
       })
       .catch((error) => {
         setResEmail({ error: true, message: error.message });
+        setTimeout(() => {
+          setResEmail({ error: false, message: "" });
+        }, 3000);
       });
   };
 
@@ -124,7 +126,7 @@ export default function ContactComp() {
               <form className="w-full h-full grid columns-1 grid-rows-4 place-items-center">
                 <input
                   aria-label="Agregar tu nombre"
-                  placeholder="Tu nombre"
+                  placeholder="Tu nombre ( A - Z )"
                   type="text"
                   id="name"
                   value={form.from || ""}
@@ -142,7 +144,7 @@ export default function ContactComp() {
                 />
                 <input
                   aria-label="Agregar mensaje"
-                  placeholder="Tu mensaje"
+                  placeholder="Tu mensaje (mínimo 8 caracteres)"
                   type="text"
                   id="message"
                   value={form.message || ""}

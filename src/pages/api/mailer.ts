@@ -35,7 +35,6 @@ export default async function mailer(
           }
             );
             res.status(200).send({error:'', message:"Mail Enviado!, Muchas gracias!"})
-        
     } else res.status(400).json({error:verificationForm, message:''});
   } catch (error) {
     console.log(error);
