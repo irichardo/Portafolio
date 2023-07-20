@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import util from 'util'
 import { Verification } from "@/components/utils/regex";
 // import { transporter } from "./utils/utils";
 const nodemailer = require("nodemailer");
@@ -13,6 +14,8 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+const sendMailAsync = util.promisify(transporter.sendMail).bind(transporter);
+
 export default async function mailer(
   req: NextApiRequest,
   res: NextApiResponse
@@ -22,22 +25,17 @@ export default async function mailer(
   try {
     const verificationForm = Verification(email, message, from);
     if (typeof verificationForm !== "string" && reason) {
-        transporter.sendMail(
+       await sendMailAsync(
           {
             from: ` "${from}" <richardhdpersonalmail@gmail.com>`, // sender address
             to: "<richardhdjob@gmail.com>", // list of receivers
             subject: `${reason}`, // Subject line
             text: `${message}`, // plain text body
             html: `<b>${message}</b> <br/><br/> email: ${email}`, // html body
-          },
-          (err: any, info: any) => {
-            if (err) {
-              console.log(err);
-              res.send("error" + JSON.stringify(err));
-            }
           }
-        );
-    res.status(200).send({error:'', message:"Mail Enviado!, Muchas gracias!"})
+            );
+            res.status(200).send({error:'', message:"Mail Enviado!, Muchas gracias!"})
+        
     } else res.status(400).json({error:verificationForm, message:''});
   } catch (error) {
     console.log(error);
