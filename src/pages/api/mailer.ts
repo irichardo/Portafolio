@@ -22,7 +22,7 @@ export default async function mailer(
   try {
     const verificationForm = Verification(email, message, from);
     if (typeof verificationForm !== "string" && reason) {
-        await transporter.sendMail(
+        transporter.sendMail(
           {
             from: ` "${from}" <richardhdpersonalmail@gmail.com>`, // sender address
             to: "<richardhdjob@gmail.com>", // list of receivers
@@ -34,11 +34,10 @@ export default async function mailer(
             if (err) {
               console.log(err);
               res.send("error" + JSON.stringify(err));
-            } else {
-              res.status(200).json({error:'', message:"Mail Enviado!, Muchas gracias!"});
             }
           }
         );
+    res.status(200).send({error:'', message:"Mail Enviado!, Muchas gracias!"})
     } else res.status(400).json({error:verificationForm, message:''});
   } catch (error) {
     console.log(error);

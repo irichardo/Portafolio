@@ -1,5 +1,5 @@
 const correoRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const nameRegex = /^[a-zA-Z,]{8,100}$/;
+const nameRegex = /^[a-zA-Z,]{3,100}$/;
 const messageRegex = /^[a-zA-Z,.\s]{10,}$/;
 // const resmessage = {emailInvalid: 'Agrega un correo invalido', nameInvalid:'Agrega un nombre Valido, no uses caracteres especiales',textInvalid:'Agrega un texto valido.' }
 
