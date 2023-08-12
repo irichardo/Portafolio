@@ -56,15 +56,15 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="w-full h-full block md:flex relative font-chakra">
-      <div className=" w-full h-5/6 md:w-5/6 md:h-full flex-col items-center justify-center flex ">
-        <div className="w-full h-1/6 flex items-center justify-center text-3xl font-chakra text-white">
+    <div className="w-full h-full block md:flex relative font-chakra items-center justify-center">
+      <div className=" w-full h-5/6 md:h-full flex-col items-center justify-center flex ">
+        {/* <div className="w-full h-1/6 flex items-center justify-center text-3xl font-chakra text-white">
           Projects
-        </div>
-        <div className=" w-full h-4/6 md:w-4/5  md:h-5/6 flex flex-col items-center justify-evenly">
-          <div className=" w-full md:w-5/6 h-5/6 flex items-center justify-center">
+        </div> */}
+        <div className=" w-full h-full flex flex-col items-center justify-evenly">
+          <div className=" w-full h-5/6 flex items-center justify-center">
             <div className="w-full h-full flex justify-center items-center text-white text-xs md:text-2xl shadow-lg relative custom-scrollbar overflow-y-auto overflow-x-hidden">
-              <article className="w-full min-h-full flex items-center justify-center bg-slate-950 text-lg rounded-lg absolute top-0">
+              <article className="w-full min-h-full flex items-center justify-center bg-slate-950 text-lg absolute top-0">
                 {
                 loading?<Grid color="#E11D48"/>:  
                   <ReactMarkdown
@@ -85,7 +85,7 @@ export default function Projects() {
               </article>
             </div>
           </div>
-          <div className="w-5/6 h-1/6 text-white justify-center items-center flex text-base">
+          {/* <div className="w-5/6 h-1/6 text-white justify-center items-center flex text-base">
             <div className=" h-[70%] md:h-[50%] flex items-center justify-center rounded-xl bg-gray-700 shadow-md hover:shadow-none w-2/3 hover:w-4/5 md:w-2/4 md:hover:w-2/3 lg:w-1/4 lg:hover:w-3/6 shadow-gray-950 transition-all">
               <Link
                 className="w-full h-full flex items-center justify-center"
@@ -96,34 +96,8 @@ export default function Projects() {
                 Ver Repositorio
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
-      </div>
-      <div className="w-full md:w-2/6 md:h-full flex md:flex-col overflow-x-auto custom-scrollbar items-center md:items-start sm:justify-center">
-        {/* <div className=" h-1/6 md:w-2/3 lg:w-1/2 md:h-full inline-flex md:block justify-around  md:overflow-x-hidden md:overflow-y-auto overflow-x-scroll"> */}
-          {gitData.map((a) => {
-            /* github problemas , no let me delete that's repo */
-            if (a.url.endsWith("blogpost") || a.url.endsWith("Prep-Course"))
-              return;
-            return (
-              <motion.button
-                onClick={getText}
-                whileHover={{ scale: 0.9 }}
-                whileTap={{ scale: 1.2 }}
-                value={a.url.split("/")[4]}
-                className={`h-20 w-32
-                md:h-28 md:w-28 lg:min-h-20 lg:min-w-20 lg:h-32 lg:w-32 ${
-                  gitHub.value === a.url.split("/")[4]
-                    ? "bg-pink-700"
-                    : "bg-slate-600"
-                } shadow-white text-center flex justify-center items-center rounded-lg text-white text-xs md:text-lg font-bold p-10 m-2`}
-                key={a.url}
-              >
-                {a.url.split("/")[4]}
-              </motion.button>
-            );
-          })}
-        {/* </div> */}
       </div>
     </div>
   );
