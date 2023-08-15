@@ -3,7 +3,7 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Provider } from 'context/contextProvider'
 import { Alegreya, Inconsolata, Chakra_Petch, Roboto_Serif, Montserrat} from 'next/font/google'
-import Navbar from '@/components/navbar/navbar'
+// import Navbar from '@/components/navbar/navbar'
 
 /*     FONT       */
 const alegraya = Alegreya({ subsets: ['latin'], variable: '--font-alegraya' })
@@ -17,7 +17,7 @@ export default function App ({ Component, pageProps }: AppProps) {
   return (
       <main className={`${alegraya.variable} ${inconsolata.variable} ${Chakra.variable} ${montserrat.variable} ${robot.className} overflow-x-hidden`}>
         <Provider>
-        <Navbar />
+        {/* <Navbar /> */}
         <Component {...pageProps} />
         </Provider>
       </main>

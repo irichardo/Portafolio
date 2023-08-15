@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
-import { blogdata } from "@/libs/types";
+import { blogData } from "@/libs/types";
 import BlogCards from "@/components/blogscards";
 import ErrorMessage from "@/components/error";
 import Paginate from "@/components/utils/paginated";
 import { GlobalContext } from "@context/globalContext";
 import { getPosts } from "@/libs/posts";
 import Layout from "./layout";
-import ParallaxBackground from "@/components/parallax/parallaxBackground";
+import ParallaxBackground from "@/components/parallaxBackground";
 
 //request static props data
 
