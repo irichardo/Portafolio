@@ -13,7 +13,9 @@ const nextConfig = {
     TOKEN_GITHUB: process.env.TOKEN_GITHUB,
     MY_SECRET_TOKEN:process.env.MY_SECRET_TOKEN,
     SITE_URL : process.env.SITE_URL,
-    MAIL_TOKEN: process.env.MAIL_TOKEN
+    MAIL_TOKEN: process.env.MAIL_TOKEN,
+    SPOTIFY_CLIENT_ID: process.env.SPOTIFY_CLIENT_ID,
+    SPOTIFY_CLIENT_SECRET: process.env.SPOTIFY_CLIENT_SECRET
   }
 }
 

@@ -57,12 +57,12 @@ export default function Projects() {
 
   return (
     <div className="w-full h-full block md:flex relative font-chakra items-center justify-center">
-      <div className=" w-full h-5/6 md:h-full flex-col items-center justify-center flex ">
+      <div className=" w-full h-full md:h-full flex-col items-center justify-center flex bg-white">
         {/* <div className="w-full h-1/6 flex items-center justify-center text-3xl font-chakra text-white">
           Projects
         </div> */}
         <div className=" w-full h-full flex flex-col items-center justify-evenly">
-          <div className=" w-full h-5/6 flex items-center justify-center">
+          <div className=" w-full h-full flex items-center justify-center">
             <div className="w-full h-full flex justify-center items-center text-white text-xs md:text-2xl shadow-lg relative custom-scrollbar overflow-y-auto overflow-x-hidden">
               <article className="w-full min-h-full flex items-center justify-center bg-slate-950 text-lg absolute top-0">
                 {

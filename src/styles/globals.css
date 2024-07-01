@@ -73,10 +73,10 @@ body {
 }
 
 .colorIcons{
-  color: black;
+  color: rgb(39, 31, 71);
 }
 .colorIcons:hover{
-  color: rgb(189, 52, 93)
+  color: rgb(255, 242, 246)
 }
 
 a{
@@ -105,5 +105,33 @@ div{
     /* 0 0 92px #fff, */
     /* 0 0 102px #fff, */
     0 0 151px #fff;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 15rem;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #053a5f;
+  height: 0.5rem;
+}
+
+/******** Firefox ********/
+input[type="range"]::-moz-range-track {
+  background: #053a5f;
+  height: 0.5rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -12px; /* Centers thumb on the track */
+  background-color: #ffffff;
+  height: 2rem;
+  width: 1rem;    
 }
 

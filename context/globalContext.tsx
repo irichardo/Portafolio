@@ -11,7 +11,6 @@ interface globalContext {
     setActualPage: React.Dispatch<React.SetStateAction<number>>
     setIntroBlogAnimation:React.Dispatch<React.SetStateAction<boolean>>
 }
-// introBlogAnimation, setIntroBlogAnimation
 
 export const GlobalContext = React.createContext<globalContext>({
   gitData: [],

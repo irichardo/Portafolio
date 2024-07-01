@@ -1,43 +1,38 @@
 import { create } from 'zustand'
-import { devtools, persist } from 'zustand/middleware'
+import { devtools } from 'zustand/middleware'
 
 type section_1 = {
-  right:boolean | undefined,
-  left:boolean | undefined,
-  mid:boolean | undefined
+    right:boolean
+    left:boolean 
 }
 type section_2 = {
-    left:boolean | undefined,
-    right:boolean | undefined
-    mid:boolean | undefined
+    left:boolean
+    right:boolean
 }
 
 type section_3 = {
-    left: boolean | undefined,
-    mid: boolean | undefined,
-    right: boolean | undefined
+    left: boolean 
+    mid: boolean 
+    right: boolean 
 }
 
 interface sectionSize {
     section_1: section_1
     section_2: section_2
     section_3: section_3
-    changeSection_State: (arg: string, section:string, extra:keyof section_3|undefined) => void
+    changeSection_State: (arg: string, section:string) => void
 }
 
 
 const useStore = create<sectionSize>()(
     devtools(
-        persist(
             (set) => ({
                 section_1:{
                     left : false,
-                    mid: undefined,
                     right : false,
                 },
                 section_2:{
                     left:false,
-                    mid:undefined,
                     right:false
                 },
                 section_3: {
@@ -48,10 +43,26 @@ const useStore = create<sectionSize>()(
                 changeSection_State: (by, section) => {
                     switch(section){
                         case 'section_1':
+                            switch(by){
+                                case 'section-left':
+                                    set((state:sectionSize)=>({section_1:{...state.section_1,
+                                    left:!state.section_1.left}}))
+                                    break;
+                                case 'section-right':
+                                    set((state:sectionSize)=>({section_1:{...state.section_1,
+                                    right:!state.section_1.right}}))
+                                    break;
+                            }
                             break;
                         case 'section_2':
                             switch(by){
-                                case 'left':
+                                case 'section-left':
+                                    set((state:sectionSize)=>({section_2:{...state.section_2,
+                                    left:!state.section_2.left}}))
+                                    break;
+                                case 'section-right':
+                                    set((state:sectionSize)=>({section_2:{...state.section_2,
+                                    right:!state.section_2.right}}))
                                     break;
                             }
                             break;
@@ -68,17 +79,12 @@ const useStore = create<sectionSize>()(
                                 break;
                             }
                     }
-                    
-                    switch (by) {
-                        
-                    }
                 },
             }),
             {
                 name: 'section-size',
             }
-        )
     )
 )
 
-export default useStore;
+export default useStore

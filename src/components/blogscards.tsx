@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import { blogdata } from "@/libs/types";
+import { blogData } from "@/libs/types";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const BlogCards = ({ resData }: { resData: blogdata[] }) => {
+const BlogCards = ({ resData }: { resData: blogData[] }) => {
   const Router = useRouter();
   return resData.map((a) => {
     return (
@@ -20,7 +20,7 @@ const BlogCards = ({ resData }: { resData: blogdata[] }) => {
               <div className=" w-2/6 md:w-1/6 text-center text-xs bg-purple-400 text-white rounded-md m-2">
                 {a.date}
               </div>
-            </div>
+            </div> 
             <div className="w-full items-center flex flex-col justify-center md::overflow-hidden">
               <fieldset className="w-full border-t md:w-[80%] border-t-purple-400">
                 <legend className="mx-auto px-4 text-white border-l-2 border-r-2 border-r-purple-400 border-l-purple-400">

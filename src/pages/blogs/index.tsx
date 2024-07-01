@@ -6,7 +6,7 @@ import Paginate from "@/components/utils/paginated";
 import { GlobalContext } from "@context/globalContext";
 import { getPosts } from "@/libs/posts";
 import Layout from "./layout";
-import ParallaxBackground from "@/components/parallaxBackground";
+import ParallaxBackground from "@/components/parallax/parallaxBackground";
 
 //request static props data
 
@@ -43,7 +43,7 @@ export default function Blog({
   tags,
   error,
 }: {
-  resData: blogdata[];
+  resData: blogData[];
   tags: string[];
   error: any;
 }) {
@@ -52,7 +52,7 @@ export default function Blog({
     actualPage,
     setActualPage,
   } = useContext(GlobalContext);
-  const [tag, setTag] = useState<blogdata[]>([]);
+  const [tag, setTag] = useState<blogData[]>([]);
 
   /* Paginate Logic */
   const initData = actualPage;
