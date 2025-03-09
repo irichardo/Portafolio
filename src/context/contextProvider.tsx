@@ -1,6 +1,6 @@
-"use Client";
-import React, { useState, useEffect } from "react";
-import { GlobalContext } from "./GlobalContext";
+'use Client';
+import React, { useState, useEffect } from 'react';
+import { GlobalContext } from './GlobalContext';
 
 export const Provider = ({ children }: { children: React.ReactNode }) => {
   /*    Important States       */
@@ -10,7 +10,7 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
 
   const getData = async () => {
     try {
-      const url = "https://api.github.com/users/irichardo/repos";
+      const url = 'https://api.github.com/users/irichardo/repos';
       console.log(process.env.TOKEN_GITHUB);
       const headers = {
         Authorization: `token ${process.env.TOKEN_GITHUB}`,
@@ -25,7 +25,7 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
       setGitData(resData);
     } catch {
       // throw new Error()
-      console.error("No se ha podido obtener los datos");
+      console.error('No se ha podido obtener los datos');
     }
   };
 

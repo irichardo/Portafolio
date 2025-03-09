@@ -4,7 +4,7 @@
 
 /* ::-webkit-scrollbar{} */
 
-.custom-scrollbar::-webkit-scrollbar{
+.custom-scrollbar::-webkit-scrollbar {
   width: 2px;
   height: 3px;
 }
@@ -16,9 +16,8 @@
   background: #808080;
 }
 
-
-::-webkit-scrollbar{
-  width:5px;
+::-webkit-scrollbar {
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: #fc9e9e;
@@ -31,30 +30,30 @@
   background: #4c0101;
 }
 
-html{
---scroll-behavior: smooth!important;
-  scroll-behavior: smooth!important;
+html {
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
 }
 
 body {
- padding: 0;
- margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
-.animationNavbar{
+.animationNavbar {
   transition: transform 0.3s cubic-bezier(0, 0, 0.27, 1);
   transform: translateX(0);
 }
 
-.animationNavbar.deactivate{
+.animationNavbar.deactivate {
   transform: translateX(-102%);
 }
 
-.no-scrollbar{
-  display:none
+.no-scrollbar {
+  display: none;
 }
 
-.no-scrollbar{
+.no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -72,27 +71,26 @@ body {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-.colorIcons{
+.colorIcons {
   color: black;
 }
-.colorIcons:hover{
-  color: rgb(189, 52, 93)
+.colorIcons:hover {
+  color: rgb(189, 52, 93);
 }
 
-a{
+a {
   -webkit-touch-callout: none;
   touch-action: manipulation;
   -webkit-user-drag: none;
   user-select: none;
 }
 
-div{
+div {
   -webkit-touch-callout: none;
   touch-action: manipulation;
   -webkit-user-drag: none;
   user-select: none;
 }
-
 
 .neonText {
   color: #fff;
@@ -101,9 +99,6 @@ div{
     0 0 10px #fff,
     0 0 21px #fff,
     0 0 42px #fff,
-    /* 0 0 82px #fff, */
-    /* 0 0 92px #fff, */
-    /* 0 0 102px #fff, */
-    0 0 151px #fff;
+    /* 0 0 82px #fff, */ /* 0 0 92px #fff, */ /* 0 0 102px #fff, */ 0 0 151px
+      #fff;
 }
-

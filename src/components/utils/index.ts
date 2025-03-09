@@ -1,6 +1,6 @@
-export const indexObject = (nameData:String) => {
+export const indexObject = (nameData: string) => {
   return {
     route: `/#${nameData}`,
-    name: nameData
-  }
-}
+    name: nameData,
+  };
+};

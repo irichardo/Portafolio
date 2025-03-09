@@ -1,8 +1,8 @@
-interface errorMessage{
-    error:string[]
+interface errorMessage {
+  error: string[];
 }
 
-export default function ErrorMessage ({ error }:errorMessage) {
+export default function ErrorMessage({ error }: errorMessage) {
   return (
     <div className='w-96 h-48 bg-slate-400 flex-col flex justify-center items-center'>
       {error[0]}
@@ -10,5 +10,5 @@ export default function ErrorMessage ({ error }:errorMessage) {
         {error[1].toUpperCase()}
       </p>
     </div>
-  )
+  );
 }

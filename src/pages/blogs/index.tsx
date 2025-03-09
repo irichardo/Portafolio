@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
-import { blogdata } from "@/libs/types";
-import BlogCards from "@/components/blogscards";
-import ErrorMessage from "@/components/error";
-import Paginate from "@/components/utils/paginated";
-import { getPosts } from "@/libs/posts";
-import Layout from "./layout";
-import ParallaxBackground from "@/components/parallax/parallaxBackground";
-import { GlobalContext } from "@/context/GlobalContext";
+import React, { useContext, useState } from 'react';
+import { blogdata } from '@/libs/types';
+import BlogCards from '@/components/blogscards';
+import ErrorMessage from '@/components/error';
+import Paginate from '@/components/utils/paginated';
+import { getPosts } from '@/libs/posts';
+import Layout from './layout';
+import ParallaxBackground from '@/components/parallax/parallaxBackground';
+import { GlobalContext } from '@/context/GlobalContext';
 
 //request static props data
 
@@ -26,7 +26,7 @@ export async function getStaticProps() {
       revalidate: 60,
     };
   } catch (error: any) {
-    const errorMessage = ["Fallo en la solicitud:", error.message];
+    const errorMessage = ['Fallo en la solicitud:', error.message];
     return {
       props: {
         resData: null,
@@ -40,7 +40,7 @@ export async function getStaticProps() {
 
 export default function Blog({
   resData,
-  tags,
+  // tags,
   error,
 }: {
   resData: blogdata[];
@@ -66,11 +66,13 @@ export default function Blog({
   };
   /*********  tags hanlder  ********/
   const tagHandler = (event: any) => {
-    if (event.target.value === "clean") {
+    if (event.target.value === 'clean') {
       setTag([]);
       setActualPage(0);
     }
-    let filterData = resData.filter((a) => a.tags.includes(event.target.value));
+    const filterData = resData.filter((a) =>
+      a.tags.includes(event.target.value)
+    );
     setTag(filterData);
     setActualPage(1);
   };
@@ -78,13 +80,13 @@ export default function Blog({
 
   return (
     <Layout>
-      <div className="w-screen min-h-screen font-chakra">
-        <div className="w-screen  flex-col items-center flex">
-          <div className="w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-950">
+      <div className='w-screen min-h-screen font-chakra'>
+        <div className='w-screen  flex-col items-center flex'>
+          <div className='w-full h-[30vh] sm:h-[40vh]  flex items-center justify-center bg-gray-950'>
             {/*      LOGO      */}
             <ParallaxBackground />
           </div>
-          <div className="w-full min-h-[50vh] flex justify-center">
+          <div className='w-full min-h-[50vh] flex justify-center'>
             {/*     BLOGS      */}
             <div
               className={`w-full lg:w-[90%] grid-cols-1 place-items-center grid-rows-1

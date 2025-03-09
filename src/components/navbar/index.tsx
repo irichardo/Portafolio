@@ -1,11 +1,11 @@
-import { indexObject } from '../utils'
+import { indexObject } from '../utils';
 
-const Home = indexObject('Inicio')
-const Abilities = indexObject('Habilidades')
-const Contact = indexObject('Contacto')
-const Projects = indexObject('Proyectos')
-const About = indexObject('About-me')
-const DevBlog = 'DevBlog'
+const Home = indexObject('Inicio');
+const Abilities = indexObject('Habilidades');
+const Contact = indexObject('Contacto');
+const Projects = indexObject('Proyectos');
+const About = indexObject('About-me');
+const DevBlog = 'DevBlog';
 
 const sectionRoutes = {
   Home,
@@ -13,7 +13,7 @@ const sectionRoutes = {
   Contact,
   Projects,
   About,
-  DevBlog
-}
+  DevBlog,
+};
 
-export default sectionRoutes
+export default sectionRoutes;
