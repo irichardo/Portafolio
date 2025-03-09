@@ -41,7 +41,7 @@ export default function Projects() {
         let dataValue = 'Portafolio';
         if (event) dataValue = event.target.value;
 
-        const response = await fetch(`${url}api/githubdata?data=${dataValue}`);
+        const response = await fetch(`api/githubdata?data=${dataValue}`);
         const changeToText = await response.text();
 
         setMD(changeToText);
