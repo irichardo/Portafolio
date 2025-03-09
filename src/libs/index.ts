@@ -48,7 +48,7 @@ export const abilities = [
 
 /* -------------URL--------------- */
 
-export const url = process.env.SITE_URL
-  ? process.env.SITE_URL
-  : 'http://localhost:3000/';
+export const url = 'https://richardhd.com/';
+// ? process.env.SITE_URL
+// : 'http://localhost:3000/';
 export const gitHubLink = 'https://github.com/irichardo/';
