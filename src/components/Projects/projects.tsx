@@ -20,7 +20,7 @@ import Img from '../imageCompo';
 /*------------------LIBS---------------------*/
 
 import { url } from '@/libs';
-// import { gitHubLink } from '@/libs';
+import { gitHubLink } from '@/libs';
 import LinkCustom from '../markdowncustom/link';
 
 /*---------------------------------------------- */
@@ -31,29 +31,28 @@ export default function Projects() {
   const [rendermd, setMD] = useState<any>();
   const { gitData } = useContext(GlobalContext);
 
-  /*      get md from api       */
-  const getText = useCallback(
-    async (event: any | null) => {
-      if (event && event.target.value === gitHub.value) return;
-      setLoading(true);
-
-      try {
-        let dataValue = 'Portafolio';
-        if (event) dataValue = event.target.value;
-
-        const response = await fetch(`api/githubdata?data=${dataValue}`);
-        const changeToText = await response.text();
-
-        setMD(changeToText);
-        setGitHubLink({ url: `${gitHub.url}${dataValue}`, value: dataValue });
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    },
-    [gitHub]
-  );
+  const getText = async (event: any | null) => {
+    if (event && event.target.value === gitHub.value) return;
+    setLoading(true);
+    if (!event) {
+      const noEventData = await fetch(`${url}api/githubdata?data=Portafolio`);
+      const changeToText = await noEventData.text();
+      setMD(changeToText);
+      setGitHubLink({ url: `${gitHubLink}Portafolio`, value: 'Portafolio' });
+      setLoading(false);
+    } else {
+      const dynamicData = await fetch(
+        `${url}api/githubdata?data=${event.target.value}`
+      );
+      const changeToText = await dynamicData.text();
+      setMD(changeToText);
+      setGitHubLink({
+        url: `${gitHubLink}${event.target.value}`,
+        value: event.target.value,
+      });
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     getText(null);
