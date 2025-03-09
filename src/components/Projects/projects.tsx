@@ -19,7 +19,7 @@ import Img from '../imageCompo';
 
 /*------------------LIBS---------------------*/
 
-import { url } from '@/libs';
+// import { url } from '@/libs';
 import { gitHubLink } from '@/libs';
 import LinkCustom from '../markdowncustom/link';
 
@@ -35,14 +35,14 @@ export default function Projects() {
     if (event && event.target.value === gitHub.value) return;
     setLoading(true);
     if (!event) {
-      const noEventData = await fetch(`${url}api/githubdata?data=Portafolio`);
+      const noEventData = await fetch(`api/githubdata?data=Portafolio`);
       const changeToText = await noEventData.text();
       setMD(changeToText);
       setGitHubLink({ url: `${gitHubLink}Portafolio`, value: 'Portafolio' });
       setLoading(false);
     } else {
       const dynamicData = await fetch(
-        `${url}api/githubdata?data=${event.target.value}`
+        `api/githubdata?data=${event.target.value}`
       );
       const changeToText = await dynamicData.text();
       setMD(changeToText);
