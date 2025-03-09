@@ -5,6 +5,24 @@ const nextConfig = {
   //   config.resolve.alias["@context"] = path.join(__dirname, "./context");
   //   return config;
   // },
+  async headers() {
+    return [
+      {
+        source: '/api/:path*',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: 'https://richardhd.com/',
+          },
+          { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS' },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'Content-Type, Authorization',
+          },
+        ],
+      },
+    ];
+  },
   images: {
     domains: ['images.pexels.com', 'i.imgur.com', 'imgur.com', 'github.com'],
     minimumCacheTTL: 60,
