@@ -3,10 +3,10 @@ import { blogdata } from "@/libs/types";
 import BlogCards from "@/components/blogscards";
 import ErrorMessage from "@/components/error";
 import Paginate from "@/components/utils/paginated";
-import { GlobalContext } from "@context/globalContext";
 import { getPosts } from "@/libs/posts";
 import Layout from "./layout";
 import ParallaxBackground from "@/components/parallax/parallaxBackground";
+import { GlobalContext } from "@/context/GlobalContext";
 
 //request static props data
 
@@ -48,10 +48,7 @@ export default function Blog({
   error: any;
 }) {
   //context for create a persistance pagination
-  const {
-    actualPage,
-    setActualPage,
-  } = useContext(GlobalContext);
+  const { actualPage, setActualPage } = useContext(GlobalContext);
   const [tag, setTag] = useState<blogdata[]>([]);
 
   /* Paginate Logic */
@@ -101,7 +98,7 @@ export default function Blog({
                 <ErrorMessage error={error} />
               ) : (
                 /* verifying the existence of tags for rendering */
-                <BlogCards resData={sliceData}/>
+                <BlogCards resData={sliceData} />
               )}
             </div>
             {/******************************************************************************/}

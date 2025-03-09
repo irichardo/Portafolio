@@ -6,7 +6,7 @@ import { ParallaxBanner, ParallaxProvider } from "react-scroll-parallax";
 import { motion } from "framer-motion";
 
 /*------ CONTEXT ------ */
-import { GlobalContext } from "@context/*";
+import { GlobalContext } from "@/context/GlobalContext";
 
 const ParallaxBackground = () => {
   const { introBlogAnimation, setIntroBlogAnimation } =
