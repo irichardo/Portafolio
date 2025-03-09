@@ -11,7 +11,7 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
   const getData = async () => {
     try {
       const url = 'https://api.github.com/users/irichardo/repos';
-      console.log(process.env.TOKEN_GITHUB);
+      // console.log(process.env.TOKEN_GITHUB);
       const headers = {
         Authorization: `token ${process.env.TOKEN_GITHUB}`,
       };
