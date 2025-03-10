@@ -7,7 +7,10 @@ import { motion } from 'framer-motion';
 
 const BlogCards = ({ resData }: { resData: blogdata[] }) => {
   const Router = useRouter();
+  const urlStrapi = process.env.URL_STRAPI_BLOG;
   return resData.map((a) => {
+    const { cover } = a;
+    const { formats } = cover;
     return (
       <motion.div
         initial={{ x: -700 }}
@@ -20,7 +23,7 @@ const BlogCards = ({ resData }: { resData: blogdata[] }) => {
           <div className=' w-full h-full flex flex-col p-4 rounded-t-md bg-gray-950'>
             <div className='w-full flex justify-end'>
               <div className=' w-2/6 md:w-1/6 text-center text-xs bg-purple-400 text-white rounded-md m-2'>
-                {a.date}
+                {a.createdAt}
               </div>
             </div>
             <div className='w-full items-center flex flex-col justify-center md::overflow-hidden'>
@@ -34,9 +37,13 @@ const BlogCards = ({ resData }: { resData: blogdata[] }) => {
         </div>
         <div className='w-full h-5/6 relative grid grid-cols-1 md:grid-cols-2 gap-0'>
           <div className='w-full bg-blue-400 relative order-2 h-[30vh] md:h-[40vh]'>
-            <Link href={`${Router.pathname}/${a.id}`}>
+            <Link href={`${Router.pathname}/${a.documentId}`}>
               {a.cover && (
-                <Image src={a.cover} alt='Imagen no encontrada' fill />
+                <Image
+                  src={`${urlStrapi}${formats.medium.url}`}
+                  alt='Imagen no encontrada'
+                  fill
+                />
               )}
               <div className='w-full h-full bg-gray-950 hover:bg-opacity-80 bg-opacity-50 hover:text-2xl absolute top-0 flex justify-center items-center text-white transition-all ease-in-out'>
                 Learn more..
@@ -46,7 +53,7 @@ const BlogCards = ({ resData }: { resData: blogdata[] }) => {
           {/*  1  */}
           <div className='w-full min-h-[10vh] flex items-center justify-center order-1 bg-gray-950 overflow-hidden'>
             <div className='w-full md:w-[90%] h-full text-sm md:text-base flex relative justify-center items-center text-center text-white '>
-              {a.preview && a.preview}
+              {a.description && a.description}
             </div>
           </div>
         </div>

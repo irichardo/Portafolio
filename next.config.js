@@ -24,7 +24,13 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ['images.pexels.com', 'i.imgur.com', 'imgur.com', 'github.com'],
+    domains: [
+      'images.pexels.com',
+      'i.imgur.com',
+      'imgur.com',
+      'github.com',
+      'localhost',
+    ],
     minimumCacheTTL: 60,
   },
   env: {
@@ -32,6 +38,7 @@ const nextConfig = {
     MY_SECRET_TOKEN: process.env.MY_SECRET_TOKEN,
     SITE_URL: process.env.SITE_URL,
     MAIL_TOKEN: process.env.MAIL_TOKEN,
+    URL_STRAPI_BLOG: process.env.URL_STRAPI_BLOG,
   },
 };
 

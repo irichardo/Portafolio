@@ -3,10 +3,10 @@ import { blogdata } from '@/libs/types';
 import BlogCards from '@/components/blogscards';
 import ErrorMessage from '@/components/error';
 import Paginate from '@/components/utils/paginated';
-import { getPosts } from '@/libs/posts';
 import Layout from './layout';
 import ParallaxBackground from '@/components/parallax/parallaxBackground';
 import { GlobalContext } from '@/context/GlobalContext';
+import { getPosts } from '@/libs/posts';
 
 //request static props data
 
@@ -16,11 +16,11 @@ export async function getStaticProps() {
   try {
     const allpages = await getPosts();
     /*  transform all elements using set to be used later as an index  */
-    const tags = Array.from(new Set(allpages.map((a: any) => a.tags).flat()));
+    // const tags = Array.from(new Set(allpages.map((a: any) => a.tags).flat()));
     return {
       props: {
         resData: allpages,
-        tags,
+        // tags,
         error: null,
       },
       revalidate: 60,
@@ -44,7 +44,7 @@ export default function Blog({
   error,
 }: {
   resData: blogdata[];
-  tags: string[];
+  // tags: string[];
   error: any;
 }) {
   //context for create a persistance pagination
@@ -70,10 +70,10 @@ export default function Blog({
       setTag([]);
       setActualPage(0);
     }
-    const filterData = resData.filter((a) =>
-      a.tags.includes(event.target.value)
-    );
-    setTag(filterData);
+    // const filterData = resData.filter((a) =>
+    //   a.tags.includes(event.target.value)
+    // );
+    // setTag(filterData);
     setActualPage(1);
   };
   /*********************************/

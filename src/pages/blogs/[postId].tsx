@@ -20,6 +20,7 @@ import 'highlight.js/styles/atom-one-dark.css';
 import LI from '@/components/markdowncustom/list';
 import H3 from '@/components/markdowncustom/subtitle3';
 import Layout from './DynamicLayout';
+import { blogdata } from '@/libs/types';
 
 /*   */
 
@@ -81,11 +82,12 @@ export default function PostPage({
 
 export async function getStaticPaths() {
   const id = await getPosts();
-  const postId = id?.map((a: any) => {
+  const postId = id?.map((a: blogdata) => {
     return {
-      params: { postId: a.id },
+      params: { postId: a.documentId },
     };
   });
+  // console.log(postId);
   return {
     paths: postId,
     fallback: 'blocking',
@@ -94,7 +96,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: any) {
   const { postId } = params;
-  const postFile = await getPagesData(`${postId}.mdx`);
+  // console.log(postId, 'LINEA 99');
+  const postFile = await getPagesData(postId);
   if (!postFile) {
     return { notFound: true };
   }

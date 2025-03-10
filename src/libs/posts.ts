@@ -3,22 +3,12 @@ import rehypeHighlight from 'rehype-highlight/lib';
 import rehypeSlug from 'rehype-slug';
 import { dataFromAPI } from './types';
 import xmlbuilder from 'xmlbuilder';
+// import { test } from 'node:test';
 
 export async function getPagesByName(
   filename: string
 ): Promise<any | undefined> {
-  const res = await fetch(
-    `https://raw.githubusercontent.com/irichardo/blogpost/main/${filename}`,
-    {
-      next: { revalidate: 60 },
-      cache: 'no-store',
-      headers: {
-        Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${process.env.TOKEN_GITHUB}`,
-        'X-GitHub-Api-Version': '2022-11-28',
-      },
-    }
-  );
+  const res = await fetch(`http://localhost:1337/api/articles/${filename}`);
   if (!res.ok) return undefined;
   const rawData = await res.text();
   if (rawData === '404: Not found') return undefined;
@@ -26,7 +16,7 @@ export async function getPagesByName(
     parseFrontmatter: true,
     mdxOptions: { rehypePlugins: [rehypeHighlight, rehypeSlug] },
   });
-  const id = filename.replace(/\.mdx$/, '');
+  const id = filename;
   // console.log(frontmatter.date)
   const blogpost = {
     meta: {
@@ -44,62 +34,72 @@ export async function getPagesByName(
 
 export async function getPagesData(filename: string): Promise<any | undefined> {
   try {
-    const res = await fetch(
-      `https://raw.githubusercontent.com/irichardo/blogpost/main/${filename}`,
-      {
-        next: {},
-        headers: {
-          Accept: 'application/vnd.github+json',
-          Authorization: `Bearer ${process.env.TOKEN_GITHUB}`,
-          'X-GitHub-Api-Version': '2022-11-28',
-        },
-      }
-    );
+    const res = await fetch(`http://localhost:1337/api/articles/${filename}`, {
+      next: {},
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+      },
+    });
     if (!res.ok) return undefined;
-    const rawData = await res.text();
+    const { data } = await res.json();
+    const rawData = await data.content;
+    if (!rawData) return undefined;
+    // console.log(rawData);
     return rawData;
   } catch (error: any) {
     return error.message;
   }
 }
 
-/*  if readme is true so search MD files    */
 export async function getPosts() {
   //  Map Data from git hub
-  const res = await fetch(
-    'https://api.github.com/repos/irichardo/blogpost/git/trees/main?recursive=1',
-    {
-      next: { revalidate: 60 },
-      cache: 'no-store',
-      headers: {
-        Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${process.env.TOKEN_GITHUB}`,
-        'X-GitHub-Api-Version': '2022-11-28',
-      },
-    }
-  );
+  // const res = await fetch(
+  //   'https://api.github.com/repos/irichardo/blogpost/git/trees/main?recursive=1',
+  //   {
+  //     next: { revalidate: 60 },
+  //     cache: 'no-store',
+  //     headers: {
+  //       Accept: 'application/vnd.github+json',
+  //       Authorization: `Bearer ${process.env.TOKEN_GITHUB}`,
+  //       'X-GitHub-Api-Version': '2022-11-28',
+  //     },
+  //   }
+  // );
+
+  const res = await fetch('http://localhost:1337/api/articles?populate=cover', {
+    next: { revalidate: 60 },
+    cache: 'no-store',
+    headers: {
+      // Content-Type:'application/json',
+      Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+      // 'X-GitHub-Api-Version': '2022-11-28',
+    },
+  });
+  const { data } = await res.json();
+  // console.log(data);
   if (!res.ok) return undefined;
-  const rawMDX = await res.json();
-  const { tree } = rawMDX;
+  // const { data } = await res.json();
+  // console.log(rawMDX);
+  // const { tree } = rawMDX;
   /*        */
-  const filesArray: string[] = tree
-    .map((files: dataFromAPI) => files.path)
-    .filter((path: any) => path.endsWith('.mdx'));
-  const posts: any = [];
-  for (const file of filesArray) {
-    const post = await getPagesByName(file);
-    if (posts) {
-      const { meta } = post;
-      posts.push(meta);
-    }
-  }
-  return posts?.sort((a: any, b: any) => {
-    return a.date < b.date ? 1 : -1;
+  // const filesArray: string[] = tree
+  // .map((files: dataFromAPI) => files.path)
+  // .filter((path: any) => path.endsWith('.mdx'));
+  // const posts: any = [];
+  // for (const file of data) {
+  //   console.log(file);
+  //   // const post = await getPagesByName(file);
+  //   // if (posts) {
+  //   //   const { meta } = post;
+  //   //   posts.push(meta);
+  //   // }
+  // }
+  return data?.sort((a: any, b: any) => {
+    return a.createdAt < b.createdAt ? 1 : -1;
   });
 }
 
 export function generateSitemap(pages: any) {
-  // Generar el contenido XML del sitemap utilizando las páginas del sitio con xmlbuilder
   const root = xmlbuilder
     .create('urlset', { version: '1.0', encoding: 'UTF-8' })
     .att('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
